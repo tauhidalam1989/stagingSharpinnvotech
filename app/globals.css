@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Open Sans", "DIN Next LT Arabic Light", sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Open Sans", "DIN Next LT Arabic Light", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.fw-bold {
+  font-family: "Ubuntu", sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.fw-medium {
+  font-weight: 500 !important;
+}
+
+p,
+.text-muted {
+  color: #6c757d;
+  font-weight: 600;
+}
+
+[dir="rtl"] body {
+  font-family: "DIN Next LT Arabic Light", sans-serif;
+}
+
+@keyframes moveDots {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
+@theme inline {
+  --animate-spin-slow: spin 3s linear infinite;
+}
+
+@keyframes slideInUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Capability Card Utilities */
+@utility capability-card {
+  position: relative;
+  background-color: var(--color-white);
+  padding: 1rem;
+  padding-top: 2rem;
+  border-radius: 20px;
+  border: 1px solid var(--color-zinc-200);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 240px;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-0.4rem) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.15);
+    border-color: transparent;
+  }
+
+  /* Left Edge Line */
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 0;
+    background-color: #3b82f6;
+    transition: height 0.5s ease-in-out;
+    z-index: 30;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+  }
+
+  &:hover::before {
+    height: 100%;
+  }
+
+  /* Hover Overlay */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(59, 130, 246, 0.05);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+@utility capability-icon-box {
+  position: relative;
+  z-index: 10;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.85rem;
+  background-color: #eff6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  margin-bottom: 1.5rem;
+  transition: all 0.5s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(191, 219, 254, 0.5);
+
+  .group:hover & {
+    background-color: #3b82f6;
+    color: var(--color-white);
+    transform: scale(1.1);
+  }
+}
+
+.dark {
+  .capability-card {
+    background-color: var(--color-zinc-900);
+    border-color: var(--color-zinc-800);
+
+    &:hover::after {
+      background-color: rgba(59, 130, 246, 0.05);
+    }
+  }
+
+  .capability-icon-box {
+    background-color: rgba(59, 130, 246, 0.2);
+  }
+}
+
+/* Sidebar Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00f2fe, #3182ce);
+  border-radius: 10px;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #0c51d0fd transparent;
+}
+
+/* Blog Content Link Styling */
+.blog-content-body a {
+  color: #2563eb !important;
+  text-decoration: underline !important;
+  transition: color 0.2s ease;
+}
+
+.blog-content-body a:hover {
+  color: #1d4ed8 !important;
+}
