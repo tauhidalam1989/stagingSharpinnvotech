@@ -49,12 +49,12 @@ export default function AboutSection({ lang, dict }: { lang: Locale; dict: any }
                                 {dict.READ_MORE || 'Read More'}
                             </Link>
 
-                            <div className="flex items-center gap-4">
+                            {/* <div className="flex items-center gap-4">
                                 <a href="https://x.com/sharpInnvo1351" target="_blank" className="h-10 w-10 flex items-center justify-center rounded-full border border-zinc-200 text-[#0d6efd] hover:bg-[#0d6efd] hover:text-white hover:border-transparent transition-all shadow-sm"><i className="fab fa-twitter text-sm"></i></a>
                                 <a href="https://www.facebook.com/profile.php?id=61556338118947" target="_blank" className="h-10 w-10 flex items-center justify-center rounded-full border border-zinc-200 text-[#0d6efd] hover:bg-[#0d6efd] hover:text-white hover:border-transparent transition-all shadow-sm"><i className="fab fa-facebook-f text-sm"></i></a>
                                 <a href="https://www.instagram.com/sharpinnovations2104/" target="_blank" className="h-10 w-10 flex items-center justify-center rounded-full border border-zinc-200 text-[#0d6efd] hover:bg-[#0d6efd] hover:text-white hover:border-transparent transition-all shadow-sm"><i className="fab fa-instagram text-sm"></i></a>
                                 <a href="https://www.linkedin.com/company/sharp-innovations" target="_blank" className="h-10 w-10 flex items-center justify-center rounded-full border border-zinc-200 text-[#0d6efd] hover:bg-[#0d6efd] hover:text-white hover:border-transparent transition-all shadow-sm"><i className="fab fa-linkedin-in text-sm"></i></a>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 

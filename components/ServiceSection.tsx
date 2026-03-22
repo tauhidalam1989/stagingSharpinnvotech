@@ -78,7 +78,7 @@ export default function ServiceSection({ lang, dict }: { lang: Locale; dict: any
                                 </div>
 
                                 {/* Banner/Tech Graphic Image - Centered and Below Text */}
-                                <div className="relative group max-w-xl mx-auto w-full">
+                                {/* <div className="relative group max-w-xl mx-auto w-full">
                                     <div className="relative z-10 overflow-hidden rounded-2xl">
                                         <Image
                                             src={activeService?.img || '/img/artificial intelligence.png'}
@@ -88,9 +88,8 @@ export default function ServiceSection({ lang, dict }: { lang: Locale; dict: any
                                             className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
                                         />
                                     </div>
-                                    {/* Subtle decorative background element */}
                                     <div className="absolute -inset-4 bg-blue-50/50 -z-10 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                                </div>
+                                </div> */}
 
                             </div>
                         </div>

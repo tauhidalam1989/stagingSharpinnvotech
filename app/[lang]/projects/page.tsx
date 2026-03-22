@@ -41,9 +41,9 @@ export default async function ProjectsPage({
 
     return (
         <div className="flex flex-col w-full min-h-screen bg-zinc-50 dark:bg-zinc-950">
-            <Breadcrumbs lang={lang} dict={dict} items={[{ label: dict.PAGE_TITLES.PROJECTS }]} />
+            {/* <Breadcrumbs lang={lang} dict={dict} items={[{ label: isAr ? 'مشاريعنا' : 'Projects' }]} /> */}
             {/* Hero Section */}
-            <section className="py-24 bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
+            <section className="pt-36 pb-24 bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
                 <div className="container mx-auto px-4 text-center">
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-black mb-8 tracking-tight">
                         {dict.PAGE_TITLES.PROJECTS}

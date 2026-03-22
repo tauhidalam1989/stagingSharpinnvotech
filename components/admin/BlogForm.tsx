@@ -17,7 +17,28 @@ export default function BlogForm({ blog, isEdit }: BlogFormProps) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
-    const [formData, setFormData] = useState({
+    const ensureArray = (val: string[] | string | undefined): string[] => {
+        if (Array.isArray(val)) return val.length > 0 ? val : [''];
+        if (typeof val === 'string' && val.trim()) return val.split(',').map(v => v.trim()).filter(Boolean);
+        return [''];
+    };
+
+    interface FormDataState {
+        title: string;
+        titleAr: string;
+        slug: string;
+        excerpt: string;
+        excerptAr: string;
+        content: string;
+        contentAr: string;
+        isPublished: boolean;
+        categories: string[];
+        categoriesAr: string[];
+        tags: string[];
+        tagsAr: string[];
+    }
+
+    const [formData, setFormData] = useState<FormDataState>({
         title: blog?.title || '',
         titleAr: blog?.titleAr || '',
         slug: blog?.slug || '',
@@ -26,10 +47,10 @@ export default function BlogForm({ blog, isEdit }: BlogFormProps) {
         content: blog?.content || '',
         contentAr: blog?.contentAr || '',
         isPublished: blog?.isPublished || false,
-        categories: blog?.categories || [''],
-        categoriesAr: blog?.categoriesAr || [''],
-        tags: blog?.tags || [''],
-        tagsAr: blog?.tagsAr || [''],
+        categories: ensureArray(blog?.categories),
+        categoriesAr: ensureArray(blog?.categoriesAr),
+        tags: ensureArray(blog?.tags),
+        tagsAr: ensureArray(blog?.tagsAr),
     });
 
     const [featuredImage, setFeaturedImage] = useState<File | null>(null);

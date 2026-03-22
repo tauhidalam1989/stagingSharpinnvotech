@@ -51,22 +51,22 @@
   "FAQ": {
     "POPULAR_FAQS": "الأسئلة الشائعة",
     "TITLE": "الأسئلة المتكررة",
-    "QUESTION1": "كيف يمكن بناء موقع إلكتروني؟",
-    "ANSWER1": "يتضمن بناء موقع إلكتروني عدة خطوات رئيسية: أولاً، قم باختيار وتسجيل اسم نطاق يعكس هوية علامتك التجارية. بعد ذلك، اختر مزود استضافة موثوقًا لتخزين ملفات موقعك. ثم قم بتصميم وتطوير موقعك باستخدام تقنيات مثل HTML وCSS وJavaScript لإنشاء الهيكل والتنسيق والتفاعلية. لإضافة وظائف متقدمة، يمكنك استخدام إطارات عمل مثل React أو Angular، أو استخدام أنظمة إدارة المحتوى (CMS) مثل WordPress لتسهيل تحديث المحتوى.",
-    "QUESTION2": "كم من الوقت يستغرق إنشاء موقع إلكتروني جديد؟",
-    "ANSWER2": "يختلف الوقت المطلوب لبناء موقع إلكتروني بناءً على مدى تعقيد المشروع ونطاقه. يمكن إنشاء موقع بسيط خلال 2-3 أسابيع، بينما قد تتطلب المشاريع الأكثر تعقيدًا ذات الميزات المخصصة أو التكاملات أو الوظائف التجارية الإلكترونية من 4-6 أسابيع أو أكثر. نعمل معك عن كثب لوضع جدول زمني واضح خلال مرحلة التخطيط.",
-    "QUESTION3": "هل تقومون فقط بإنشاء مواقع HTML؟",
-    "ANSWER3": "لا، نحن نختص في مجموعة واسعة من التقنيات لتلبية احتياجاتك. سواء كنت بحاجة إلى موقع HTML ثابت، أو موقع ديناميكي باستخدام WordPress، أو تطبيق ويب حديث باستخدام إطارات عمل مثل React أو Angular أو Vue.js، لدينا الخبرة لتقديم الحل الذي يناسب أهدافك.",
-    "QUESTION4": "هل سيكون موقعي متوافقًا مع الجوال؟",
-    "ANSWER4": "بالتأكيد. جميع المواقع التي ننشئها مصممة بتقنية \"الهاتف أولاً\"، مما يضمن أنها متجاوبة بالكامل ومُحسنة لجميع الأجهزة، بما في ذلك الهواتف الذكية والأجهزة اللوحية وأجهزة الكمبيوتر. وهذا يضمن تجربة مستخدم سلسة على جميع أحجام الشاشات.",
-    "QUESTION5": "هل تقومون بصيانة موقعي بعد إنشائه؟",
-    "ANSWER5": "نعم، نقدم حزم صيانة شاملة للحفاظ على أمان موقعك وتحديثه بشكل مستمر وضمان تشغيله بسلاسة. تشمل خدماتنا التحديثات المنتظمة، والنسخ الاحتياطي، ومراقبة الأمان، والدعم الفني لضمان بقاء موقعك في أفضل حالة.",
-    "QUESTION6": "أنا أعمل بميزانية محدودة. هل لديكم خيارات منخفضة التكلفة؟",
-    "ANSWER6": "نعم، نحن نتفهم أن الشركات الصغيرة والشركات الناشئة غالبًا ما تكون لديها قيود مالية. نقدم حزمًا بأسعار معقولة تتضمن الميزات الأساسية لإنشاء موقعك دون المساس بالجودة. أخبرنا بميزانيتك، وسنعمل معك لإنشاء حل يناسب احتياجاتك.",
-    "QUESTION7": "هل يمكنني تحديث الموقع بنفسي بعد إنشائه؟",
-    "ANSWER7": "نعم، نقوم ببناء مواقع باستخدام أنظمة إدارة محتوى سهلة الاستخدام مثل WordPress، مما يسمح لك بتحديث المحتوى وإضافة مقالات جديدة أو تحميل الصور وإجراء تغييرات أخرى دون الحاجة إلى خبرة تقنية. كما نقدم تدريبًا لضمان راحتك في إدارة موقعك.",
-    "QUESTION8": "هل تقدمون خدمات استضافة؟",
-    "ANSWER8": "نعم، نقدم خدمات استضافة موثوقة وآمنة لضمان أداء مثالي لموقعك. تشمل حلول الاستضافة لدينا سرعة تحميل عالية، وإجراءات أمان قوية، ودعم فني على مدار الساعة طوال أيام الأسبوع للحفاظ على تشغيل موقعك بسلاسة. يمكننا أيضًا مساعدتك في نقل موقعك الحالي إلى منصة الاستضافة الخاصة بنا."
+    "QUESTION1": "ما هي الخدمات التي تقدمونها؟",
+    "ANSWER1": "نحن نقدم مجموعة كاملة من الحلول الرقمية بما في ذلك تصميم المواقع، تطوير المواقع، تطوير تطبيقات الهاتف المحمول، تحسين محركات البحث (SEO)، التسويق الرقمي، وصيانة المواقع بشكل مستمر — وكل ذلك مصمم خصيصًا ليتناسب مع أهداف عملك.",
+    "QUESTION2": "كم تكلفة إنشاء موقع إلكتروني؟",
+    "ANSWER2": "تعتمد التكلفة على مدى تعقيد المشروع والميزات المطلوبة. تبدأ تكلفة الموقع البسيط بأسعار مناسبة، بينما يتم تسعير الحلول المخصصة بناءً على احتياجاتك الخاصة. تواصل معنا للحصول على عرض سعر مجاني مخصص لمشروعك.",
+    "QUESTION3": "هل تعملون مع الشركات الناشئة والأعمال الصغيرة؟",
+    "ANSWER3": "بالتأكيد. نحن نحب العمل مع جميع أنواع الشركات — من الشركات الناشئة في مراحلها الأولى إلى الشركات الكبيرة. نقدم حلولًا قابلة للتطوير تنمو مع عملك وتناسب ميزانيتك.",
+    "QUESTION4": "هل سيكون موقعي متوافقًا مع تحسين محركات البحث",
+    "ANSWER4": "نعم. كل موقع نقوم ببنائه يتم تحسينه لمحركات البحث من البداية. نحن نتبع أفضل الممارسات مثل تحسين الصفحات، سرعة التحميل، بنية كود نظيفة، والتوافق مع الأجهزة المحمولة لمساعدتك على تحقيق ترتيب أفضل.",
+    "QUESTION5": "كيف يمكنني البدء في المشروع؟",
+    "ANSWER5": "البدء سهل جدًا. تواصل معنا عبر نموذج الاتصال أو البريد الإلكتروني، وسنقوم بجدولة استشارة مجانية لفهم أهدافك والجدول الزمني والميزانية — ثم سنقدم لك عرضًا مخصصًا يناسب احتياجاتك.",
+    "QUESTION6": "هل تقدمون دعمًا بعد إطلاق الموقع؟",
+    "ANSWER6": "نعم. نحن نقدم دعمًا مخصصًا بعد الإطلاق لضمان عمل موقعك بسلاسة. تشمل باقات الدعم إصلاح الأخطاء، التحديثات، مراقبة الأداء، والتحسينات المستمرة مع نمو عملك.",
+    "QUESTION7": "هل يمكنكم إعادة تصميم موقعي الحالي؟",
+    "ANSWER7": "بالتأكيد. إذا كان موقعك الحالي يبدو قديمًا أو لا يحقق الأداء المطلوب، يمكننا إعادة تصميمه بمظهر حديث وتجربة مستخدم أفضل ووظائف محسّنة — دون فقدان المحتوى الحالي أو قيمة SEO.",
+    "QUESTION8": "كيف تضمنون أمان موقعي؟",
+    "ANSWER8": "الأمان هو أولوية قصوى لدينا. نقوم بتطبيق شهادات SSL، ممارسات برمجة آمنة، نسخ احتياطية منتظمة، ومراقبة أمنية مستمرة لحماية موقعك وبيانات المستخدمين في جميع الأوقات"
   },
   "NEWSLETTER": {
     "TITLE": "النشرة الإخبارية",
@@ -326,7 +326,24 @@
     "no_role_found": "لم تجد الدور المناسب؟",
     "no_role_description": "يسعدنا دائمًا سماعك. أرسل سيرتك الذاتية إلى *[hr@sharpinnovations.com]* وأخبرنا كيف يمكنك المساهمة في مهمتنا.",
     "closing_statement": "دعنا نبتكر معًا",
-    "closing_description": "في ابتكارات حادة لتقنية المعلومات، نحن لا نقدم وظائف فقط - بل نخلق فرصًا للابتكار والإلهام والنمو. انضم إلينا وكن جزءاً من رحلة الابتكار!"
+    "closing_description": "في ابتكارات حادة لتقنية المعلومات، نحن لا نقدم وظائف فقط - بل نخلق فرصًا للابتكار والإلهام والنمو. انضم إلينا وكن جزءاً من رحلة الابتكار!",
+    "process_title": "عملية التوظيف لدينا",
+    "process_subtitle": "رحلتك للانضمام إلى فريقنا",
+    "process_steps": {
+      "step1_title": "تقديم الطلب",
+      "step1_desc": "ابحث عن الدور الذي يناسبك وأرسل لنا سيرتك الذاتية المحدثة ومحفظة أعمالك.",
+      "step2_title": "مراجعة الطلب",
+      "step2_desc": "يقوم فريق الموارد البشرية لدينا بمراجعة خلفيتك ومهاراتك الفنية بعناية.",
+      "step3_title": "القائمة المختصرة",
+      "step3_desc": "يتم اختيار المرشحين المؤهلين لإجراء مناقشة أولية للتوافق.",
+      "step4_title": "المقابلة الفنية",
+      "step4_desc": "قابل فريقنا لمناقشة خبرتك ومواجهة تحديات العالم الحقيقي.",
+      "step5_title": "عرض العمل",
+      "step5_desc": "مرحباً بك! سنقدم لك عرضاً مفصلاً للانضمام إلى عائلة الابتكار لدينا."
+    },
+    "culture_title": "الحياة في ابتكارات حادة",
+    "culture_subtitle": "ما وراء جدران المكتب",
+    "culture_description": "نحن نعزز بيئة يلتقي فيها الإبداع مع التميز التقني. من فعاليات بناء الفريق إلى جلسات العصف الذهني التعاونية، الحياة في ابتكارات حادة تدور حول النمو معاً."
   },
   "TITLE": "شركة ابتكارات حادة",
   "HOME": "الصفحة الرئيسية",
@@ -3856,8 +3873,20 @@
     }
   },
   "BLOG_LISTING": {
-    "TITLE": "رؤانا وأخبارنا",
-    "SUBTITLE": "ابق على اطلاع بأحدث التطورات في التكنولوجيا والتصميم والأمن السيبراني."
+    "HERO_PILL": "المدونات",
+    "HERO_TITLE": "تحليلاتنا وأخبارنا",
+    "HERO_DESC": "ابقَ على اطلاع دائم بأحدث التطورات في مجال التكنولوجيا والتصميم والأمن السيبراني من خلال مقالات خبرائنا وأخبار الصناعة.",
+    "SEARCH_PLACEHOLDER": "البحث في المقالات...",
+    "ALL_CATEGORIES": "كل الفئات",
+    "ALL_TAGS": "كل الأوسمة",
+    "READ_MORE": "اقرأ المزيد",
+    "NO_RESULTS": "لم يتم العثور على مقالات",
+    "NO_RESULTS_DESC": "حاول تعديل الفلاتر أو مصطلحات البحث للعثور على ما تبحث عنه.",
+    "CLEAR_FILTERS": "مسح كل الفلاتر",
+    "PREVIOUS": "السابق",
+    "NEXT": "التالي",
+    "CATEGORY": "الفئة",
+    "TAG": "الوسم"
   },
   "BLOG_DETAIL": {
     "AUTHOR_NAME": "ابتكارات حادة",
@@ -3912,38 +3941,155 @@
       "title": "Privacy Policy",
       "subtitle": "Your data, our responsibility",
       "hero_cards": [
-        { "title": "Data Protection", "description": "We follow strict security standards to protect your information." },
-        { "title": "Transparency", "description": "We clearly explain how your data is collected and used." },
-        { "title": "User Rights", "description": "You have full control over your personal data." }
+        {
+          "title": "Data Protection",
+          "description": "We follow strict security standards to protect your information."
+        },
+        {
+          "title": "Transparency",
+          "description": "We clearly explain how your data is collected and used."
+        },
+        {
+          "title": "User Rights",
+          "description": "You have full control over your personal data."
+        }
       ],
       "introduction": "At Sharp Innovations, we respect your privacy and are committed to protecting your personal data. This policy explains how we collect, use, and safeguard your information.",
-      "highlight_points": ["We never sell your personal data.", "We use industry-standard security practices.", "You can request deletion anytime."],
-      "sections": [
-        { "title": "Why We Collect Your Data", "content": "We collect your data to improve our services and deliver a better user experience.", "items": ["Provide and maintain services", "Improve performance and usability", "Communicate updates and offers", "Ensure security and fraud prevention"] },
-        { "title": "Types of Data We Collect", "cards": [{ "title": "Personal Data", "description": "Name, email, phone number, etc." }, { "title": "Usage Data", "description": "Pages visited, time spent, browser type." }, { "title": "Technical Data", "description": "IP address, device type, operating system." }] },
-        { "title": "Cookies Policy", "content": "We use cookies to enhance your browsing experience and analyze traffic.", "items": ["Session management", "Analytics tracking", "User preferences storage"] },
-        { "title": "Your Rights", "content": "You have full control over your personal data.", "items": ["Access your data", "Request correction", "Request deletion", "Withdraw consent"] }
+      "highlight_points": [
+        "We never sell your personal data.",
+        "We use industry-standard security practices.",
+        "You can request deletion anytime."
       ],
-      "cta": { "title": "Have Questions?", "description": "Contact our support team for more information.", "button_text": "Contact Us" },
+      "sections": [
+        {
+          "title": "Why We Collect Your Data",
+          "content": "We collect your data to improve our services and deliver a better user experience.",
+          "items": [
+            "Provide and maintain services",
+            "Improve performance and usability",
+            "Communicate updates and offers",
+            "Ensure security and fraud prevention"
+          ]
+        },
+        {
+          "title": "Types of Data We Collect",
+          "cards": [
+            {
+              "title": "Personal Data",
+              "description": "Name, email, phone number, etc."
+            },
+            {
+              "title": "Usage Data",
+              "description": "Pages visited, time spent, browser type."
+            },
+            {
+              "title": "Technical Data",
+              "description": "IP address, device type, operating system."
+            }
+          ]
+        },
+        {
+          "title": "Cookies Policy",
+          "content": "We use cookies to enhance your browsing experience and analyze traffic.",
+          "items": [
+            "Session management",
+            "Analytics tracking",
+            "User preferences storage"
+          ]
+        },
+        {
+          "title": "Your Rights",
+          "content": "You have full control over your personal data.",
+          "items": [
+            "Access your data",
+            "Request correction",
+            "Request deletion",
+            "Withdraw consent"
+          ]
+        }
+      ],
+      "cta": {
+        "title": "Have Questions?",
+        "description": "Contact our support team for more information.",
+        "button_text": "Contact Us"
+      },
       "last_updated": "Last Updated: March 2026"
     },
     "ar": {
       "title": "سياسة الخصوصية",
       "subtitle": "بياناتك مسؤوليتنا",
       "hero_cards": [
-        { "title": "حماية البيانات", "description": "نلتزم بأعلى معايير الأمان لحماية معلوماتك." },
-        { "title": "الشفافية", "description": "نوضح كيفية جمع واستخدام بياناتك." },
-        { "title": "حقوق المستخدم", "description": "لديك تحكم كامل في بياناتك الشخصية." }
+        {
+          "title": "حماية البيانات",
+          "description": "نلتزم بأعلى معايير الأمان لحماية معلوماتك."
+        },
+        {
+          "title": "الشفافية",
+          "description": "نوضح كيفية جمع واستخدام بياناتك."
+        },
+        {
+          "title": "حقوق المستخدم",
+          "description": "لديك تحكم كامل في بياناتك الشخصية."
+        }
       ],
       "introduction": "في Sharp Innovations، نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضح هذه السياسة كيفية جمع واستخدام وحماية معلوماتك.",
-      "highlight_points": ["لا نقوم ببيع بياناتك الشخصية.", "نستخدم معايير أمان عالية.", "يمكنك طلب حذف بياناتك في أي وقت."],
-      "sections": [
-        { "title": "لماذا نجمع بياناتك", "content": "نجمع البيانات لتحسين خدماتنا وتقديم تجربة أفضل.", "items": ["تقديم الخدمات", "تحسين الأداء", "التواصل مع المستخدمين", "تعزيز الأمان"] },
-        { "title": "أنواع البيانات", "cards": [{ "title": "بيانات شخصية", "description": "الاسم، البريد الإلكتروني، رقم الهاتف" }, { "title": "بيانات الاستخدام", "description": "الصفحات التي تمت زيارتها" }, { "title": "بيانات تقنية", "description": "عنوان IP ونوع الجهاز" }] },
-        { "title": "ملفات تعريف الارتباط", "content": "نستخدم الكوكيز لتحسين تجربة المستخدم.", "items": ["إدارة الجلسات", "تحليل الاستخدام", "تخزين التفضيلات"] },
-        { "title": "حقوقك", "items": ["الوصول إلى البيانات", "تصحيح البيانات", "حذف البيانات", "سحب الموافقة"] }
+      "highlight_points": [
+        "لا نقوم ببيع بياناتك الشخصية.",
+        "نستخدم معايير أمان عالية.",
+        "يمكنك طلب حذف بياناتك في أي وقت."
       ],
-      "cta": { "title": "هل لديك استفسار؟", "description": "تواصل معنا للحصول على المساعدة.", "button_text": "اتصل بنا" },
+      "sections": [
+        {
+          "title": "لماذا نجمع بياناتك",
+          "content": "نجمع البيانات لتحسين خدماتنا وتقديم تجربة أفضل.",
+          "items": [
+            "تقديم الخدمات",
+            "تحسين الأداء",
+            "التواصل مع المستخدمين",
+            "تعزيز الأمان"
+          ]
+        },
+        {
+          "title": "أنواع البيانات",
+          "cards": [
+            {
+              "title": "بيانات شخصية",
+              "description": "الاسم، البريد الإلكتروني، رقم الهاتف"
+            },
+            {
+              "title": "بيانات الاستخدام",
+              "description": "الصفحات التي تمت زيارتها"
+            },
+            {
+              "title": "بيانات تقنية",
+              "description": "عنوان IP ونوع الجهاز"
+            }
+          ]
+        },
+        {
+          "title": "ملفات تعريف الارتباط",
+          "content": "نستخدم الكوكيز لتحسين تجربة المستخدم.",
+          "items": [
+            "إدارة الجلسات",
+            "تحليل الاستخدام",
+            "تخزين التفضيلات"
+          ]
+        },
+        {
+          "title": "حقوقك",
+          "items": [
+            "الوصول إلى البيانات",
+            "تصحيح البيانات",
+            "حذف البيانات",
+            "سحب الموافقة"
+          ]
+        }
+      ],
+      "cta": {
+        "title": "هل لديك استفسار؟",
+        "description": "تواصل معنا للحصول على المساعدة.",
+        "button_text": "اتصل بنا"
+      },
       "last_updated": "آخر تحديث: مارس 2026"
     }
   },
@@ -3952,43 +4098,278 @@
       "title": "Terms & Conditions",
       "subtitle": "Please read carefully before using our services",
       "hero_cards": [
-        { "title": "User Responsibility", "description": "Users must provide accurate information." },
-        { "title": "Legal Compliance", "description": "You must comply with applicable laws." },
-        { "title": "Service Usage", "description": "Use services only as intended." }
+        {
+          "title": "User Responsibility",
+          "description": "Users must provide accurate information."
+        },
+        {
+          "title": "Legal Compliance",
+          "description": "You must comply with applicable laws."
+        },
+        {
+          "title": "Service Usage",
+          "description": "Use services only as intended."
+        }
       ],
       "introduction": "By accessing our platform, you agree to these Terms and Conditions. Please read them carefully before using our services.",
       "sections": [
-        { "title": "Use of Services", "content": "You agree to use our services only for lawful purposes." },
-        { "title": "Intellectual Property", "content": "All content, designs, and software are owned by Sharp Innovations." },
-        { "title": "User Obligations", "items": ["Provide accurate information", "Do not misuse the platform", "Respect other users"] },
-        { "title": "Prohibited Activities", "cards": [{ "title": "Illegal Actions", "description": "Any unlawful activities are strictly prohibited." }, { "title": "Data Misuse", "description": "You cannot copy or exploit data." }, { "title": "System Abuse", "description": "No hacking or disrupting services." }] },
-        { "title": "Limitation of Liability", "content": "We are not liable for indirect or incidental damages." },
-        { "title": "Termination", "content": "We reserve the right to suspend accounts that violate our policies." },
-        { "title": "Governing Law", "content": "These terms are governed by applicable regional laws." }
+        {
+          "title": "Use of Services",
+          "content": "You agree to use our services only for lawful purposes."
+        },
+        {
+          "title": "Intellectual Property",
+          "content": "All content, designs, and software are owned by Sharp Innovations."
+        },
+        {
+          "title": "User Obligations",
+          "items": [
+            "Provide accurate information",
+            "Do not misuse the platform",
+            "Respect other users"
+          ]
+        },
+        {
+          "title": "Prohibited Activities",
+          "cards": [
+            {
+              "title": "Illegal Actions",
+              "description": "Any unlawful activities are strictly prohibited."
+            },
+            {
+              "title": "Data Misuse",
+              "description": "You cannot copy or exploit data."
+            },
+            {
+              "title": "System Abuse",
+              "description": "No hacking or disrupting services."
+            }
+          ]
+        },
+        {
+          "title": "Limitation of Liability",
+          "content": "We are not liable for indirect or incidental damages."
+        },
+        {
+          "title": "Termination",
+          "content": "We reserve the right to suspend accounts that violate our policies."
+        },
+        {
+          "title": "Governing Law",
+          "content": "These terms are governed by applicable regional laws."
+        }
       ],
-      "contact_card": { "title": "Need Help?", "email": "info@sharpinnvotech.com", "description": "Reach out for any legal or support questions." },
+      "contact_card": {
+        "title": "Need Help?",
+        "email": "info@sharpinnvotech.com",
+        "description": "Reach out for any legal or support questions."
+      },
       "last_updated": "Last Updated: March 2026"
     },
     "ar": {
       "title": "الشروط والأحكام",
       "subtitle": "يرجى قراءتها بعناية قبل الاستخدام",
       "hero_cards": [
-        { "title": "مسؤولية المستخدم", "description": "يجب تقديم معلومات صحيحة." },
-        { "title": "الامتثال القانوني", "description": "يجب الالتزام بالقوانين." },
-        { "title": "استخدام الخدمة", "description": "استخدام الخدمة بشكل صحيح." }
+        {
+          "title": "مسؤولية المستخدم",
+          "description": "يجب تقديم معلومات صحيحة."
+        },
+        {
+          "title": "الامتثال القانوني",
+          "description": "يجب الالتزام بالقوانين."
+        },
+        {
+          "title": "استخدام الخدمة",
+          "description": "استخدام الخدمة بشكل صحيح."
+        }
       ],
       "introduction": "باستخدامك للمنصة، فإنك توافق على هذه الشروط والأحكام.",
       "sections": [
-        { "title": "استخدام الخدمات", "content": "يجب استخدام الخدمات لأغراض قانونية فقط." },
-        { "title": "الملكية الفكرية", "content": "جميع المحتويات مملوكة للشركة." },
-        { "title": "التزامات المستخدم", "items": ["تقديم معلومات صحيحة", "عدم إساءة الاستخدام", "احترام الآخرين"] },
-        { "title": "أنشطة محظورة", "cards": [{ "title": "أنشطة غير قانونية", "description": "ممنوعة تماماً." }, { "title": "إساءة استخدام البيانات", "description": "لا يسمح بنسخ البيانات." }, { "title": "الهجمات التقنية", "description": "يمنع اختراق النظام." }] },
-        { "title": "تحديد المسؤولية", "content": "لا نتحمل الأضرار غير المباشرة." },
-        { "title": "إنهاء الخدمة", "content": "يمكن إيقاف الحساب عند المخالفة." },
-        { "title": "القانون الحاكم", "content": "تخضع هذه الشروط للقوانين المحلية." }
+        {
+          "title": "استخدام الخدمات",
+          "content": "يجب استخدام الخدمات لأغراض قانونية فقط."
+        },
+        {
+          "title": "الملكية الفكرية",
+          "content": "جميع المحتويات مملوكة للشركة."
+        },
+        {
+          "title": "التزامات المستخدم",
+          "items": [
+            "تقديم معلومات صحيحة",
+            "عدم إساءة الاستخدام",
+            "احترام الآخرين"
+          ]
+        },
+        {
+          "title": "أنشطة محظورة",
+          "cards": [
+            {
+              "title": "أنشطة غير قانونية",
+              "description": "ممنوعة تماماً."
+            },
+            {
+              "title": "إساءة استخدام البيانات",
+              "description": "لا يسمح بنسخ البيانات."
+            },
+            {
+              "title": "الهجمات التقنية",
+              "description": "يمنع اختراق النظام."
+            }
+          ]
+        },
+        {
+          "title": "تحديد المسؤولية",
+          "content": "لا نتحمل الأضرار غير المباشرة."
+        },
+        {
+          "title": "إنهاء الخدمة",
+          "content": "يمكن إيقاف الحساب عند المخالفة."
+        },
+        {
+          "title": "القانون الحاكم",
+          "content": "تخضع هذه الشروط للقوانين المحلية."
+        }
       ],
-      "contact_card": { "title": "تحتاج مساعدة؟", "email": "info@sharpinnvotech.com", "description": "تواصل معنا لأي استفسار." },
+      "contact_card": {
+        "title": "تحتاج مساعدة؟",
+        "email": "info@sharpinnvotech.com",
+        "description": "تواصل معنا لأي استفسار."
+      },
       "last_updated": "آخر تحديث: مارس 2026"
     }
+  },
+  "about_redesign": {
+    "hero": {
+      "badge": "نبذة عن شارب إنوفيشنز",
+      "title": "نبتكر لـ نطور. نتحرك لـ نحمي.",
+      "description": "نحن شركة تكنولوجية مقرها الرياض، نسعى لتمكين الشركات من خلال حلول رقمية ذكية وآمنة وجاهزة للمستقبل.",
+      "stats": [
+        { "num": "2023", "label": "سنة التأسيس", "suffix": "." },
+        { "num": "50", "label": "عملاء سعداء", "suffix": "+" },
+        { "num": "100", "label": "مشاريع منجزة", "suffix": "+" },
+        { "num": "5", "label": "تخصصات أساسية", "suffix": "" }
+      ]
+    },
+    "story": {
+      "badge": "قصتنا",
+      "year": "2023",
+      "card_title": "تأسيسنا",
+      "card_desc": "ولدت شارب إنوفيشنز من رؤية تهدف لجلب التكنولوجيا المتطورة لكل مؤسسة في المملكة، بغض النظر عن حجمها أو قطاعها.",
+      "location": "الرياض، المملكة العربية السعودية",
+      "title": "شركة بنيت بغاية واضحة",
+      "p1": "تأسست شارب إنوفيشنز في عام 2023 من قبل مجموعة من المحترفين الذين رأوا فجوة واضحة في السوق السعودي — الشركات كانت بحاجة لشريك تقني موثوق يمكنه تقديم تحول حقيقي، وليس مجرد أدوات.",
+      "p2": "من مقرنا في الرياض، نمونا لنصبح اسماً موثوقاً في القطاعين الحكومي والخاص، حيث نقدم حلولاً في الذكاء الاصطناعي، الأمن السيبراني، الأتمتة، وخدمات التطبيقات التي تساهم مباشرة في تحقيق رؤية المملكة 2030.",
+      "p3": "نحن لا نؤمن بالحلول الجاهزة. كل تعاون يبدأ بالاستماع — فهم التحديات الفريدة والأهداف والسياق الخاص بكل عميل قبل البدء في العمل التقني.",
+      "highlight": "\"مهمتنا ليست بيع التكنولوجيا — بل هي حل المشكلات، بناء الثقة، وخلق قيمة ملموسة لكل مؤسسة نخدمها.\""
+    },
+    "mv": {
+      "badge": "الهدف والتوجه",
+      "title": "ما يدفعنا كل يوم",
+      "subtitle": "مبدآن توجيهيان يشكلان كل قرار، وكل حل، وكل علاقة نبنيها.",
+      "mission_title": "مهمتنا",
+      "mission_desc": "تمكين المؤسسات في المملكة العربية السعودية والمنطقة من خلال تقديم حلول تكنولوجية مبتكرة وآمنة وذكية — مبنية حول الاحتياجات الفريدة لكل عميل ومتوافقة مع طموحات رؤية 2030.",
+      "vision_title": "رؤيتنا",
+      "vision_desc": "أن نصبح الشريك التكنولوجي الأكثر ثقة في المنطقة — معروفين ليس فقط بالتميز التقني ولكن بالأثر طويل الأمد الذي نخلقه لعملائنا وموظفينا والاقتصاد الرقمي للمملكة."
+    },
+    "values": {
+      "badge": "ما نؤمن به",
+      "title": "قيمنا الأساسية",
+      "subtitle": "المبادئ التي توجه كيفية عملنا وتفكيرنا وتعاملنا مع كل عميل وشريك.",
+      "list": [
+        { "title": "الابتكار", "desc": "استكشاف آفاق جديدة باستمرار لتقديم حلول أذكى وأكثر قوة." },
+        { "title": "النزاهة", "desc": "الصدق والشفافية في كل وعد، وكل اقتراح، وكل تفاعل." },
+        { "title": "التميز", "desc": "وضع أعلى المعايير للجودة — في البرمجة والخدمة والنتائج." },
+        { "title": "الأمان", "desc": "التعامل مع بيانات وبنية عملائنا وكأنها ملكنا — دون أي تنازل." },
+        { "title": "الشراكة", "desc": "نجاحنا مرتبط بنجاح عملائنا — وهذا ليس مجرد شعار، بل أسلوب عملنا." }
+      ]
+    },
+    "journey": {
+        "badge": "رحلتنا",
+        "title": "كيف وصلنا إلى هنا",
+        "subtitle": "من فكرة طموحة في الرياض إلى قوة صاعدة في التكنولوجيا الإقليمية — قصتنا لا تزال تُكتب.",
+        "timeline": [
+            { "year": "2023 — الربع الأول", "title": "تأسيس الشركة", "desc": "تأسست شارب إنوفيشنز في الرياض من قبل فريق من الخبراء في التكنولوجيا والأعمال برؤية مشتركة لتحويل كيفية استفادة المؤسسات من التقنية." },
+            { "year": "2023 — الربع الثالث", "title": "أول نجاحات العملاء", "desc": "تأمين شراكات مع عملاء حكوميين وتجاريين كبار، وتقديم أول مشاريع الذكاء الاصطناعي والأمن السيبراني وترسيخ سمعتنا في الدقة والموثوقية." },
+            { "year": "2024", "title": "شراكات استراتيجية", "desc": "إضفاء الطابع الرسمي على تحالفات تكنولوجية مع HP و Oracle و Trend Micro و Odoo — مما وسع محفظتنا ومكننا من تقديم حلول أكثر شمولاً." },
+            { "year": "2025 — الحاضر", "title": "أكثر من 100 مشروع", "desc": "اجتياز حاجز 100 مشروع ناجح في الذكاء الاصطناعي والأمن السيبراني و GIS وإدارة الأساطيل — لخدمة أكثر من 50 عميلاً راضياً." }
+        ]
+    },
+    "commitment": {
+      "badge": "وعدنا",
+      "title": "ما يمكنك توقعه منا دائماً",
+      "subtitle": "نحن نلتزم بمعايير تتجاوز مجرد العقد — لأن الشراكات الحقيقية تُبنى على الفعل المستمر.",
+      "list": [
+        { "title": "حلول مخصصة", "desc": "لا نطبق قوالب جاهزة لتحدياتك. كل حل نصممه يبدأ بفهم عميق لسياقك الخاص." },
+        { "title": "مسؤولية كاملة", "desc": "من الاكتشاف إلى التنفيذ وما بعده، نبقى ملتزمين. فريقنا يتحمل المسؤولية الكاملة عن النتائج." },
+        { "title": "التوافق مع رؤية 2030", "desc": "كل حل نبنيه مصمم مع أخذ أهداف التحول الرقمي في المملكة العربية السعودية بعين الاعتبار." },
+        { "title": "تواصل شفاف", "desc": "لا مفاجآت. نبقي أصحاب المصلحة على اطلاع في كل مرحلة مع تقارير واضحة وحل استباقي للمشكلات." },
+        { "title": "دعم ما بعد التسليم", "desc": "علاقتنا لا تنتهي عند الإطلاق. نقدم دعماً وصيانة مخصصة لفترة طويلة بعد تشغيل الحل الخاص بك." },
+        { "title": "الأمان افتراضياً", "desc": "الأمان ليس فكرة لاحقة في عمليتنا — بل هو مدمج في الهندسة والتطوير من اليوم الأول." }
+      ]
+    },
+    "cta": {
+      "title": "هل أنت مستعد للعمل مع شارب إنوفيشنز؟",
+      "subtitle": "دعنا نناقش كيف يمكننا مساعدة مؤسستك على النمو والتحول والبقاء آمنة في العالم الرقمي.",
+      "contact": "اتصل بنا اليوم",
+      "explore": "اكتشف خدماتنا"
+    }
+  },
+  "SERVICE_LISTING": {
+    "HERO_PILL": "ماذا نقدم",
+    "HERO_TITLE": "حلول مبنية لمستقبل رقمي أذكى وأكثر أمانًا",
+    "HERO_DESC": "من الأتمتة المدفوعة بالذكاء الاصطناعي إلى الأمن السيبراني على مستوى المؤسسات — هندست خدماتنا لتسريع النمو وتقليل المخاطر وتحقيق نتائج أعمال حقيقية في كل قطاع.",
+    "FILTER_ALL": "جميع الخدمات",
+    "PROCESS_BADGE": "منهجيتنا",
+    "PROCESS_TITLE": "كيف نسلم كل مشروع",
+    "PROCESS_SUB": "عملية منظمة وشفافة تبقيك على اطلاع وتحت السيطرة — من المحادثة الأولى إلى التسليم النهائي.",
+    "STEP_1_TITLE": "الاكتشاف والنطاق",
+    "STEP_1_DESC": "نستثمر الوقت في فهم عملك، أهدافك، قيودك، وبيئتك الحالية قبل اقتراح أي شيء.",
+    "STEP_2_TITLE": "الاستراتيجية والتصميم",
+    "STEP_2_DESC": "يصمم مهندسونا حلاً مخصصًا — باختيار التقنيات والأطر والنهج المناسب لسياقك المحدد.",
+    "STEP_3_TITLE": "البناء والتنفيذ",
+    "STEP_3_DESC": "التنفيذ بدقة. تحديثات منتظمة، مراجعات للمراحل، وشفافية كاملة طوال دورة حياة التسليم.",
+    "STEP_4_TITLE": "الدعم والتطوير",
+    "STEP_4_DESC": "نبقى ملتزمين بعد الإطلاق — نراقب ونحسن ونطور حلك مع نمو وتغير عملك.",
+    "WHY_BADGE": "لماذا شارب إينوفيشنز",
+    "WHY_TITLE": "الفرق الذي ستشعره من اليوم الأول",
+    "WHY_SUB": "نحن لسنا مجرد بائع آخر. نظهر كشريك حقيقي — مستثمرين في نتائجك، وليس فقط في فواتيرك.",
+    "WHY_ITEM_1_TITLE": "خبرة تقنية عميقة",
+    "WHY_ITEM_1_DESC": "يتمتع فريقنا بخبرة عملية معتمدة عبر الذكاء الاصطناعي والأمن السيبراني وأوراكل والسحابة — ليسوا عموميين، بل متخصصون حقيقيون.",
+    "WHY_ITEM_2_TITLE": "متوافق مع رؤية 2030",
+    "WHY_ITEM_2_DESC": "تم تصميم كل حل مع وضع أجندة التحول الرقمي في المملكة العربية السعودية في الاعتبار — دعم الامتثال والتوطين والأهداف الوطنية.",
+    "WHY_ITEM_3_TITLE": "موثوق من قبل الحكومة والمؤسسات",
+    "WHY_ITEM_3_DESC": "سجل حافل في البيئات الحكومية والمؤسسية الحساسة حيث الموثوقية والأمن والامتثال غير قابلة للتفاوض.",
+    "WHY_ITEM_4_TITLE": "ملكية كاملة من البداية للنهاية",
+    "WHY_ITEM_4_DESC": "نحن لا نسلم العمل ونختفي. نحن نملك النتيجة — من الاستراتيجية حتى التسليم والدعم طويل الأمد.",
+    "WHY_STAT_1_N": "+50",
+    "WHY_STAT_1_L": "عميل راضٍ",
+    "WHY_STAT_2_N": "+100",
+    "WHY_STAT_2_L": "مشروع تم تسليمه",
+    "WHY_STAT_3_N": "+4",
+    "WHY_STAT_3_L": "نطاقات الخدمة",
+    "WHY_STAT_4_N": ".2023",
+    "WHY_STAT_4_L": "تأسست في الرياض",
+    "IND_BADGE": "القطاعات التي نخدمها",
+    "IND_TITLE": "الصناعات التي نعمل عبرها",
+    "IND_SUB": "تمتد حلولنا عبر القطاعات التي تهم فيها التكنولوجيا والأمن والموثوقية أكثر من غيرها.",
+    "CTA_TITLE": "لست متأكداً من الخدمة التي تحتاجها؟",
+    "CTA_SUB": "دعنا نتحدث. سيستمع فريقنا ويقيم وضعك ويوصي بالحل المناسب — دون ضغوط وبدون مصطلحات معقدة.",
+    "CTA_BTN_1": "احجز استشارة مجانية",
+    "CTA_BTN_2": "عرض منتجاتنا"
+  },
+  "PRODUCT_LISTING": {
+    "HERO_PILL": "حلول الذكاء الاصطناعي الذكية",
+    "HERO_TITLE": "منتجات مدعومة بالذكاء الاصطناعي مهيأة لمستقبل المملكة",
+    "HERO_DESC": "من ذكاء المدن الذكية إلى السلامة الصناعية وتليماتكس الأساطيل - تم بناء منتجاتنا من الذكاء الاصطناعي لحل التحديات المعقدة وقيادة الموجة القادمة من الابتكار السعودي.",
+    "STAT_PRODUCTS": "منتج رقمي",
+    "STAT_CATEGORIES": "فئات",
+    "STAT_DEPLOYMENTS": "نشر فعال",
+    "STAT_ALIGNMENT": "متوافق مع رؤية 2030",
+    "FILTER_ALL": "جميع المنتجات",
+    "EXPLORE": "استكشف المنتج",
+    "TECH_SPECS": "المواصفات التقنية",
+    "FEATURES": "الميزات الرئيسية",
+    "PLATFORM": "مبني على منصة ذكاء اصطناعي موحدة"
   }
 }

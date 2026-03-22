@@ -144,7 +144,7 @@ export default function BlogDetailPage({ params }: { params: Promise<{ lang: str
                         <div className="p-6 space-y-6">
                             <div className="space-y-3">
                                 <div className="flex flex-wrap gap-1.5">
-                                    {(blog.categories || []).map((cat, i) => (
+                                    {(Array.isArray(blog.categories) ? blog.categories : (typeof blog.categories === 'string' ? blog.categories.split(',').map(c => c.trim()).filter(Boolean) : [])).map((cat: string, i: number) => (
                                         <span key={i} className="px-2.5 py-0.5 bg-zinc-100 dark:bg-zinc-800 text-zinc-500 rounded-full text-[9px] font-black uppercase tracking-widest">{cat}</span>
                                     ))}
                                 </div>

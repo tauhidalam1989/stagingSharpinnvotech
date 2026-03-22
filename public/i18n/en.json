@@ -48,22 +48,22 @@
   "FAQ": {
     "POPULAR_FAQS": "Popular FAQs",
     "TITLE": "Frequently Asked Questions",
-    "QUESTION1": "How to build a website?",
-    "ANSWER1": "Building a website involves several key steps: First, choose and register a domain name that reflects your brand. Next, select a reliable hosting provider to store your website's files. Then, design and develop your site using technologies like HTML, CSS, and JavaScript for structure, styling, and interactivity. For more advanced functionality, you can integrate frameworks like React or Angular, or use content management systems (CMS) like WordPress for easier content updates.",
-    "QUESTION2": "How long will it take to get a new website?",
-    "ANSWER2": "The timeline for building a website varies based on the complexity and scope of the project. A simple website can take 2-3 weeks, while more complex projects with custom features, integrations, or e-commerce functionality may take 4-6 weeks or longer. We work closely with you to establish a clear timeline during the planning phase.",
-    "QUESTION3": "Do you only create HTML websites?",
-    "ANSWER3": "No, we specialize in a wide range of technologies to suit your needs. Whether you need a static HTML website, a dynamic site built with WordPress, or a modern web application using frameworks like React, Angular, or Vue.js, we have the expertise to deliver a solution tailored to your goals.",
-    "QUESTION4": "Will my website be mobile-friendly?",
-    "ANSWER4": "Absolutely. All websites we create are designed with a mobile-first approach, ensuring they are fully responsive and optimized for all devices, including smartphones, tablets, and desktops. This guarantees a seamless user experience across all screen sizes.",
-    "QUESTION5": "Will you maintain my site for me?",
-    "ANSWER5": "Yes, we offer comprehensive maintenance packages to keep your website secure, up-to-date, and running smoothly. Our services include regular updates, backups, security monitoring, and technical support to ensure your site remains in top condition.",
-    "QUESTION6": "I'm on a strict budget. Do you have any low-cost options?",
-    "ANSWER6": "Yes, we understand that small businesses and startups often have budget constraints. We offer affordable packages that include essential features to get your website up and running without compromising on quality. Let us know your budget, and we'll work with you to create a solution that fits your needs.",
-    "QUESTION7": "Can I update the website myself once it's built?",
-    "ANSWER7": "Yes, we build websites using user-friendly content management systems (CMS) like WordPress, which allow you to easily update content, add blog posts, upload images, and make other changes without needing technical expertise. We also provide training to ensure you're comfortable managing your site.",
-    "QUESTION8": "Do you provide hosting services?",
-    "ANSWER8": "Yes, we offer reliable and secure hosting services to ensure your website performs optimally. Our hosting solutions include fast loading speeds, robust security measures, and 24/7 technical support to keep your site running smoothly. We can also help you migrate your existing site to our hosting platform."
+    "QUESTION1": "What services do you offer?",
+    "ANSWER1": "We offer a full range of digital solutions including web design, web development, mobile app development, SEO, digital marketing, and ongoing website maintenance — all tailored to meet your business goals.",
+    "QUESTION2": "How much does a website cost?",
+    "ANSWER2": "The cost depends on the complexity and features required. A basic website starts at an affordable price, while custom-built solutions are priced based on your specific needs. Contact us for a free quote tailored to your project.",
+    "QUESTION3": "Do you work with startups and small businesses?",
+    "ANSWER3": "Absolutely. We love working with businesses of all sizes — from early-stage startups to large enterprises. We offer scalable solutions that grow with your business and fit within your budget.",
+    "QUESTION4": "Will my website be SEO-friendly?",
+    "ANSWER4": "Yes. Every website we build is optimized for search engines from the ground up. We follow best practices for on-page SEO, fast loading speeds, clean code structure, and mobile responsiveness to help you rank better.",
+    "QUESTION5": "How do I get started with a project?",
+    "ANSWER5": "Getting started is simple. Reach out to us via our contact form or email, and we'll schedule a free consultation to understand your goals, timeline, and budget — then put together a tailored proposal for you.",
+    "QUESTION6": "Do you offer post-launch support?",
+    "ANSWER6": "Yes. We provide dedicated post-launch support to ensure your website runs smoothly. Our support packages cover bug fixes, updates, performance monitoring, and ongoing improvements as your business evolves.",
+    "QUESTION7": "Can you redesign my existing website?",
+    "ANSWER7": "Definitely. If your current website feels outdated or isn't performing well, we can redesign it with a fresh look, improved user experience, and better functionality — without losing your existing content or SEO value.",
+    "QUESTION8": "How do you ensure my website is secure?",
+    "ANSWER8": "Security is a top priority. We implement SSL certificates, secure coding practices, regular backups, and security monitoring to protect your website and your users' data at all times."
   },
   "NEWSLETTER": {
     "TITLE": "Newsletter",
@@ -173,10 +173,10 @@
     "CAREER": "Career",
     "OUR_SERVICES": "Our Services",
     "SERVICE_1": "Application Security",
-    "SERVICE_2": "Network Security",
-    "SERVICE_3": "Chat Bot Development",
+    "SERVICE_2": "Server Administration",
+    "SERVICE_3": "Cyber Security Training",
     "SERVICE_4": "Oracle process automation",
-    "SERVICE_5": "Ai in Cyber Security",
+    "SERVICE_5": "Mobile Application Development",
     "COPYRIGHT": "2025 Sharp Innovations Company for Information Technology, All Rights Reserved.",
     "HOME": "Home",
     "COOKIES": "Cookies",
@@ -324,7 +324,24 @@
     "no_role_found": "Can't find the right role?",
     "no_role_description": "We'd still love to hear from you. Send your resume to *[hr@sharpinnovations.com]* and let us know how you can contribute to our mission.",
     "closing_statement": "Let's Innovate Together",
-    "closing_description": "At Sharp Innovations, we're not just offering jobs—we're creating opportunities to innovate, inspire, and grow. Join us in shaping the future of IT solutions!"
+    "closing_description": "At Sharp Innovations, we're not just offering jobs—we're creating opportunities to innovate, inspire, and grow. Join us in shaping the future of IT solutions!",
+    "process_title": "Our Hiring Process",
+    "process_subtitle": "Your Journey to Joining Our Team",
+    "process_steps": {
+      "step1_title": "Submit Application",
+      "step1_desc": "Find the role that fits you and send us your updated CV and portfolio.",
+      "step2_title": "Application Review",
+      "step2_desc": "Our HR team carefully reviews your background and technical skills.",
+      "step3_title": "Shortlisting",
+      "step3_desc": "Qualified candidates are selected for a preliminary alignment discussion.",
+      "step4_title": "Technical Interview",
+      "step4_desc": "Meet our team to discuss your expertise and tackle real-world challenges.",
+      "step5_title": "Job Offer",
+      "step5_desc": "Welcome aboard! We'll extend a detailed offer to join our innovation family."
+    },
+    "culture_title": "Life at Sharp Innovations",
+    "culture_subtitle": "Beyond the Office Walls",
+    "culture_description": "We foster an environment where creativity meets technical excellence. From team building events to collaborative brainstorming sessions, life at Sharp Innovations is about growing together."
   },
   "TITLE": "Sharp Innovations",
   "HOME": "Home",
@@ -4053,8 +4070,20 @@
     }
   },
   "BLOG_LISTING": {
-    "TITLE": "Our Insights & News",
-    "SUBTITLE": "Stay updated with the latest in technology, design, and cybersecurity."
+    "HERO_PILL": "Our Blogs",
+    "HERO_TITLE": "Our Insights & News",
+    "HERO_DESC": "Stay updated with the latest in technology, design, and cybersecurity through our expert articles and industry news.",
+    "SEARCH_PLACEHOLDER": "Search articles...",
+    "ALL_CATEGORIES": "All Categories",
+    "ALL_TAGS": "All Tags",
+    "READ_MORE": "Read More",
+    "NO_RESULTS": "No articles found",
+    "NO_RESULTS_DESC": "Try adjusting your filters or search terms to find what you're looking for.",
+    "CLEAR_FILTERS": "Clear All Filters",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    "CATEGORY": "Category",
+    "TAG": "Tag"
   },
   "BLOG_DETAIL": {
     "AUTHOR_NAME": "Sharp Innovations",
@@ -4114,9 +4143,18 @@
       "title": "Privacy Policy",
       "subtitle": "Your data, our responsibility",
       "hero_cards": [
-        { "title": "Data Protection", "description": "We follow strict security standards to protect your information." },
-        { "title": "Transparency", "description": "We clearly explain how your data is collected and used." },
-        { "title": "User Rights", "description": "You have full control over your personal data." }
+        {
+          "title": "Data Protection",
+          "description": "We follow strict security standards to protect your information."
+        },
+        {
+          "title": "Transparency",
+          "description": "We clearly explain how your data is collected and used."
+        },
+        {
+          "title": "User Rights",
+          "description": "You have full control over your personal data."
+        }
       ],
       "introduction": "At Sharp Innovations, we respect your privacy and are committed to protecting your personal data. This policy explains how we collect, use, and safeguard your information.",
       "highlight_points": [
@@ -4128,37 +4166,73 @@
         {
           "title": "Why We Collect Your Data",
           "content": "We collect your data to improve our services and deliver a better user experience.",
-          "items": ["Provide and maintain services", "Improve performance and usability", "Communicate updates and offers", "Ensure security and fraud prevention"]
+          "items": [
+            "Provide and maintain services",
+            "Improve performance and usability",
+            "Communicate updates and offers",
+            "Ensure security and fraud prevention"
+          ]
         },
         {
           "title": "Types of Data We Collect",
           "cards": [
-            { "title": "Personal Data", "description": "Name, email, phone number, etc." },
-            { "title": "Usage Data", "description": "Pages visited, time spent, browser type." },
-            { "title": "Technical Data", "description": "IP address, device type, operating system." }
+            {
+              "title": "Personal Data",
+              "description": "Name, email, phone number, etc."
+            },
+            {
+              "title": "Usage Data",
+              "description": "Pages visited, time spent, browser type."
+            },
+            {
+              "title": "Technical Data",
+              "description": "IP address, device type, operating system."
+            }
           ]
         },
         {
           "title": "Cookies Policy",
           "content": "We use cookies to enhance your browsing experience and analyze traffic.",
-          "items": ["Session management", "Analytics tracking", "User preferences storage"]
+          "items": [
+            "Session management",
+            "Analytics tracking",
+            "User preferences storage"
+          ]
         },
         {
           "title": "Your Rights",
           "content": "You have full control over your personal data.",
-          "items": ["Access your data", "Request correction", "Request deletion", "Withdraw consent"]
+          "items": [
+            "Access your data",
+            "Request correction",
+            "Request deletion",
+            "Withdraw consent"
+          ]
         }
       ],
-      "cta": { "title": "Have Questions?", "description": "Contact our support team for more information.", "button_text": "Contact Us" },
+      "cta": {
+        "title": "Have Questions?",
+        "description": "Contact our support team for more information.",
+        "button_text": "Contact Us"
+      },
       "last_updated": "Last Updated: March 2026"
     },
     "ar": {
       "title": "سياسة الخصوصية",
       "subtitle": "بياناتك مسؤوليتنا",
       "hero_cards": [
-        { "title": "حماية البيانات", "description": "نلتزم بأعلى معايير الأمان لحماية معلوماتك." },
-        { "title": "الشفافية", "description": "نوضح كيفية جمع واستخدام بياناتك." },
-        { "title": "حقوق المستخدم", "description": "لديك تحكم كامل في بياناتك الشخصية." }
+        {
+          "title": "حماية البيانات",
+          "description": "نلتزم بأعلى معايير الأمان لحماية معلوماتك."
+        },
+        {
+          "title": "الشفافية",
+          "description": "نوضح كيفية جمع واستخدام بياناتك."
+        },
+        {
+          "title": "حقوق المستخدم",
+          "description": "لديك تحكم كامل في بياناتك الشخصية."
+        }
       ],
       "introduction": "في Sharp Innovations، نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضح هذه السياسة كيفية جمع واستخدام وحماية معلوماتك.",
       "highlight_points": [
@@ -4170,27 +4244,54 @@
         {
           "title": "لماذا نجمع بياناتك",
           "content": "نجمع البيانات لتحسين خدماتنا وتقديم تجربة أفضل.",
-          "items": ["تقديم الخدمات", "تحسين الأداء", "التواصل مع المستخدمين", "تعزيز الأمان"]
+          "items": [
+            "تقديم الخدمات",
+            "تحسين الأداء",
+            "التواصل مع المستخدمين",
+            "تعزيز الأمان"
+          ]
         },
         {
           "title": "أنواع البيانات",
           "cards": [
-            { "title": "بيانات شخصية", "description": "الاسم، البريد الإلكتروني، رقم الهاتف" },
-            { "title": "بيانات الاستخدام", "description": "الصفحات التي تمت زيارتها" },
-            { "title": "بيانات تقنية", "description": "عنوان IP ونوع الجهاز" }
+            {
+              "title": "بيانات شخصية",
+              "description": "الاسم، البريد الإلكتروني، رقم الهاتف"
+            },
+            {
+              "title": "بيانات الاستخدام",
+              "description": "الصفحات التي تمت زيارتها"
+            },
+            {
+              "title": "بيانات تقنية",
+              "description": "عنوان IP ونوع الجهاز"
+            }
           ]
         },
         {
           "title": "ملفات تعريف الارتباط",
           "content": "نستخدم الكوكيز لتحسين تجربة المستخدم.",
-          "items": ["إدارة الجلسات", "تحليل الاستخدام", "تخزين التفضيلات"]
+          "items": [
+            "إدارة الجلسات",
+            "تحليل الاستخدام",
+            "تخزين التفضيلات"
+          ]
         },
         {
           "title": "حقوقك",
-          "items": ["الوصول إلى البيانات", "تصحيح البيانات", "حذف البيانات", "سحب الموافقة"]
+          "items": [
+            "الوصول إلى البيانات",
+            "تصحيح البيانات",
+            "حذف البيانات",
+            "سحب الموافقة"
+          ]
         }
       ],
-      "cta": { "title": "هل لديك استفسار؟", "description": "تواصل معنا للحصول على المساعدة.", "button_text": "اتصل بنا" },
+      "cta": {
+        "title": "هل لديك استفسار؟",
+        "description": "تواصل معنا للحصول على المساعدة.",
+        "button_text": "اتصل بنا"
+      },
       "last_updated": "آخر تحديث: مارس 2026"
     }
   },
@@ -4199,63 +4300,275 @@
       "title": "Terms & Conditions",
       "subtitle": "Please read carefully before using our services",
       "hero_cards": [
-        { "title": "User Responsibility", "description": "Users must provide accurate information." },
-        { "title": "Legal Compliance", "description": "You must comply with applicable laws." },
-        { "title": "Service Usage", "description": "Use services only as intended." }
+        {
+          "title": "User Responsibility",
+          "description": "Users must provide accurate information."
+        },
+        {
+          "title": "Legal Compliance",
+          "description": "You must comply with applicable laws."
+        },
+        {
+          "title": "Service Usage",
+          "description": "Use services only as intended."
+        }
       ],
       "introduction": "By accessing our platform, you agree to these Terms and Conditions. Please read them carefully before using our services.",
       "sections": [
-        { "title": "Use of Services", "content": "You agree to use our services only for lawful purposes." },
-        { "title": "Intellectual Property", "content": "All content, designs, and software are owned by Sharp Innovations." },
+        {
+          "title": "Use of Services",
+          "content": "You agree to use our services only for lawful purposes."
+        },
+        {
+          "title": "Intellectual Property",
+          "content": "All content, designs, and software are owned by Sharp Innovations."
+        },
         {
           "title": "User Obligations",
-          "items": ["Provide accurate information", "Do not misuse the platform", "Respect other users"]
+          "items": [
+            "Provide accurate information",
+            "Do not misuse the platform",
+            "Respect other users"
+          ]
         },
         {
           "title": "Prohibited Activities",
           "cards": [
-            { "title": "Illegal Actions", "description": "Any unlawful activities are strictly prohibited." },
-            { "title": "Data Misuse", "description": "You cannot copy or exploit data." },
-            { "title": "System Abuse", "description": "No hacking or disrupting services." }
+            {
+              "title": "Illegal Actions",
+              "description": "Any unlawful activities are strictly prohibited."
+            },
+            {
+              "title": "Data Misuse",
+              "description": "You cannot copy or exploit data."
+            },
+            {
+              "title": "System Abuse",
+              "description": "No hacking or disrupting services."
+            }
           ]
         },
-        { "title": "Limitation of Liability", "content": "We are not liable for indirect or incidental damages." },
-        { "title": "Termination", "content": "We reserve the right to suspend accounts that violate our policies." },
-        { "title": "Governing Law", "content": "These terms are governed by applicable regional laws." }
+        {
+          "title": "Limitation of Liability",
+          "content": "We are not liable for indirect or incidental damages."
+        },
+        {
+          "title": "Termination",
+          "content": "We reserve the right to suspend accounts that violate our policies."
+        },
+        {
+          "title": "Governing Law",
+          "content": "These terms are governed by applicable regional laws."
+        }
       ],
-      "contact_card": { "title": "Need Help?", "email": "info@sharpinnvotech.com", "description": "Reach out for any legal or support questions." },
+      "contact_card": {
+        "title": "Need Help?",
+        "email": "info@sharpinnvotech.com",
+        "description": "Reach out for any legal or support questions."
+      },
       "last_updated": "Last Updated: March 2026"
     },
     "ar": {
       "title": "الشروط والأحكام",
       "subtitle": "يرجى قراءتها بعناية قبل الاستخدام",
       "hero_cards": [
-        { "title": "مسؤولية المستخدم", "description": "يجب تقديم معلومات صحيحة." },
-        { "title": "الامتثال القانوني", "description": "يجب الالتزام بالقوانين." },
-        { "title": "استخدام الخدمة", "description": "استخدام الخدمة بشكل صحيح." }
+        {
+          "title": "مسؤولية المستخدم",
+          "description": "يجب تقديم معلومات صحيحة."
+        },
+        {
+          "title": "الامتثال القانوني",
+          "description": "يجب الالتزام بالقوانين."
+        },
+        {
+          "title": "استخدام الخدمة",
+          "description": "استخدام الخدمة بشكل صحيح."
+        }
       ],
       "introduction": "باستخدامك للمنصة، فإنك توافق على هذه الشروط والأحكام.",
       "sections": [
-        { "title": "استخدام الخدمات", "content": "يجب استخدام الخدمات لأغراض قانونية فقط." },
-        { "title": "الملكية الفكرية", "content": "جميع المحتويات مملوكة للشركة." },
+        {
+          "title": "استخدام الخدمات",
+          "content": "يجب استخدام الخدمات لأغراض قانونية فقط."
+        },
+        {
+          "title": "الملكية الفكرية",
+          "content": "جميع المحتويات مملوكة للشركة."
+        },
         {
           "title": "التزامات المستخدم",
-          "items": ["تقديم معلومات صحيحة", "عدم إساءة الاستخدام", "احترام الآخرين"]
+          "items": [
+            "تقديم معلومات صحيحة",
+            "عدم إساءة الاستخدام",
+            "احترام الآخرين"
+          ]
         },
         {
           "title": "أنشطة محظورة",
           "cards": [
-            { "title": "أنشطة غير قانونية", "description": "ممنوعة تماماً." },
-            { "title": "إساءة استخدام البيانات", "description": "لا يسمح بنسخ البيانات." },
-            { "title": "الهجمات التقنية", "description": "يمنع اختراق النظام." }
+            {
+              "title": "أنشطة غير قانونية",
+              "description": "ممنوعة تماماً."
+            },
+            {
+              "title": "إساءة استخدام البيانات",
+              "description": "لا يسمح بنسخ البيانات."
+            },
+            {
+              "title": "الهجمات التقنية",
+              "description": "يمنع اختراق النظام."
+            }
           ]
         },
-        { "title": "تحديد المسؤولية", "content": "لا نتحمل الأضرار غير المباشرة." },
-        { "title": "إنهاء الخدمة", "content": "يمكن إيقاف الحساب عند المخالفة." },
-        { "title": "القانون الحاكم", "content": "تخضع هذه الشروط للقوانين المحلية." }
+        {
+          "title": "تحديد المسؤولية",
+          "content": "لا نتحمل الأضرار غير المباشرة."
+        },
+        {
+          "title": "إنهاء الخدمة",
+          "content": "يمكن إيقاف الحساب عند المخالفة."
+        },
+        {
+          "title": "القانون الحاكم",
+          "content": "تخضع هذه الشروط للقوانين المحلية."
+        }
       ],
-      "contact_card": { "title": "تحتاج مساعدة؟", "email": "info@sharpinnvotech.com", "description": "تواصل معنا لأي استفسار." },
+      "contact_card": {
+        "title": "تحتاج مساعدة؟",
+        "description": "تواصل معنا لأي استفسار."
+      },
       "last_updated": "آخر تحديث: مارس 2026"
     }
+  },
+  "about_redesign": {
+    "hero": {
+      "badge": "About Sharp Innovations",
+      "title": "Built to Innovate. Driven to Protect.",
+      "description": "We are a Riyadh-based technology company on a mission to empower businesses through intelligent, secure, and future-ready digital solutions.",
+      "stats": [
+        { "num": "2023", "label": "Year Founded", "suffix": "." },
+        { "num": "50", "label": "Happy Clients", "suffix": "+" },
+        { "num": "100", "label": "Projects Delivered", "suffix": "+" },
+        { "num": "5", "label": "Core Specializations", "suffix": "" }
+      ]
+    },
+    "story": {
+      "badge": "Our Story",
+      "year": "2023",
+      "card_title": "Our Foundation",
+      "card_desc": "Sharp Innovations was born from a vision — to bring enterprise-grade technology to every business in the Kingdom, regardless of size or sector.",
+      "location": "Riyadh, Saudi Arabia",
+      "title": "A Company Built with Purpose",
+      "p1": "Sharp Innovations was founded in 2023 by a group of industry veterans who saw a clear gap in the Saudi market — businesses needed a reliable, deeply technical partner who could deliver real transformation, not just technology.",
+      "p2": "From our headquarters in Riyadh, we have grown into a trusted name across government and private sectors, delivering solutions in Artificial Intelligence, Cybersecurity, Automation, and Application Services that directly contribute to Saudi Arabia's Vision 2030.",
+      "p3": "We don't believe in one-size-fits-all. Every engagement begins with listening — understanding the unique challenges, goals, and context of each client before a single line of code is written.",
+      "highlight": "\"Our mission is not to sell technology — it's to solve problems, build trust, and create measurable value for every organization we serve.\""
+    },
+    "mv": {
+      "badge": "Purpose & Direction",
+      "title": "What Drives Us Every Day",
+      "subtitle": "Two guiding principles that shape every decision, every solution, and every relationship we build.",
+      "mission_title": "Our Mission",
+      "mission_desc": "To empower organizations across Saudi Arabia and the wider region by delivering innovative, secure, and intelligent technology solutions — built around the unique needs of each client and aligned with the ambitions of Vision 2030.",
+      "vision_title": "Our Vision",
+      "vision_desc": "To become the most trusted technology partner in the region — recognized not only for technical excellence but for the long-term impact we create for our clients, our people, and the digital economy of Saudi Arabia."
+    },
+    "values": {
+      "badge": "What We Stand For",
+      "title": "Our Core Values",
+      "subtitle": "The principles that guide how we work, how we think, and how we treat every client and partner.",
+      "list": [
+        { "title": "Innovation", "desc": "Constantly exploring new frontiers to deliver smarter, more powerful solutions." },
+        { "title": "Integrity", "desc": "Honesty and transparency in every promise, every proposal, and every interaction." },
+        { "title": "Excellence", "desc": "Setting the highest bar for quality — in code, in service, and in outcomes." },
+        { "title": "Security", "desc": "Treating every client's data and infrastructure as if it were our own — with zero compromise." },
+        { "title": "Partnership", "desc": "We succeed only when our clients succeed — that's not a tagline, it's how we operate." }
+      ]
+    },
+    "journey": {
+        "badge": "Our Journey",
+        "title": "How We Got Here",
+        "subtitle": "From a bold idea in Riyadh to a growing force in regional technology — our story is still being written.",
+        "timeline": [
+            { "year": "2023 — Q1", "title": "Company Founded", "desc": "Sharp Innovations was established in Riyadh by a team of experienced technology and business professionals with a shared vision to transform how organizations leverage technology." },
+            { "year": "2023 — Q3", "title": "First Major Client Wins", "desc": "Secured partnerships with key government and enterprise clients, delivering our first AI and cybersecurity projects and establishing our reputation for technical depth and reliability." },
+            { "year": "2024", "title": "Strategic Partnerships Formed", "desc": "Formalized technology alliances with HP, Oracle, Trend Micro, and Odoo — expanding our portfolio and enabling us to deliver more comprehensive, integrated solutions to clients." },
+            { "year": "2025 — Present", "title": "100+ Projects & Growing", "desc": "Crossed the milestone of 100 successful project deliveries across AI, cybersecurity, GIS, fleet management, and enterprise software — serving 50+ satisfied clients across multiple sectors." }
+        ]
+    },
+    "commitment": {
+      "badge": "Our Promise",
+      "title": "What You Can Always Expect from Us",
+      "subtitle": "We hold ourselves to a standard that goes beyond the contract — because real partnerships are built on consistent action.",
+      "list": [
+        { "title": "Tailored Solutions", "desc": "We never apply a template to your challenge. Every solution we design starts with a deep understanding of your specific context." },
+        { "title": "End-to-End Ownership", "desc": "From discovery to deployment and beyond, we stay engaged. Our team takes full ownership of outcomes." },
+        { "title": "Vision 2030 Alignment", "desc": "Every solution we build is designed with Saudi Arabia's digital transformation goals in mind." },
+        { "title": "Transparent Communication", "desc": "No surprises. We keep stakeholders informed at every stage with clear reporting and proactive problem-solving." },
+        { "title": "Post-Delivery Support", "desc": "Our relationship doesn't end at launch. We provide dedicated support and maintenance long after your solution goes live." },
+        { "title": "Security by Default", "desc": "Security is never an afterthought in our process — it is embedded into architecture and development from day one." }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Work with Sharp Innovations?",
+      "subtitle": "Let's discuss how we can help your organization grow, transform, and stay secure in a digital world.",
+      "contact": "Contact Us Today",
+      "explore": "Explore Our Services"
+    }
+  },
+  "SERVICE_LISTING": {
+    "HERO_PILL": "What We Offer",
+    "HERO_TITLE": "Solutions Built for a Smarter, Safer Digital Future",
+    "HERO_DESC": "From AI-driven automation to enterprise-grade cybersecurity — our services are engineered to accelerate growth, reduce risk, and drive real business outcomes across every sector.",
+    "FILTER_ALL": "All Services",
+    "PROCESS_BADGE": "Our Approach",
+    "PROCESS_TITLE": "How We Deliver Every Project",
+    "PROCESS_SUB": "A structured, transparent process that keeps you informed and in control — from first conversation to final delivery.",
+    "STEP_1_TITLE": "Discovery & Scoping",
+    "STEP_1_DESC": "We invest time understanding your business, goals, constraints, and existing environment before proposing anything.",
+    "STEP_2_TITLE": "Strategy & Design",
+    "STEP_2_DESC": "Our architects design a tailored solution — selecting the right technologies, frameworks, and approach for your specific context.",
+    "STEP_3_TITLE": "Build & Implement",
+    "STEP_3_DESC": "Execution with precision. Regular updates, milestone reviews, and full transparency throughout the delivery lifecycle.",
+    "STEP_4_TITLE": "Support & Evolve",
+    "STEP_4_DESC": "We stay engaged post-launch — monitoring, optimizing, and evolving your solution as your business grows and changes.",
+    "WHY_BADGE": "Why Sharp Innovations",
+    "WHY_TITLE": "The Difference You'll Feel from Day One",
+    "WHY_SUB": "We're not just another vendor. We show up as a genuine partner — invested in your outcomes, not just your invoices.",
+    "WHY_ITEM_1_TITLE": "Deep Technical Expertise",
+    "WHY_ITEM_1_DESC": "Our team brings certified, hands-on experience across AI, cybersecurity, Oracle, and cloud — not generalists, but true specialists.",
+    "WHY_ITEM_2_TITLE": "Vision 2030 Aligned",
+    "WHY_ITEM_2_DESC": "Every solution is designed with Saudi Arabia's digital transformation agenda in mind — supporting compliance, localization, and national objectives.",
+    "WHY_ITEM_3_TITLE": "Government & Enterprise Trusted",
+    "WHY_ITEM_3_DESC": "Proven track record across sensitive government and enterprise environments where reliability, security, and compliance are non-negotiable. We don't hand off and disappear. We own the outcome — from strategy through delivery and long-term support.",
+    "WHY_STAT_1_N": "50+",
+    "WHY_STAT_1_L": "Satisfied Clients",
+    "WHY_STAT_2_N": "100+",
+    "WHY_STAT_2_L": "Projects Delivered",
+    "WHY_STAT_3_N": "4+",
+    "WHY_STAT_3_L": "Service Domains",
+    "WHY_STAT_4_N": "2023.",
+    "WHY_STAT_4_L": "Founded in Riyadh",
+    "IND_BADGE": "Sectors We Serve",
+    "IND_TITLE": "Industries We Work Across",
+    "IND_SUB": "Our solutions span sectors where technology, security, and reliability matter most.",
+    "CTA_TITLE": "Not Sure Which Service You Need?",
+    "CTA_SUB": "Let's talk. Our team will listen, assess your situation, and recommend the right solution — with no pressure and no jargon.",
+    "CTA_BTN_1": "Schedule a Free Consultation",
+    "CTA_BTN_2": "View Our Products"
+  },
+  "PRODUCT_LISTING": {
+    "HERO_PILL": "Smart AI Solutions",
+    "HERO_TITLE": "AI-Powered Products Engineered for Saudi's Future",
+    "HERO_DESC": "From smart city intelligence to industrial safety and fleet telematics—our AI products are built to solve complex challenges and drive the next wave of Saudi innovation.",
+    "STAT_PRODUCTS": "Digital Products",
+    "STAT_CATEGORIES": "Categories",
+    "STAT_DEPLOYMENTS": "Deployments",
+    "STAT_ALIGNMENT": "V2030 Aligned",
+    "FILTER_ALL": "All Products",
+    "EXPLORE": "Explore Product",
+    "TECH_SPECS": "Technical Specs",
+    "FEATURES": "Key Features",
+    "PLATFORM": "Built on a Unified AI Platform"
   }
 }

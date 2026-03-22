@@ -134,11 +134,11 @@ export default function Footer({ lang, dict }: { lang: string; dict: any }) {
                         <h5 className="text-xl font-bold text-white mb-4">{dict.FOOTER.OUR_SERVICES}</h5>
                         <ul className="space-y-3 text-[13px]">
                             {[
-                                { key: 'SERVICE_1', slug: 'application-security' },
-                                { key: 'SERVICE_2', slug: 'network-security' },
-                                { key: 'SERVICE_3', slug: 'chatbot-development' },
-                                { key: 'SERVICE_4', slug: 'oracle-automation' },
-                                { key: 'SERVICE_5', slug: 'cybersecurity-services' }
+                                { key: 'SERVICE_1', slug: 'application-security-services' },
+                                { key: 'SERVICE_2', slug: 'server-administration-services' },
+                                { key: 'SERVICE_3', slug: 'cyber-security-training-services' },
+                                { key: 'SERVICE_4', slug: 'process-automation-services' },
+                                { key: 'SERVICE_5', slug: 'mobile-application-development' }
                             ].map((item) => (
                                 <li key={item.key}>
                                     <Link

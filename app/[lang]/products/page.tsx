@@ -1,7 +1,9 @@
 import { getDictionary } from "@/lib/get-dictionary";
 import { getPublishedProducts, Product } from "@/lib/api";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import ProductCard from "@/components/ProductCard";
+import ProductHero from "@/components/products/ProductHero";
+import ProductListingClient from "@/components/products/ProductListingClient";
+import ProductPlatform from "@/components/products/ProductPlatform";
+import ProductCTA from "@/components/products/ProductCTA";
 
 export default async function ProductsPage({
     params,
@@ -34,77 +36,25 @@ export default async function ProductsPage({
     const categoryIds = Object.keys(productsByCategory).sort((a, b) => Number(a) - Number(b));
 
     return (
-        <div className="flex flex-col w-full min-h-screen bg-white dark:bg-zinc-950 overflow-x-hidden">
-            <Breadcrumbs lang={lang} dict={dict} items={[{ label: isAr ? 'منتجاتنا' : 'Products' }]} />
-            
+        <main className="flex flex-col w-full min-h-screen bg-white dark:bg-zinc-950">
+            {/* Hero Section */}
+            <ProductHero lang={lang} dict={dict} />
+
+            {/* Product Listing Section with Sticky Filters and Category Groups */}
             <div className="relative flex-1">
-                {/* Main Page Background (Moving Dots) */}
-                <div
-                    className="absolute inset-0 opacity-[0.4] dark:opacity-[0.3] pointer-events-none"
-                    style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='4' fill='%231a6bf5' opacity='0.4'/%3E%3Ccircle cx='80' cy='30' r='4' fill='%231a6bf5' opacity='0.4'/%3E%3Ccircle cx='40' cy='70' r='4' fill='%231a6bf5' opacity='0.4'/%3E%3Ccircle cx='70' cy='80' r='4' fill='%231a6bf5' opacity='0.4'/%3E%3Ccircle cx='10' cy='90' r='4' fill='%231a6bf5' opacity='0.4'/%3E%3C/svg%3E")`,
-                        backgroundSize: '100px 100px',
-                        animation: 'moveDots 30s linear infinite'
-                    }}
-                ></div>
-
-                {/* Hero Section */}
-                <section className="relative pt-8 pb-8 overflow-hidden" dir={isAr ? 'rtl' : 'ltr'}>
-                    <div className="absolute inset-0 pointer-events-none">
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-50/50 dark:bg-blue-900/10 rounded-full blur-[120px]"></div>
-                        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] dark:opacity-[0.05]"
-                            style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-                    </div>
-
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16 relative z-10 text-center">
-                        <h1 className="text-3xl md:text-4xl font-black mb-4 tracking-tight text-[#1a6bf5]">
-                            {isAr ? 'منتجاتنا المتميزة' : 'Our Digital Products'}
-                        </h1>
-                        <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400 font-medium max-w-2xl mx-auto italic">
-                            {isAr
-                                ? 'حلول رقمية مبتكرة مصممة لتعزيز أداء أعمالك وتحقيق نتائج قابلة للقياس.'
-                                : 'Advanced digital products engineered to drive performance and deliver measurable growth.'}
-                        </p>
-                    </div>
-                </section>
-
-                {/* Products Listing */}
-                <section className="pb-16 relative" dir={isAr ? 'rtl' : 'ltr'}>
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16">
-                        {categoryIds.length > 0 ? (
-                            categoryIds.map((id, index) => (
-                                <div key={id} className={`mb-12 last:mb-0`}>
-                                    <div className="flex items-center gap-4 sm:gap-6 mb-6">
-                                        <h2 className="text-xl sm:text-2xl font-black text-[#141d72] dark:text-blue-400 tracking-tight max-w-full">
-                                            {productsByCategory[id].name}
-                                        </h2>
-                                        <div className="h-[2px] flex-1 bg-gradient-to-r from-blue-600/20 to-transparent hidden xs:block"></div>
-                                    </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                        {productsByCategory[id].products.sort((a, b) => (a.order || 0) - (b.order || 0)).map((product) => (
-                                            <ProductCard
-                                                key={product.id}
-                                                product={product}
-                                                lang={lang}
-                                                dict={dict}
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
-                            ))
-                        ) : (
-                            <div className="text-center py-16 bg-zinc-50 dark:bg-zinc-900/50 rounded-[48px] border-2 border-dashed border-zinc-200 dark:border-zinc-800">
-                                <div className="mb-6 h-20 w-20 bg-zinc-100 dark:bg-zinc-800 rounded-full flex items-center justify-center mx-auto">
-                                    <i className="fas fa-box-open text-3xl text-zinc-300"></i>
-                                </div>
-                                <p className="text-xl font-bold text-zinc-400">
-                                    {isAr ? 'لا توجد منتجات متاحة حالياً.' : 'No products available at the moment.'}
-                                </p>
-                            </div>
-                        )}
-                    </div>
-                </section>
+                <ProductListingClient 
+                    lang={lang} 
+                    dict={dict} 
+                    productsByCategory={productsByCategory}
+                    categoryIds={categoryIds}
+                />
             </div>
-        </div>
+
+            {/* Platform Highlights Section */}
+            <ProductPlatform lang={lang} />
+
+            {/* Bottom CTA Section */}
+            <ProductCTA lang={lang} />
+        </main>
     );
 }

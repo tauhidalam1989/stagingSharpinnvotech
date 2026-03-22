@@ -1,15 +1,14 @@
 'use client'
 
-import { useState } from 'react'
-
 interface FAQItemProps {
     id: string
     question: string
     answer: string
+    isOpen: boolean
+    onToggle: () => void
 }
 
-export default function FAQAccordion({ id, question, answer }: FAQItemProps) {
-    const [isOpen, setIsOpen] = useState(false)
+export default function FAQAccordion({ id, question, answer, isOpen, onToggle }: FAQItemProps) {
     const accordionId = id
 
     return (
@@ -19,7 +18,7 @@ export default function FAQAccordion({ id, question, answer }: FAQItemProps) {
                 onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    setIsOpen(!isOpen);
+                    onToggle();
                 }}
                 className={`w-full flex items-center justify-between p-4 md:p-5 text-left cursor-pointer transition-all duration-300 rounded-[2px] ${isOpen ? 'text-white' : 'text-zinc-800'
                     }`}
@@ -30,9 +29,10 @@ export default function FAQAccordion({ id, question, answer }: FAQItemProps) {
                 tabIndex={0}
                 onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
-                        setIsOpen(!isOpen);
+                        onToggle();
                     }
                 }}
+                suppressHydrationWarning
             >
                 <span className="text-sm font-bold">
                     {question}

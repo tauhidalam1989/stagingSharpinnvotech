@@ -19,14 +19,14 @@ export default async function TermsConditionsPage({
 
     return (
         <div className="flex flex-col w-full min-h-screen bg-white" dir={isRtl ? 'rtl' : 'ltr'}>
-            <Breadcrumbs
+            {/* <Breadcrumbs
                 lang={lang as Locale}
                 dict={dict}
                 items={[{ label: terms.title }]}
-            />
+            /> */}
 
             {/* Hero Section */}
-            <section className="bg-gradient-to-br from-[#14183e] to-[#1e3a8a] text-white py-16 md:py-24">
+            <section className="bg-gradient-to-br from-[#14183e] to-[#1e3a8a] text-white pt-32 pb-16 md:pt-40 md:pb-24">
                 <div className="container mx-auto px-4 md:px-6 text-center">
                     <span className="inline-block bg-white/10 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">
                         {isRtl ? 'الشروط والأحكام' : 'Terms & Conditions'}

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface CookieConsentProps {
   lang: string;
@@ -10,6 +11,7 @@ interface CookieConsentProps {
 
 export default function CookieConsent({ lang, dict }: CookieConsentProps) {
   const [showConsent, setShowConsent] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
@@ -18,12 +20,20 @@ export default function CookieConsent({ lang, dict }: CookieConsentProps) {
     }
   }, []);
 
+  // Hide modal on privacy or terms-conditions pages to avoid blocking content
+  const isLegalPage = pathname.includes("/privacy") || pathname.includes("/terms-conditions");
+
   const acceptCookies = () => {
     localStorage.setItem("cookie-consent", "true");
     setShowConsent(false);
   };
 
-  if (!showConsent) return null;
+  const handlePolicyClick = () => {
+    // Just hide the modal for this session when they go to read the policy
+    setShowConsent(false);
+  };
+
+  if (!showConsent || isLegalPage) return null;
 
   const content = dict.cookieConsent;
   const isRtl = lang === "ar";
@@ -54,6 +64,7 @@ export default function CookieConsent({ lang, dict }: CookieConsentProps) {
             </button>
             <Link
               href={`/${lang}/privacy`}
+              onClick={handlePolicyClick}
               className="bg-[#6c757d] text-white font-bold py-2.5 px-6 rounded-full hover:bg-[#5a6268] transition-all text-base flex-1 cursor-pointer no-underline"
             >
               {content.policy}

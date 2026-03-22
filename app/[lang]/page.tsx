@@ -21,21 +21,23 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     ]);
 
     return (
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full gap-12 sm:gap-16 lg:gap-20">
             <Hero lang={lang} dict={dict} />
             <AboutSection lang={lang} dict={dict} />
             <ServiceSection lang={lang} dict={dict} />
             <AISolutionsSection lang={lang} dict={dict} />
             <PhilosophySection lang={lang} dict={dict} />
-            <ClientsSection
-                lang={lang}
-                dict={dict}
-                clients={clients}
-                partners={partners}
-                certificates={certificates}
-            />
-            <FAQSection lang={lang} dict={dict} />
-            <Newsletter lang={lang} dict={dict} />
+            <div className="flex flex-col gap-0">
+                <ClientsSection
+                    lang={lang}
+                    dict={dict}
+                    clients={clients}
+                    partners={partners}
+                    certificates={certificates}
+                />
+                <FAQSection lang={lang} dict={dict} />
+                <Newsletter lang={lang} dict={dict} />
+            </div>
         </div>
     );
 }

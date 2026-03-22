@@ -85,17 +85,17 @@ export default async function ServiceDetailPage({
     return (
         <div className="flex flex-col w-full min-h-screen bg-white dark:bg-zinc-950 overflow-x-hidden" dir={isAr ? 'rtl' : 'ltr'}>
             <div className="bg-[#f3f4ff] dark:bg-zinc-900/50">
-                <Breadcrumbs
+                {/* <Breadcrumbs
                     lang={lang}
                     dict={dict}
                     items={[
                         { label: isAr ? 'خدماتنا' : 'Services', href: `/${lang}/services` },
                         { label: isAr ? (service.heroTitleAr || service.heroTitle) : service.heroTitle }
                     ]}
-                />
+                /> */}
 
                 {/* 1. HERO SECTION */}
-                <section className="relative pt-2 md:pt-4 pb-6 md:pb-8 overflow-hidden">
+                <section className="relative pt-32 pb-6 md:pb-8 overflow-hidden">
                     <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16 relative z-10">
                         <div className="max-w-4xl lg:ps-12">
                             <div className="flex items-center gap-3 mb-3">
@@ -162,15 +162,18 @@ export default async function ServiceDetailPage({
                                 </div>
 
                                 {service.aboutPillars && service.aboutPillars.length > 0 && (
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                                    <div className="grid grid-cols-2 gap-6 md:grid-cols-2 md:gap-x-8 md:gap-y-6">
                                         {service.aboutPillars.map((pillar: any, idx: number) => (
-                                            <div key={idx} className="flex items-center gap-4 group">
+                                            <div key={idx} className="flex flex-col items-center text-center gap-3 md:flex-row md:text-left md:items-center md:gap-4 md:rtl:text-right group relative md:pr-4">
                                                 <div className="w-10 h-10 rounded-xl bg-white dark:bg-zinc-950 flex items-center justify-center text-blue-600 flex-shrink-0 shadow-sm shadow-blue-900/5 transition-transform duration-300 group-hover:scale-110">
                                                     {renderIcon(pillar, 'fas fa-shield-alt', 'text-base')}
                                                 </div>
                                                 <span className="font-bold text-[13px] md:text-sm text-zinc-900 dark:text-zinc-100 tracking-tight leading-tight">
                                                     {isAr ? pillar.titleAr : pillar.title}
                                                 </span>
+                                                {idx % 2 === 0 && (
+                                                    <div className="absolute right-0 rtl:left-0 rtl:right-auto top-1/2 -translate-y-1/2 h-8 w-px bg-zinc-200 dark:bg-zinc-800"></div>
+                                                )}
                                             </div>
                                         ))}
                                     </div>
@@ -274,9 +277,9 @@ export default async function ServiceDetailPage({
                                 </p>
 
                                 {service.industries && service.industries.length > 0 && (
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                                    <div className="grid grid-cols-2 gap-6 md:grid-cols-2 md:gap-x-8 md:gap-y-6">
                                         {service.industries.map((ind: any, idx: number) => (
-                                            <div key={idx} className="flex items-center gap-4 group relative pr-4">
+                                            <div key={idx} className="flex flex-col items-center text-center gap-3 md:flex-row md:items-center md:gap-4 md:text-left md:rtl:text-right group relative md:pr-4">
                                                 <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-[#1a6bf5] flex-shrink-0 group-hover:bg-[#1a6bf5] group-hover:text-white transition-all duration-300 shadow-sm border border-blue-100/50 dark:border-blue-900/30">
                                                     {renderIcon(ind, 'fas fa-industry', 'text-sm')}
                                                 </div>
@@ -285,7 +288,9 @@ export default async function ServiceDetailPage({
                                                         {isAr ? ind.titleAr : ind.title}
                                                     </span>
                                                 </div>
-                                                <div className="absolute right-0 top-1/2 -translate-y-1/2 h-6 w-px bg-zinc-200 dark:bg-zinc-800"></div>
+                                                {idx % 2 === 0 && (
+                                                    <div className="absolute right-0 rtl:left-0 rtl:right-auto top-1/2 -translate-y-1/2 h-8 w-px bg-zinc-200 dark:bg-zinc-800"></div>
+                                                )}
                                             </div>
                                         ))}
                                     </div>
@@ -398,7 +403,7 @@ export default async function ServiceDetailPage({
                         </div>
                         <div className="flex flex-wrap justify-center md:justify-end gap-3 relative z-10">
                             <Link
-                                href="https://sharpinnvotech.com/contact"
+                                href={`https://staging.sharpinnvotech.com/${lang}/contact`}
                                 className="px-6 py-2.5 bg-white text-blue-600 font-bold rounded-full hover:bg-zinc-100 transition-all transform hover:scale-105 active:scale-95 text-xs md:text-sm shadow-md"
                             >
                                 {isAr ? 'طلب نسخة تجريبية' : 'Request a Demo'}

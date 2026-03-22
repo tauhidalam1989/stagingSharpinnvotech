@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Syne, DM_Sans } from "next/font/google";
 import "../globals.css";
 import { getDictionary } from "@/lib/get-dictionary";
 import { Locale } from "@/lib/get-dictionary";
@@ -16,6 +16,18 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
     variable: "--font-geist-mono",
     subsets: ["latin"],
+});
+
+const syne = Syne({
+    variable: "--font-syne",
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700", "800"],
+});
+
+const dmSans = DM_Sans({
+    variable: "--font-dm-sans",
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "700"],
 });
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -50,12 +62,14 @@ export default async function RootLayout({
     return (
         <AuthProvider lang={lang}>
             <LanguageSynchronizer lang={lang} dir={isRtl ? 'rtl' : 'ltr'} />
-            <Header lang={lang} dict={dict} />
-            <main className="flex-grow">
-                {children}
-            </main>
-            <Footer lang={lang} dict={dict} />
-            <CookieConsent lang={lang} dict={dict} />
+            <div className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${dmSans.variable} font-sans min-h-screen flex flex-col`}>
+                <Header lang={lang} dict={dict} />
+                <main className="flex-grow">
+                    {children}
+                </main>
+                <Footer lang={lang} dict={dict} />
+                <CookieConsent lang={lang} dict={dict} />
+            </div>
         </AuthProvider>
     );
 }

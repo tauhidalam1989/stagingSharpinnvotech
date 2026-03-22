@@ -176,10 +176,10 @@ export interface Blog {
     gallery?: string[];
     galleryAlt?: string;
     galleryAltAr?: string;
-    categories?: string[];
-    categoriesAr?: string[];
-    tags?: string[];
-    tagsAr?: string[];
+    categories?: string[] | string;
+    categoriesAr?: string[] | string;
+    tags?: string[] | string;
+    tagsAr?: string[] | string;
     isPublished?: boolean;
     metaTitle?: string;
     metaTitleAr?: string;
@@ -472,18 +472,21 @@ export async function getBlogFiltersMetadata(): Promise<{ categories: string[]; 
         const tagSetAr = new Set<string>();
 
         blogs.forEach((blog: Blog) => {
-            if (Array.isArray(blog.categories)) {
-                blog.categories.forEach(cat => cat && categorySet.add(cat));
-            }
-            if (Array.isArray(blog.tags)) {
-                blog.tags.forEach(tag => tag && tagSet.add(tag));
-            }
-            if (Array.isArray(blog.categoriesAr)) {
-                blog.categoriesAr.forEach(cat => cat && categorySetAr.add(cat));
-            }
-            if (Array.isArray(blog.tagsAr)) {
-                blog.tagsAr.forEach(tag => tag && tagSetAr.add(tag));
-            }
+            // Process categories
+            const cats = Array.isArray(blog.categories) ? blog.categories : (typeof blog.categories === 'string' ? (blog.categories as string).split(',').map((c: string) => c.trim()) : []);
+            cats.forEach((cat: string) => cat && categorySet.add(cat));
+
+            // Process tags
+            const tags = Array.isArray(blog.tags) ? blog.tags : (typeof blog.tags === 'string' ? (blog.tags as string).split(',').map((t: string) => t.trim()) : []);
+            tags.forEach((tag: string) => tag && tagSet.add(tag));
+
+            // Process categoriesAr
+            const catsAr = Array.isArray(blog.categoriesAr) ? blog.categoriesAr : (typeof blog.categoriesAr === 'string' ? (blog.categoriesAr as string).split(',').map((c: string) => c.trim()) : []);
+            catsAr.forEach((cat: string) => cat && categorySetAr.add(cat));
+
+            // Process tagsAr
+            const tagsAr = Array.isArray(blog.tagsAr) ? blog.tagsAr : (typeof blog.tagsAr === 'string' ? (blog.tagsAr as string).split(',').map((t: string) => t.trim()) : []);
+            tagsAr.forEach((tag: string) => tag && tagSetAr.add(tag));
         });
 
         return {

@@ -9,13 +9,18 @@ export default function Newsletter({ lang, dict }: { lang: Locale; dict: any }) 
             className="newsletter bg-primary relative overflow-hidden py-5"
             style={{
                 backgroundColor: '#0d6efd',
-                backgroundImage: 'url(/img/bg-hero.png)',
-                backgroundPosition: 'center center',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover'
             }}
         >
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4 relative">
+                <div
+                    className="absolute inset-0 z-0 opacity-100 pointer-events-none"
+                    style={{
+                        backgroundImage: 'url("/img/bg-hero.png")',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
+                    }}
+                />
                 <div className="row flex flex-wrap items-center">
                     {/* Image Section - col-md-5 */}
                     <div className="w-full md:w-5/12 ps-lg-0 pt-5 pt-md-0 text-start wow fadeIn" data-wow-delay="0.3s">
@@ -49,11 +54,13 @@ export default function Newsletter({ lang, dict }: { lang: Locale; dict: any }) 
                                     className="form-control border-0 rounded-full w-full ps-4 pe-12 bg-white text-zinc-900 focus:outline-none"
                                     style={{ height: '48px' }}
                                     required
+                                    suppressHydrationWarning
                                 />
                                 <button
                                     type="submit"
                                     className="btn shadow-none absolute top-1 end-2 p-0 flex items-center justify-center bg-white hover:scale-110 transition-transform"
                                     style={{ width: '40px', height: '40px' }}
+                                    suppressHydrationWarning
                                 >
                                     <i className="fa fa-paper-plane text-primary text-xl" />
                                 </button>

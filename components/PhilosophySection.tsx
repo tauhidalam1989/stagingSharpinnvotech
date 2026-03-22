@@ -14,17 +14,17 @@ export default function PhilosophySection({ lang, dict }: { lang: Locale; dict: 
     return (
         <section className="relative py-24 bg-[#212529] text-white overflow-hidden">
             {/* Background Pattern Layer */}
-            <div
-                className="absolute inset-0 z-0 opacity-40 pointer-events-none"
-                style={{
-                    backgroundImage: 'url("/img/bg-hero.png")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat'
-                }}
-            />
 
             <div className="container relative z-10 mx-auto px-4 md:px-6 lg:px-6">
+                <div
+                    className="absolute inset-0 z-0 opacity-40 pointer-events-none"
+                    style={{
+                        backgroundImage: 'url("/img/bg-hero.png")',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
+                    }}
+                />
                 <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:items-center">
 
                     <div className="lg:col-span-7 space-y-8">
@@ -41,8 +41,8 @@ export default function PhilosophySection({ lang, dict }: { lang: Locale; dict: 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {philosophyPoints.map((point, index) => (
                                 <div key={index} className={`flex items-start gap-4 ${isRtl ? 'flex-row-reverse text-right' : ''}`}>
-                                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#0d6efd] text-white mt-1">
-                                        <i className="fas fa-check text-[10px]"></i>
+                                    <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0d6efd] text-white mt-0.5">
+                                        <i className="fas fa-check text-[8px]"></i>
                                     </div>
                                     <p className="text-zinc-300 !text-white font-medium">{point}</p>
                                 </div>

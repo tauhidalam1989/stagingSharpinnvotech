@@ -85,6 +85,7 @@ export default async function ProductDetailPage({
         <div className="flex flex-col w-full min-h-screen bg-white dark:bg-zinc-950 overflow-x-hidden font-sans" dir={isAr ? 'rtl' : 'ltr'}>
 
             <div className="bg-[#f3f4ff] dark:bg-zinc-900/50">
+                {/*
                 <Breadcrumbs
                     lang={lang}
                     dict={dict}
@@ -93,9 +94,10 @@ export default async function ProductDetailPage({
                         { label: isAr ? (product.titleAr || product.title) : product.title }
                     ]}
                 />
+                */}
 
                 {/* HERO SECTION */}
-                <section className="relative pt-2 md:pt-4 pb-6 md:pb-8 overflow-hidden">
+                <section className="relative pt-32 pb-6 md:pb-8 overflow-hidden">
                     <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16 relative z-10">
                         <div className="max-w-4xl lg:ps-12">
                             <div className="flex items-center gap-3 mb-3">

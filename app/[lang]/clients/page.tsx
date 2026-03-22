@@ -19,7 +19,7 @@ export default async function ClientsPage({
 
     return (
         <div className="flex flex-col w-full min-h-screen bg-zinc-50 dark:bg-zinc-950">
-            <Breadcrumbs lang={lang} dict={dict} items={[{ label: lang === 'ar' ? 'شركاؤنا' : 'Clients' }]} />
+            {/* <Breadcrumbs lang={lang} dict={dict} items={[{ label: lang === 'ar' ? 'شركاؤنا' : 'Clients' }]} /> */}
             <ClientsPageClient 
                 lang={lang} 
                 dict={dict} 

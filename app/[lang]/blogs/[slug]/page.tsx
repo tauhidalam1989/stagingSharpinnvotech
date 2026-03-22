@@ -42,20 +42,24 @@ export default async function BlogDetailPage({
             </>
         );
     };
+    const tags = lang === 'ar' ? blog.tagsAr : blog.tags;
+    const parsedTags = Array.isArray(tags) 
+        ? tags 
+        : (typeof tags === 'string' ? tags.split(',').map(t => t.trim()).filter(Boolean) : []);
 
     return (
         <main className="flex flex-col w-full min-h-screen bg-[#f8fbff] dark:bg-zinc-950">
-            <Breadcrumbs 
+            {/* <Breadcrumbs 
                 lang={lang} 
                 dict={dict} 
                 items={[
                     { label: lang === 'ar' ? 'المدونات' : 'Blogs', href: `/${lang}/blogs` },
                     { label: title || (lang === 'ar' ? 'مقال' : 'Blog Article') }
                 ]} 
-            />
+            /> */}
 
             {/* Blog Hero section - More Compact */}
-            <section className="relative pt-8 pb-10 overflow-hidden">
+            <section className="relative pt-32 pb-10 overflow-hidden">
                 <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16 relative z-10">
                     <div className="max-w-5xl mx-auto">
                         <Link 
@@ -121,11 +125,11 @@ export default async function BlogDetailPage({
                                 {/* Tags & Sharing Section - Tightened */}
                                 <div className="mt-12 pt-8 border-t border-zinc-100 dark:border-zinc-800/50">
                                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                                        {(lang === 'ar' ? blog.tagsAr : blog.tags)?.length ? (
+                                        {parsedTags.length > 0 ? (
                                             <div>
                                                 <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-3">{lang === 'ar' ? 'الوسوم' : 'Related Tags'}</h3>
                                                 <div className="flex flex-wrap gap-2">
-                                                    {(lang === 'ar' ? blog.tagsAr : blog.tags)?.map((tag, i) => (
+                                                    {parsedTags.map((tag, i) => (
                                                         <span key={i} className="px-3 py-1.5 bg-zinc-50 dark:bg-zinc-800 rounded-lg text-[10px] font-bold text-zinc-600 dark:text-zinc-400 border border-zinc-100 dark:border-zinc-700/50 hover:border-blue-500/30 transition-colors cursor-default">
                                                             #{tag}
                                                         </span>

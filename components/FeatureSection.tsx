@@ -10,16 +10,16 @@ export default function FeatureSection({ lang, dict }: { lang: Locale; dict: any
 
     return (
         <section className="relative py-24 bg-[#14183e] text-white overflow-hidden">
-            <div
-                className="absolute inset-0 z-0 opacity-10 pointer-events-none"
-                style={{
-                    backgroundImage: 'url("/img/bg-hero.png")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }}
-            />
 
             <div className="container relative z-10 mx-auto px-4 md:px-6">
+                <div
+                    className="absolute inset-0 z-0 opacity-10 pointer-events-none"
+                    style={{
+                        backgroundImage: 'url("/img/bg-hero.png")',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}
+                />
                 <div className="grid grid-cols-1 gap-12 lg:gap-16 lg:grid-cols-2 lg:items-center">
                     <div className="space-y-8">
                         <div className="inline-block rounded-full border border-[#0d6efd] text-[#0d6efd] px-4 py-1.5 text-sm font-semibold">

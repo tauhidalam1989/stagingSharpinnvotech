@@ -92,7 +92,7 @@ export default function ClientsPageClient({
     };
 
     return (
-        <div className="min-h-screen bg-white dark:bg-zinc-950 py-12 md:py-20">
+        <div className="min-h-screen bg-white dark:bg-zinc-950 pt-32 pb-12 md:pt-40 md:pb-20">
             <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16">
                 <div className="flex flex-col items-center mb-12">
                     <div className="inline-flex p-1 bg-zinc-100 dark:bg-zinc-900 rounded-2xl mb-8">

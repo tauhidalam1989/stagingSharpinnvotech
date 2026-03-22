@@ -1,3 +1,5 @@
+'use client'
+import { useState } from 'react';
 import { Locale } from '@/lib/get-dictionary';
 import FAQAccordion from './FAQAccordion';
 
@@ -16,11 +18,14 @@ export default function FAQSection({ lang, dict }: { lang: Locale; dict: any }) 
         { question: dict.FAQ.QUESTION8, answer: dict.FAQ.ANSWER8 },
     ];
 
-    // Determine if the language is Right-to-Left
     const isRtl = lang === 'ar';
+    const [openId, setOpenId] = useState<string | null>(null);
+    const handleToggle = (id: string) => {
+        setOpenId(prev => prev === id ? null : id);
+    };
 
     return (
-        <section className="py-24 bg-white dark:bg-zinc-950 overflow-hidden">
+        <section className="py-12 bg-white dark:bg-zinc-950 overflow-hidden">
             <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-[1400px]">
                 <div className="mx-auto text-center mb-12" style={{ maxWidth: '500px' }}>
                     <div className="inline-block border border-zinc-200 rounded-full px-4 py-1 text-sm font-semibold text-blue-600 mb-4 tracking-wide">
@@ -39,6 +44,8 @@ export default function FAQSection({ lang, dict }: { lang: Locale; dict: any }) 
                                 id={`faq-home-left-${index}`}
                                 question={faq.question}
                                 answer={faq.answer}
+                                isOpen={openId === `faq-home-left-${index}`}
+                                onToggle={() => handleToggle(`faq-home-left-${index}`)}
                             />
                         ))}
                     </div>
@@ -49,6 +56,8 @@ export default function FAQSection({ lang, dict }: { lang: Locale; dict: any }) 
                                 id={`faq-home-right-${index}`}
                                 question={faq.question}
                                 answer={faq.answer}
+                                isOpen={openId === `faq-home-right-${index}`}
+                                onToggle={() => handleToggle(`faq-home-right-${index}`)}
                             />
                         ))}
                     </div>
