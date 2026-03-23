@@ -65,7 +65,7 @@ export default function AboutStory({ lang, dict }: AboutStoryProps) {
                             {content.title}
                         </h2>
 
-                        <div className="space-y-6 text-gray-600 font-light leading-relaxed text-lg">
+                        <div className="space-y-6 text-gray-600 font-light leading-relaxed text-sm">
                             <p>{content.p1}</p>
                             <p>{content.p2}</p>
                             <p>{content.p3}</p>

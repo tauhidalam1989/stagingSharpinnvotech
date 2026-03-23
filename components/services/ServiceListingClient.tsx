@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, Globe, Code, Zap, Layers, ArrowRight } from 'lucide-react';
+import { Shield, Globe, Code, Zap, Layers, ArrowRight, LayoutGrid } from 'lucide-react';
 import ServiceCard from '@/components/ServiceCard';
 import { ServicePage } from '@/lib/api';
 
@@ -44,11 +44,11 @@ const ServiceListingClient: React.FC<ServiceListingClientProps> = ({
   // Scroll Spy Logic
   useEffect(() => {
     if (!isManualScroll) {
-        const handleInitialScroll = () => {
-            if (window.scrollY < 100) setScrolledSection(null);
-        };
-        window.addEventListener('scroll', handleInitialScroll);
-        return () => window.removeEventListener('scroll', handleInitialScroll);
+      const handleInitialScroll = () => {
+        if (window.scrollY < 100) setScrolledSection(null);
+      };
+      window.addEventListener('scroll', handleInitialScroll);
+      return () => window.removeEventListener('scroll', handleInitialScroll);
     }
   }, [isManualScroll]);
 
@@ -63,7 +63,7 @@ const ServiceListingClient: React.FC<ServiceListingClientProps> = ({
           const id = intersectingEntry.target.id.replace('category-', '');
           setScrolledSection(id);
         } else if (window.scrollY < 200) {
-            setScrolledSection(null);
+          setScrolledSection(null);
         }
       },
       {
@@ -110,7 +110,7 @@ const ServiceListingClient: React.FC<ServiceListingClientProps> = ({
     if (n.includes('network') || n.includes('infra') || n.includes('شبكة')) return 'bg-cyan-50 text-cyan-600 border-cyan-100';
     if (n.includes('software') || n.includes('app') || n.includes('برمج')) return 'bg-indigo-50 text-indigo-600 border-indigo-100';
     if (n.includes('enterprise') || n.includes('oracle') || n.includes('أوراكل')) return 'bg-amber-50 text-amber-600 border-amber-100';
-    
+
     // Dynamic Fallback
     const fallback = getDeterministicColor(id);
     return `${fallback.bg} ${fallback.text} ${fallback.border}`;
@@ -122,7 +122,7 @@ const ServiceListingClient: React.FC<ServiceListingClientProps> = ({
     if (n.includes('network') || n.includes('infra') || n.includes('شبكة')) return 'bg-cyan-500';
     if (n.includes('software') || n.includes('app') || n.includes('برمج')) return 'bg-indigo-500';
     if (n.includes('enterprise') || n.includes('oracle') || n.includes('أوراكل')) return 'bg-amber-500';
-    
+
     // Dynamic Fallback
     return getDeterministicColor(id).dot;
   };
@@ -133,7 +133,7 @@ const ServiceListingClient: React.FC<ServiceListingClientProps> = ({
 
     if (manualScrollTimerRef.current) clearTimeout(manualScrollTimerRef.current);
     manualScrollTimerRef.current = setTimeout(() => {
-        setIsManualScroll(false);
+      setIsManualScroll(false);
     }, 1000);
 
     if (id !== 'all') {
@@ -145,14 +145,14 @@ const ServiceListingClient: React.FC<ServiceListingClientProps> = ({
         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       }
     } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   return (
     <div className="relative" dir={isAr ? 'rtl' : 'ltr'}>
       {/* Sticky Filter Bar */}
-      <div 
+      <div
         ref={scrollContainerRef}
         className="sticky top-[80px] z-50 bg-white/80 backdrop-blur-md border-b border-zinc-100 shadow-sm overflow-x-auto no-scrollbar"
       >
@@ -160,13 +160,13 @@ const ServiceListingClient: React.FC<ServiceListingClientProps> = ({
           <button
             onClick={() => handleFilterClick('all')}
             data-active={activeFilter === 'all' && !scrolledSection}
-            className={`px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
-              activeFilter === 'all' && !scrolledSection
-                ? 'bg-[#0d6efd] text-white shadow-lg shadow-blue-200'
-                : 'bg-zinc-50 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 border border-zinc-200'
-            }`}
+            className={`px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${activeFilter === 'all' && !scrolledSection
+              ? 'bg-[#0d6efd] text-white shadow-lg shadow-blue-200'
+              : 'bg-zinc-50 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 border border-zinc-200'
+              }`}
           >
-            <span className={`w-2 h-2 rounded-full bg-zinc-400 ${activeFilter === 'all' && !scrolledSection ? 'ring-2 ring-white/30' : ''}`}></span>
+            {/* <span className={`w-2 h-2 rounded-full bg-zinc-400 ${activeFilter === 'all' && !scrolledSection ? 'ring-2 ring-white/30' : ''}`}></span> */}
+            <LayoutGrid className="w-4 h-4" />
             {s.FILTER_ALL}
           </button>
           {categoryIds.map((id) => {
@@ -176,11 +176,10 @@ const ServiceListingClient: React.FC<ServiceListingClientProps> = ({
                 key={id}
                 onClick={() => handleFilterClick(id)}
                 data-active={isActive}
-                className={`px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
-                  isActive
-                    ? 'bg-[#0d6efd] text-white shadow-lg shadow-blue-200 border-transparent'
-                    : 'bg-white text-zinc-600 hover:border-[#0d6efd]/30 hover:text-[#0d6efd] border border-zinc-200'
-                }`}
+                className={`px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${isActive
+                  ? 'bg-[#0d6efd] text-white shadow-lg shadow-blue-200 border-transparent'
+                  : 'bg-white text-zinc-600 hover:border-[#0d6efd]/30 hover:text-[#0d6efd] border border-zinc-200'
+                  }`}
               >
                 <span className={`w-2 h-2 rounded-full ${getCategoryDotColor(id, servicesByCategory[id].name)} ${isActive ? 'ring-2 ring-white/30' : ''}`}></span>
                 {servicesByCategory[id].name}
