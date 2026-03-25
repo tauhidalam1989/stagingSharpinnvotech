@@ -48,7 +48,7 @@ const BlogListingClient: React.FC<BlogListingClientProps> = ({
   const [isSticky, setIsSticky] = useState(false);
   const [isPending, startTransition] = useTransition();
 
-  const pageSize = 12;
+  const pageSize = 9;
   const totalPages = Math.ceil(total / pageSize);
 
   // Sync internal state with URL params
@@ -73,7 +73,10 @@ const BlogListingClient: React.FC<BlogListingClientProps> = ({
           newSearchParams.set(name, value);
         }
       });
-      newSearchParams.set("page", "1");
+      // Only reset to page 1 if we're not explicitly changing the page parameter
+      if (!('page' in params)) {
+        newSearchParams.set("page", "1");
+      }
       return newSearchParams.toString();
     },
     [searchParams]

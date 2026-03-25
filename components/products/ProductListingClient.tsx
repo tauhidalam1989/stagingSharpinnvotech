@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Box, Shield, Globe, Cpu, Layers, LayoutGrid } from 'lucide-react';
+import { Box, Shield, Globe, Cpu, Layers, LayoutGrid, ChevronLeft, ChevronRight } from 'lucide-react';
 import ProductCardV2 from './ProductCardV2';
 import { Product } from '@/lib/api';
 
@@ -27,8 +27,17 @@ const ProductListingClient: React.FC<ProductListingClientProps> = ({
   const manualScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  // Sync Horizontal Scroll for Desktop/Mobile
+  const scrollFilters = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = direction === 'left' ? -200 : 200;
+      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  // Sync Horizontal Scroll for Mobile
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth >= 1024) return;
+
     if (scrollContainerRef.current) {
       const activeBtn = scrollContainerRef.current.querySelector('[data-active="true"]');
       if (activeBtn) {
@@ -124,45 +133,68 @@ const ProductListingClient: React.FC<ProductListingClientProps> = ({
   return (
     <div className="relative" dir={isAr ? 'rtl' : 'ltr'}>
       {/* Sticky Filter Bar */}
-      <div className="sticky top-[80px] z-50 bg-white/90 backdrop-blur-xl border-b border-zinc-100 shadow-md transition-all duration-300">
+      <div className="sticky top-[80px] z-40 bg-white/90 backdrop-blur-xl border-b border-zinc-100 shadow-md transition-all duration-300">
         <div className="container mx-auto px-6 py-4">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            {/* Filter Pills */}
-            <div 
-              ref={scrollContainerRef}
-              className="flex items-center gap-3 overflow-x-auto no-scrollbar pb-1 lg:pb-0"
-            >
+            {/* Filter Pills Container */}
+            <div className="relative w-full flex items-center group">
+              {/* Logical Start Arrow (Left in LTR, Right in RTL) */}
               <button
-                onClick={() => handleFilterClick('all')}
-                data-active={activeFilter === 'all' && !scrolledSection}
-                className={`px-6 py-2.5 rounded-2xl text-[13px] font-bold transition-all duration-500 flex items-center gap-3 whitespace-nowrap border shrink-0 ${
-                  activeFilter === 'all' && !scrolledSection
-                    ? 'bg-[#0d6efd] text-white shadow-xl shadow-blue-200 border-transparent'
-                    : 'bg-zinc-50 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 border-zinc-200 shadow-sm'
-                }`}
+                onClick={() => scrollFilters(isAr ? 'right' : 'left')}
+                className={`flex lg:hidden absolute ${isAr ? 'right-0 translate-x-2' : 'left-0 -translate-x-2'} z-10 w-8 h-8 items-center justify-center bg-white border border-zinc-200 rounded-full shadow-md text-zinc-600 hover:text-blue-600`}
+                aria-label="Scroll backward"
               >
-                <LayoutGrid className="w-4 h-4" />
-                {p.FILTER_ALL}
+                {isAr ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
               </button>
-              {categoryIds.map((id) => {
-                const isActive = activeFilter === id || (activeFilter === 'all' && scrolledSection === id);
-                const category = productsByCategory[id];
-                return (
-                  <button
-                    key={id}
-                    onClick={() => handleFilterClick(id)}
-                    data-active={isActive}
-                    className={`px-6 py-2.5 rounded-2xl text-[13px] font-bold transition-all duration-500 flex items-center gap-3 whitespace-nowrap border shrink-0 ${
-                      isActive
-                        ? 'bg-[#0d6efd] text-white shadow-xl shadow-blue-200 border-transparent'
-                        : 'bg-white text-zinc-600 hover:border-[#0d6efd]/30 hover:text-[#0d6efd] border-zinc-200 shadow-sm'
-                    }`}
-                  >
-                    <span className={`w-2 h-2 rounded-full ${getCategoryDotColor(category.name)} ${isActive ? 'ring-4 ring-white/30' : ''}`}></span>
-                    {category.name}
-                  </button>
-                );
-              })}
+
+              {/* Filter Pills */}
+              <div 
+                ref={scrollContainerRef}
+                className="flex lg:flex-wrap items-center gap-3 overflow-x-auto lg:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] pb-1 lg:pb-0 justify-start w-full px-2 lg:px-0"
+              >
+                <button
+                  onClick={() => handleFilterClick('all')}
+                  data-active={activeFilter === 'all' && !scrolledSection}
+                  className={`shrink-0 px-6 py-2.5 rounded-2xl text-[13px] font-bold transition-all duration-500 flex items-center gap-3 whitespace-nowrap border ${
+                    activeFilter === 'all' && !scrolledSection
+                      ? 'bg-[#0d6efd] text-white shadow-xl shadow-blue-200 border-transparent'
+                      : 'bg-zinc-50 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 border-zinc-200 shadow-sm'
+                  }`}
+                  suppressHydrationWarning={true}
+                >
+                  <LayoutGrid className="w-4 h-4" />
+                  {p.FILTER_ALL}
+                </button>
+                {categoryIds.map((id) => {
+                  const isActive = activeFilter === id || (activeFilter === 'all' && scrolledSection === id);
+                  const category = productsByCategory[id];
+                  return (
+                    <button
+                      key={id}
+                      onClick={() => handleFilterClick(id)}
+                      data-active={isActive}
+                      className={`shrink-0 px-6 py-2.5 rounded-2xl text-[13px] font-bold transition-all duration-500 flex items-center gap-3 whitespace-nowrap border ${
+                        isActive
+                          ? 'bg-[#0d6efd] text-white shadow-xl shadow-blue-200 border-transparent'
+                          : 'bg-white text-zinc-600 hover:border-[#0d6efd]/30 hover:text-[#0d6efd] border-zinc-200 shadow-sm'
+                      }`}
+                      suppressHydrationWarning={true}
+                    >
+                      <span className={`w-2 h-2 rounded-full ${getCategoryDotColor(category.name)} ${isActive ? 'ring-4 ring-white/30' : ''}`}></span>
+                      {category.name}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Logical End Arrow (Right in LTR, Left in RTL) */}
+              <button
+                onClick={() => scrollFilters(isAr ? 'left' : 'right')}
+                className={`flex lg:hidden absolute ${isAr ? 'left-0 -translate-x-2' : 'right-0 translate-x-2'} z-10 w-8 h-8 items-center justify-center bg-white border border-zinc-200 rounded-full shadow-md text-zinc-600 hover:text-blue-600`}
+                aria-label="Scroll forward"
+              >
+                {isAr ? <ChevronLeft className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
+              </button>
             </div>
           </div>
         </div>

@@ -1,9 +1,50 @@
-'use client'
+'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { Locale } from '@/lib/get-dictionary';
+import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function Newsletter({ lang, dict }: { lang: Locale; dict: any }) {
+    const [email, setEmail] = useState('');
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [message, setMessage] = useState('');
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        
+        if (!email) return;
+
+        setStatus('loading');
+        setMessage('');
+
+        try {
+            const response = await fetch('/api/newsletter', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setStatus('success');
+                setMessage(dict.NEWSLETTER?.SUCCESS || 'Thank you for subscribing!');
+                setEmail('');
+                // Reset success message after 5 seconds
+                setTimeout(() => setStatus('idle'), 5000);
+            } else {
+                setStatus('error');
+                setMessage(data.message || 'Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            setStatus('error');
+            setMessage('Network error. Please check your connection.');
+        }
+    };
+
     return (
         <section
             className="newsletter bg-primary relative overflow-hidden py-5"
@@ -46,27 +87,51 @@ export default function Newsletter({ lang, dict }: { lang: Locale; dict: any }) 
                             {dict.NEWSLETTER.SUBSCRIBE}
                         </h1>
 
-                        <form className="w-full mt-3 mb-2" onSubmit={(e) => e.preventDefault()}>
+                        <form className="w-full mt-3 mb-2" onSubmit={handleSubmit}>
                             <div className="relative w-full max-w-2xl">
                                 <input
                                     type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     placeholder={dict.NEWSLETTER.PLACEHOLDER}
-                                    className="form-control border-0 rounded-full w-full ps-4 pe-12 bg-white text-zinc-900 focus:outline-none"
+                                    className="form-control border-0 rounded-full w-full ps-4 pe-14 bg-white text-zinc-900 focus:outline-none disabled:opacity-70"
                                     style={{ height: '48px' }}
                                     required
-                                    suppressHydrationWarning
+                                    disabled={status === 'loading'}
+                                    suppressHydrationWarning={true}
                                 />
                                 <button
                                     type="submit"
-                                    className="btn shadow-none absolute top-1 end-2 p-0 flex items-center justify-center bg-white hover:scale-110 transition-transform"
-                                    style={{ width: '40px', height: '40px' }}
-                                    suppressHydrationWarning
+                                    disabled={status === 'loading'}
+                                    className="btn shadow-none absolute top-1 end-2 p-0 flex items-center rounded-full justify-center bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white transition-all w-[40px] h-[40px]"
+                                    suppressHydrationWarning={true}
                                 >
-                                    <i className="fa fa-paper-plane text-primary text-xl" />
+                                    {status === 'loading' ? (
+                                        <Loader2 className="w-5 h-5 animate-spin" />
+                                    ) : (
+                                        <i className="fa fa-paper-plane text-xl" />
+                                    )}
                                 </button>
                             </div>
                         </form>
-                        <small className="text-white opacity-50 mt-2 block italic text-left">
+
+                        {/* Feedback Messages */}
+                        <div className="min-h-[24px] mt-2">
+                            {status === 'success' && (
+                                <div className="flex items-center gap-2 text-green-100 text-sm font-medium animate-in fade-in slide-in-from-top-1">
+                                    <CheckCircle2 className="w-4 h-4" />
+                                    {message}
+                                </div>
+                            )}
+                            {status === 'error' && (
+                                <div className="flex items-center gap-2 text-red-100 text-sm font-medium animate-in fade-in slide-in-from-top-1">
+                                    <AlertCircle className="w-4 h-4" />
+                                    {message}
+                                </div>
+                            )}
+                        </div>
+
+                        <small className="text-white opacity-70 mt-4 block italic text-left">
                             {dict.NEWSLETTER.FOOTER_TEXT}
                         </small>
                     </div>

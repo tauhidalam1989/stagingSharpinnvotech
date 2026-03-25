@@ -54,14 +54,25 @@ const renderIcon = (item: any, fallback: string, className = "text-sm") => {
 };
 
 const HighlightedTitle = ({ title, className }: { title: string; className?: string }) => {
+    const renderTitle = (text: string) => {
+        const words = text.split(' ');
+        if (words.length <= 2) return <span className="text-[#1a6bf5]">{text}</span>;
+        
+        const mainPart = words.slice(0, words.length - 2).join(' ');
+        const lastTwo = words.slice(words.length - 2).join(' ');
+        
+        return (
+            <>
+                {mainPart} <span className="text-[#1a6bf5]">{lastTwo}</span>
+            </>
+        );
+    };
+
     if (!title) return null;
-    const words = title.trim().split(/\s+/);
-    if (words.length <= 2) return <h1 className={className}>{title}</h1>;
 
     return (
         <h1 className={className}>
-            {words.slice(0, words.length - 2).join(' ')}{' '}
-            <span className="text-[#1a6bf5] font-semibold">{words.slice(-2).join(' ')}</span>
+            {renderTitle(title)}
         </h1>
     );
 };
@@ -85,21 +96,21 @@ export default async function ProductDetailPage({
         <div className="flex flex-col w-full min-h-screen bg-white dark:bg-zinc-950 overflow-x-hidden font-sans" dir={isAr ? 'rtl' : 'ltr'}>
 
             <div className="bg-[#f3f4ff] dark:bg-zinc-900/50">
-                {/*
-                <Breadcrumbs
-                    lang={lang}
-                    dict={dict}
-                    items={[
-                        { label: isAr ? 'منتجاتنا' : 'Products', href: `/${lang}/products` },
-                        { label: isAr ? (product.titleAr || product.title) : product.title }
-                    ]}
-                />
-                */}
+
 
                 {/* HERO SECTION */}
                 <section className="relative pt-32 pb-6 md:pb-8 overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16 relative z-10">
-                        <div className="max-w-4xl lg:ps-12">
+                    {/* <Breadcrumbs 
+                        lang={lang as Locale} 
+                        dict={dict} 
+                        items={[
+                            { label: isAr ? 'منتجاتنا' : 'Products', href: `/${lang}/products` },
+                            { label: isAr ? (product.titleAr || product.title) : product.title }
+                        ]} 
+                        isLight={true}
+                    /> */}
+                    <div className="container mx-auto px-6 relative z-10">
+                        <div className="w-full">
                             <div className="flex items-center gap-3 mb-3">
                                 <div className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></div>
                                 <span className="text-blue-600 font-semibold tracking-widest uppercase text-[10px]">
@@ -123,7 +134,7 @@ export default async function ProductDetailPage({
                                 </h4>
                             )}
 
-                            <p className="text-sm md:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal mb-6 max-w-3xl">
+                            <p className="text-sm md:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal mb-6">
                                 {isAr ? (product.heroDescriptionAr || product.shortDescriptionAr) : (product.heroDescription || product.shortDescription)}
                             </p>
 
@@ -154,9 +165,9 @@ export default async function ProductDetailPage({
 
             {/* ABOUT THE SOLUTION */}
             <section className="py-16 relative overflow-hidden bg-[#f3f4ff] dark:bg-zinc-900/40">
-                <div className="container mx-auto px-6 md:px-16 lg:px-24">
+                <div className="container mx-auto px-6">
                     <div className={`flex flex-col lg:flex-row items-start gap-16 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
-                        <div className="flex-1 lg:max-w-[60%]">
+                        <div className="flex-1">
                             <div className={`mb-6 ${isAr ? 'text-right' : 'text-left'}`}>
                                 <h4 className="text-xl md:text-2xl font-bold text-[#1a6bf5] mb-4 tracking-tight">
                                     {isAr ? (product.aboutTitleAr || 'حول الحل') : (product.aboutTitle || 'About the Solution')}
@@ -190,13 +201,13 @@ export default async function ProductDetailPage({
             {/* HOW IT WORKS */}
             {product.howItWorks && product.howItWorks.length > 0 && (
                 <section className="py-12 bg-zinc-50 dark:bg-zinc-900/30">
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16 text-center">
-                        <div className="mb-10 max-w-xl mx-auto">
+                    <div className="container mx-auto px-6 text-center">
+                        <div className="mb-10">
                             <h2 className="text-xl md:text-2xl font-semibold text-[#141d72] dark:text-blue-400 tracking-tight">
                                 {isAr ? "كيف يعمل؟" : "How It Works"}
                             </h2>
                         </div>
-                        <div className="max-w-4xl mx-auto">
+                        <div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {product.howItWorks.map((item, idx) => (
                                     <div key={idx} className="group capability-card">
@@ -219,7 +230,7 @@ export default async function ProductDetailPage({
 
             {/* KEY FEATURES */}
             <section className="py-12 bg-[#f3f4ff] dark:bg-zinc-950">
-                <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16">
+                <div className="container mx-auto px-6">
                     <div className={`flex flex-col lg:flex-row items-center gap-12 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
                         <div className="lg:w-2/5 flex justify-center">
                             <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[380px] w-full group">
@@ -270,8 +281,8 @@ export default async function ProductDetailPage({
             {/* BENEFITS & IMPACT */}
             {product.benefits && product.benefits.length > 0 && (
                 <section className="py-16 bg-[#14183e] text-white relative overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16 max-w-7xl relative z-10">
-                        <div className="text-center mb-16 max-w-2xl mx-auto">
+                    <div className="container mx-auto px-6 relative z-10">
+                        <div className="text-center mb-16">
                             <h2 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight">
                                 {isAr ? "الفوائد والأثر" : "Benefits & Impact"}
                             </h2>
@@ -301,8 +312,8 @@ export default async function ProductDetailPage({
             {/* VISION ALIGNMENT */}
             {product.visionItems && product.visionItems.length > 0 && (
                 <section className="py-12 bg-[#f3f4ff] dark:bg-zinc-900/50">
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16 text-center">
-                        <div className="mb-10 max-w-xl mx-auto">
+                    <div className="container mx-auto px-6 text-center">
+                        <div className="mb-10">
                             <h2 className="text-xl md:text-2xl font-semibold text-[#141d72] dark:text-blue-400 tracking-tight uppercase">
                                 {isAr ? product.visionTitleAr || 'محاذاة رؤية 2030' : product.visionTitle || 'Vision 2030 Alignment'}
                             </h2>
@@ -326,9 +337,9 @@ export default async function ProductDetailPage({
             {/* WHY SHARP INNVOTECH */}
             {(product.whySharpTitle || product.whySharpTitleAr) && (
                 <section className="py-16 bg-white dark:bg-zinc-950">
-                    <div className="container mx-auto px-6 md:px-16 lg:px-24">
+                    <div className="container mx-auto px-6">
                         <div className={`flex flex-col lg:flex-row items-center gap-16 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
-                            <div className="flex-1 lg:max-w-[60%] order-2 lg:order-1">
+                            <div className="flex-1 order-2 lg:order-1">
                                 <div className={`mb-6 ${isAr ? 'text-right' : 'text-left'}`}>
                                     <div className="inline-block px-4 py-1.5 rounded-full border border-blue-200 bg-blue-50/30 mb-4">
                                         <span className="text-[#141d72] dark:text-blue-400 font-bold text-[10px] tracking-widest uppercase">
@@ -367,8 +378,8 @@ export default async function ProductDetailPage({
 
             {/* CTA BANNER */}
             <section className="py-6 bg-[#f3f4ff] dark:bg-zinc-900/50">
-                <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16">
-                    <div className="bg-blue-600 rounded-2xl py-6 px-8 md:py-7 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl shadow-blue-600/20 relative overflow-hidden group max-w-5xl mx-auto">
+                <div className="container mx-auto px-6">
+                    <div className="bg-blue-600 rounded-2xl py-6 px-8 md:py-7 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl shadow-blue-600/20 relative overflow-hidden group mx-auto">
                         <div className="relative z-10 text-center md:text-left">
                             <h2 className="text-xl md:text-3xl font-bold text-white tracking-tight">
                                 {isAr ? product.ctaTitleAr : product.ctaTitle || (isAr ? 'ابدأ الخطوة التالية' : 'Drive next step')}
@@ -403,7 +414,7 @@ export default async function ProductDetailPage({
             {/* FAQ SECTION */}
             {product.faqs && product.faqs.length > 0 && (
                 <section className="py-12 bg-[#f3f4ff] dark:bg-zinc-900/50">
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16">
+                    <div className="container mx-auto px-6">
                         <div className="text-center mb-8">
                             <h2 className="text-xl font-semibold text-[#141d72] dark:text-blue-400 mb-2 uppercase tracking-tight">
                                 {isAr ? "الأسئلة المتكررة" : "Frequently Asked Questions"}

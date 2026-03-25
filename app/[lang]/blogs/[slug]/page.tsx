@@ -1,4 +1,4 @@
-import { getDictionary } from "@/lib/get-dictionary";
+import { getDictionary, Locale } from "@/lib/get-dictionary";
 import { getBlogBySlug, getRelatedBlogs } from "@/lib/api";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -49,19 +49,21 @@ export default async function BlogDetailPage({
 
     return (
         <main className="flex flex-col w-full min-h-screen bg-[#f8fbff] dark:bg-zinc-950">
-            {/* <Breadcrumbs 
-                lang={lang} 
-                dict={dict} 
-                items={[
-                    { label: lang === 'ar' ? 'المدونات' : 'Blogs', href: `/${lang}/blogs` },
-                    { label: title || (lang === 'ar' ? 'مقال' : 'Blog Article') }
-                ]} 
-            /> */}
+
 
             {/* Blog Hero section - More Compact */}
             <section className="relative pt-32 pb-10 overflow-hidden">
-                <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16 relative z-10">
-                    <div className="max-w-5xl mx-auto">
+                {/* <Breadcrumbs 
+                    lang={lang as Locale} 
+                    dict={dict} 
+                    items={[
+                        { label: lang === 'ar' ? 'المدونات' : 'Blogs', href: `/${lang}/blogs` },
+                        { label: title || (lang === 'ar' ? 'مقال' : 'Blog Article') }
+                    ]} 
+                    isLight={true}
+                /> */}
+                <div className="container mx-auto px-6 relative z-10">
+                    <div className="w-full">
                         <Link 
                             href={`/${lang}/blogs`} 
                             className="inline-flex items-center gap-2 text-blue-600 font-bold mb-6 hover:-translate-x-1 transition-transform group"
@@ -100,8 +102,8 @@ export default async function BlogDetailPage({
             </section>
 
             {/* Main Content Area - Compacted */}
-            <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16 pb-16 relative z-10">
-                <div className="max-w-7xl mx-auto">
+            <div className="container mx-auto px-6 pb-16 relative z-10">
+                <div className="w-full">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10">
                         
                         {/* Blog Column */}
@@ -169,7 +171,7 @@ export default async function BlogDetailPage({
             {/* Related Posts Section - Compact */}
             {relatedBlogs.length > 0 && (
                 <section className="py-16 bg-zinc-50 dark:bg-zinc-900/20 border-t border-zinc-100 dark:border-zinc-800/50">
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16">
+                    <div className="container mx-auto px-6">
                         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
                             <div>
                                 <div className="inline-block rounded-full bg-blue-50 px-2 py-0.5 text-[9px] font-black text-blue-600 dark:bg-blue-900/20 dark:text-blue-400 mb-1.5 uppercase tracking-[0.15em]">

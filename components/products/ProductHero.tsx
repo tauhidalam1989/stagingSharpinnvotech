@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Box, Layers, Cpu, ShieldCheck } from 'lucide-react';
+import Breadcrumbs from '../Breadcrumbs';
+import { Locale } from '@/lib/get-dictionary';
 
 interface ProductHeroProps {
   lang: string;
@@ -34,6 +36,13 @@ const ProductHero: React.FC<ProductHeroProps> = ({ lang, dict }) => {
       {/* Animated Orbs */}
       <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-white/10 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
       <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-400/20 rounded-full blur-[100px] pointer-events-none animate-pulse" style={{ animationDelay: '1s' }}></div>
+
+      {/* <Breadcrumbs 
+          lang={lang as Locale} 
+          dict={dict} 
+          items={[{ label: isAr ? 'منتجاتنا' : 'Products' }]} 
+          listingPage={true}
+      /> */}
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl">

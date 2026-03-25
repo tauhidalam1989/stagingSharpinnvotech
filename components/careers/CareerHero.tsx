@@ -4,6 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Globe, Users, Lightbulb, ArrowRight, Star, Heart, Rocket } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import Breadcrumbs from '../Breadcrumbs';
+import { Locale } from '@/lib/get-dictionary';
 
 interface CareerHeroProps {
   lang: string;
@@ -55,6 +57,13 @@ const CareerHero: React.FC<CareerHeroProps> = ({ lang, dict }) => {
       {/* Animated Orbs */}
       <div className="absolute -top-24 -right-24 w-[500px] h-[500px] bg-white/10 rounded-full blur-[100px] pointer-events-none animate-pulse"></div>
       <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] bg-blue-400/20 rounded-full blur-[80px] pointer-events-none animate-pulse"></div>
+
+      {/* <Breadcrumbs 
+          lang={lang as Locale} 
+          dict={dict} 
+          items={[{ label: isAr ? 'الوظائف' : 'Careers' }]} 
+          listingPage={true}
+      /> */}
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl">

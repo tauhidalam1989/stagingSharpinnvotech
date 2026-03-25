@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Breadcrumbs from '../Breadcrumbs';
+import { Locale } from '@/lib/get-dictionary';
 
 interface ContactHeroProps {
   lang: string;
@@ -33,6 +35,13 @@ const ContactHero: React.FC<ContactHeroProps> = ({ lang, dict }) => {
           className="absolute -bottom-[160px] left-[10%] w-[380px] h-[380px] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.1)_0%,transparent_65%)]"
         />
       </div>
+
+      {/* <Breadcrumbs 
+          lang={lang as Locale} 
+          dict={dict} 
+          items={[{ label: isAr ? 'اتصل بنا' : 'Contact Us' }]} 
+          listingPage={true}
+      /> */}
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl">

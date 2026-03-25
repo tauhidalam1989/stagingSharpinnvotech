@@ -50,9 +50,9 @@ export default function AboutStory({ lang, dict }: AboutStoryProps) {
                         </div>
 
                         {/* Floating Badge */}
-                        <div className={`absolute -bottom-6 ${isRtl ? '-left-6' : '-right-6'} bg-[#1650C8] rounded-2xl px-8 py-6 shadow-2xl border border-white/10 z-20`}>
-                            <div className="text-white text-3xl font-bold font-syne uppercase tracking-tighter">{content.location.split(',')[0]}</div>
-                            <div className="text-white/70 text-sm font-light mt-1">{content.location}</div>
+                        <div className={`absolute -bottom-4 lg:-bottom-6 ${isRtl ? 'left-4 lg:-left-6' : 'right-4 lg:-right-6'} bg-[#1650C8] rounded-xl lg:rounded-2xl px-6 py-4 lg:px-8 lg:py-6 shadow-2xl border border-white/10 z-20`}>
+                            <div className="text-white text-2xl lg:text-3xl font-bold font-syne uppercase tracking-tighter">{content.location.split(',')[0]}</div>
+                            <div className="text-white/70 text-xs lg:text-sm font-light mt-1">{content.location}</div>
                         </div>
                     </div>
 

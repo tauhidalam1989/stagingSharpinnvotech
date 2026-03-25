@@ -85,19 +85,21 @@ export default async function ServiceDetailPage({
     return (
         <div className="flex flex-col w-full min-h-screen bg-white dark:bg-zinc-950 overflow-x-hidden" dir={isAr ? 'rtl' : 'ltr'}>
             <div className="bg-[#f3f4ff] dark:bg-zinc-900/50">
-                {/* <Breadcrumbs
-                    lang={lang}
-                    dict={dict}
-                    items={[
-                        { label: isAr ? 'خدماتنا' : 'Services', href: `/${lang}/services` },
-                        { label: isAr ? (service.heroTitleAr || service.heroTitle) : service.heroTitle }
-                    ]}
-                /> */}
+
 
                 {/* 1. HERO SECTION */}
                 <section className="relative pt-32 pb-6 md:pb-8 overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16 relative z-10">
-                        <div className="max-w-4xl lg:ps-12">
+                    {/* <Breadcrumbs 
+                        lang={lang as Locale} 
+                        dict={dict} 
+                        items={[
+                            { label: isAr ? 'خدماتنا' : 'Services', href: `/${lang}/services` },
+                            { label: isAr ? (service.heroTitleAr || service.heroTitle) : service.heroTitle }
+                        ]} 
+                        isLight={true}
+                    /> */}
+                    <div className="container mx-auto px-6 relative z-10">
+                        <div className="w-full">
                             <div className="flex items-center gap-3 mb-3">
                                 <div className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></div>
                                 <span className="text-blue-600 font-semibold tracking-widest uppercase text-[10px]">
@@ -119,14 +121,14 @@ export default async function ServiceDetailPage({
                                 />
                             </div>
 
-                            <p className="text-sm md:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal mb-6 max-w-3xl">
+                            <p className="text-sm md:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal mb-6">
                                 {isAr ? service.heroIntroductionAr : service.heroIntroduction}
                             </p>
 
                             <div className="flex flex-wrap gap-3">
                                 {(service.primaryCtaText || service.primaryCtaTextAr) && (
                                     <Link
-                                        href={service.primaryCtaLink || '#'}
+                                        href={`/${lang}/contact`}
                                         className="px-6 py-2.5 bg-blue-600 text-white font-bold rounded-lg shadow-lg shadow-blue-600/20 hover:bg-blue-700 transition-all hover:-translate-y-0.5 block text-xs md:text-sm"
                                     >
                                         {isAr ? (service.primaryCtaTextAr || service.primaryCtaText) : (service.primaryCtaText || 'Get Started')}
@@ -134,7 +136,7 @@ export default async function ServiceDetailPage({
                                 )}
                                 {(service.secondaryCtaText || service.secondaryCtaTextAr) && (
                                     <Link
-                                        href={service.secondaryCtaLink || '#'}
+                                        href={`/${lang}/contact`}
                                         className="px-6 py-2.5 bg-transparent border-2 border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white font-bold rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all hover:-translate-y-0.5 block text-xs md:text-sm"
                                     >
                                         {isAr ? (service.secondaryCtaTextAr || service.secondaryCtaText) : (service.secondaryCtaText || 'Learn More')}
@@ -151,9 +153,9 @@ export default async function ServiceDetailPage({
             {/* 2. ABOUT SECTION */}
             {(service.aboutSectionTitle || service.aboutSectionTitleAr) && (
                 <section className="pt-4 md:pt-6 pb-10 relative overflow-hidden bg-[#f3f4ff] dark:bg-zinc-900/40">
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16">
+                    <div className="container mx-auto px-6">
                         <div className="flex flex-col lg:flex-row items-start gap-12">
-                            <div className="flex-1 lg:max-w-[60%] lg:ps-12">
+                            <div className="flex-1">
                                 <h2 className="text-xl md:text-2xl font-bold text-[#1a6bf5] mb-4 tracking-tight">
                                     {isAr ? service.aboutSectionTitleAr : service.aboutSectionTitle}
                                 </h2>
@@ -180,7 +182,7 @@ export default async function ServiceDetailPage({
                                 )}
 
                                 {(service.aboutSectionBottomNote || service.aboutSectionBottomNoteAr) && (
-                                    <div className="mt-8 font-normal italic text-xs text-zinc-500 max-w-xl">
+                                    <div className="mt-8 font-normal italic text-xs text-zinc-500">
                                         {isAr ? service.aboutSectionBottomNoteAr : service.aboutSectionBottomNote}
                                     </div>
                                 )}
@@ -209,13 +211,13 @@ export default async function ServiceDetailPage({
 
             {service.capabilities && service.capabilities.length > 0 && (
                 <section className="py-12 bg-zinc-50 dark:bg-zinc-900/30">
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16">
+                    <div className="container mx-auto px-6">
                         <div className="text-center mb-10">
                             <h2 className="text-xl md:text-2xl font-semibold text-[#141d72] dark:text-blue-400 tracking-tight">
                                 {isAr ? (service.capabilitiesSectionTitleAr || 'قدراتنا') : (service.capabilitiesSectionTitle || 'Our Capabilities')}
                             </h2>
                         </div>
-                        <div className="max-w-4xl mx-auto">
+                        <div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {service.capabilities.map((item: any, idx: number) => (
                                     <div
@@ -243,7 +245,7 @@ export default async function ServiceDetailPage({
 
             {(service.industriesSectionTitle || service.industriesSectionTitleAr) && (
                 <section className="py-12">
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16">
+                    <div className="container mx-auto px-6">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                             <div className={`order-2 lg:order-1 ${isAr ? 'lg:order-2' : ''} flex justify-center`}>
                                 <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[380px] w-full group">
@@ -272,7 +274,7 @@ export default async function ServiceDetailPage({
                                 <h2 className="text-2xl md:text-3xl font-bold text-[#141d72] dark:text-blue-400 mb-4 tracking-tight leading-tight">
                                     {isAr ? service.industriesSectionTitleAr : service.industriesSectionTitle}
                                 </h2>
-                                <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400 font-normal leading-relaxed mb-8 max-w-xl text-left">
+                                <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400 font-normal leading-relaxed mb-8 text-left">
                                     {isAr ? service.industriesSectionDescriptionAr : service.industriesSectionDescription}
                                 </p>
 
@@ -306,9 +308,9 @@ export default async function ServiceDetailPage({
 
             {(service.criticalSectionTitle || service.criticalSectionTitleAr) && (
                 <section className="py-12 bg-[#050b1a] text-white relative overflow-hidden">
-                    <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative z-10">
+                    <div className="container mx-auto px-6 relative z-10">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                            <div className="max-w-xl">
+                            <div>
                                 <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">
                                     {(() => {
                                         const title = isAr ? service.criticalSectionTitleAr : service.criticalSectionTitle;
@@ -362,8 +364,8 @@ export default async function ServiceDetailPage({
 
             {(service.whyChooseUsSectionTitle || service.whyChooseUsSectionTitleAr) && (
                 <section className="py-12 bg-[#f3f4ff] dark:bg-zinc-900/50">
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16">
-                        <div className="text-center mb-10 max-w-xl mx-auto">
+                    <div className="container mx-auto px-6">
+                        <div className="text-center mb-10">
                             <h2 className="text-xl md:text-2xl font-semibold text-[#141d72] dark:text-blue-400 mb-3">
                                 {isAr ? service.whyChooseUsSectionTitleAr : service.whyChooseUsSectionTitle}
                             </h2>
@@ -389,8 +391,8 @@ export default async function ServiceDetailPage({
             )}
 
             <section className="py-6 bg-[#f3f4ff] dark:bg-zinc-900/50">
-                <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16">
-                    <div className="bg-blue-600 rounded-2xl py-6 px-8 md:py-7 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl shadow-blue-600/20 relative overflow-hidden group max-w-5xl mx-auto">
+                <div className="container mx-auto px-6">
+                    <div className="bg-blue-600 rounded-2xl py-6 px-8 md:py-7 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl shadow-blue-600/20 relative overflow-hidden group mx-auto">
                         <div className="relative z-10 text-center md:text-left">
                             <h2 className="text-xl md:text-3xl font-bold text-white tracking-tight">
                                 {isAr
@@ -403,13 +405,13 @@ export default async function ServiceDetailPage({
                         </div>
                         <div className="flex flex-wrap justify-center md:justify-end gap-3 relative z-10">
                             <Link
-                                href={`https://staging.sharpinnvotech.com/${lang}/contact`}
+                                href={`/${lang}/contact`}
                                 className="px-6 py-2.5 bg-white text-blue-600 font-bold rounded-full hover:bg-zinc-100 transition-all transform hover:scale-105 active:scale-95 text-xs md:text-sm shadow-md"
                             >
                                 {isAr ? 'طلب نسخة تجريبية' : 'Request a Demo'}
                             </Link>
                             <Link
-                                href="https://sharpinnvotech.com/contact"
+                                href={`/${lang}/contact`}
                                 className="px-6 py-2.5 bg-transparent border border-white/50 text-white font-semibold rounded-full hover:bg-white/10 transition-all transform hover:scale-105 active:scale-95 text-xs md:text-sm"
                             >
                                 {isAr ? 'تحدث إلى خبرائنا' : 'Talk to our Experts'}
@@ -422,7 +424,7 @@ export default async function ServiceDetailPage({
 
             {service.faqs && service.faqs.length > 0 && (
                 <section className="py-12 bg-[#f3f4ff] dark:bg-zinc-900/50">
-                    <div className="container mx-auto px-6 md:px-10 lg:px-12 xl:px-16">
+                    <div className="container mx-auto px-6">
                         <div className="text-center mb-8">
                             <h2 className="text-xl font-semibold text-[#141d72] dark:text-blue-400 mb-2">
                                 {isAr ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Locale } from '@/lib/get-dictionary';
+import { Home, ChevronRight, ChevronLeft } from 'lucide-react';
 
 interface BreadcrumbItem {
     label: string;
@@ -10,36 +11,49 @@ interface BreadcrumbsProps {
     lang: Locale;
     dict: any;
     items: BreadcrumbItem[];
+    isLight?: boolean;
+    listingPage?: boolean;
 }
 
-export default function Breadcrumbs({ lang, dict, items }: BreadcrumbsProps) {
+export default function Breadcrumbs({ lang, dict, items, isLight = false, listingPage = false }: BreadcrumbsProps) {
     const isRtl = lang === 'ar';
+    const Chevron = isRtl ? ChevronLeft : ChevronRight;
+
+    // Use tighter padding for listing pages to match their hero layout (px-6)
+    // Use wider padding for detail pages to match their specialized containers
+    const paddingClasses = listingPage 
+        ? "px-6" 
+        : "px-6 md:px-10 lg:px-12 xl:px-16";
 
     return (
-        <section className="bg-zinc-50/50 py-3 border-b border-zinc-100 dark:border-zinc-800 mt-20 sm:mt-24">
-            <div className="container mx-auto px-4 md:px-6">
-                <nav className={`flex items-center gap-2 text-[14px] sm:text-[15px] font-medium overflow-x-auto no-scrollbar whitespace-nowrap py-1 ${isRtl ? 'flex-row-reverse' : ''}`} aria-label="Breadcrumb">
-                    <div className="flex items-center gap-2 shrink-0">
-                        <i className={`fa fa-home text-zinc-900 leading-none ${isRtl ? 'ml-1' : 'mr-1'}`}></i>
+        <div className="absolute top-[84px] left-0 right-0 z-20 w-full" dir={isRtl ? 'rtl' : 'ltr'}>
+            <div className={`container mx-auto ${paddingClasses}`}>
+                <nav 
+                    className={`flex items-center gap-2 text-[12px] md:text-[13px] font-bold animate-fade-in`} 
+                    aria-label="Breadcrumb"
+                >
+                    <div className="flex items-center gap-1.5 shrink-0">
+                        <Home className="w-3.5 h-3.5 text-cyan-300" />
                         <Link
                             href={`/${lang}`}
-                            className="text-[#0d6efd] hover:underline transition-colors"
+                            className="text-cyan-300 hover:text-white transition-colors"
                         >
                             {dict.COMMON?.HOME || dict.HOME || (isRtl ? 'الرئيسية' : 'Home')}
                         </Link>
                     </div>
+                    
                     {items.map((item, index) => (
-                        <div key={index} className={`flex items-center gap-2 shrink-0 ${isRtl ? 'flex-row-reverse' : ''}`}>
-                            <span className="text-zinc-400 mx-1">{isRtl ? '\\' : '|'}</span>
+                        <div key={index} className="flex items-center gap-1.5 shrink-0">
+                            <Chevron className={`w-3 h-3 ${isLight ? 'text-zinc-400' : 'text-white/40'}`} />
                             {item.href ? (
                                 <Link
                                     href={item.href}
-                                    className="text-[#0d6efd] hover:underline transition-colors"
+                                    className="text-cyan-300 hover:text-white transition-colors"
                                 >
                                     {item.label}
                                 </Link>
                             ) : (
-                                <span className="text-zinc-600 truncate max-w-[150px] sm:max-w-none">
+                                <span className={`${isLight ? 'text-zinc-600' : 'text-white'} truncate max-w-[120px] sm:max-w-none`}>
                                     {item.label}
                                 </span>
                             )}
@@ -47,6 +61,6 @@ export default function Breadcrumbs({ lang, dict, items }: BreadcrumbsProps) {
                     ))}
                 </nav>
             </div>
-        </section>
+        </div>
     );
 }

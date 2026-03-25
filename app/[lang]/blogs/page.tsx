@@ -18,7 +18,7 @@ export default async function BlogsPage({
     const dict = await getDictionary(lang);
 
     const currentPage = parseInt(page || '1');
-    const pageSize = 12;
+    const pageSize = 9;
 
     const [blogsData, filtersMetadata] = await Promise.all([
         getPublishedBlogs({

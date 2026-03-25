@@ -58,7 +58,7 @@ export default function ServiceSection({ lang, dict }: { lang: Locale; dict: any
                             <div className="flex flex-col gap-4">
 
                                 <div className="space-y-3">
-                                    <h3 className="text-3xl font-bold text-[#1363C6] leading-tight">
+                                    <h3 className="text-3xl font-bold text-[#1363C6] leading-tight" suppressHydrationWarning={true}>
                                         {activeService?.title}
                                     </h3>
                                     {/* <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-[17px]"> */}

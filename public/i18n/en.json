@@ -4446,10 +4446,26 @@
       "title": "Built to Innovate. Driven to Protect.",
       "description": "We are a Riyadh-based technology company on a mission to empower businesses through intelligent, secure, and future-ready digital solutions.",
       "stats": [
-        { "num": "2023", "label": "Year Founded", "suffix": "." },
-        { "num": "50", "label": "Happy Clients", "suffix": "+" },
-        { "num": "100", "label": "Projects Delivered", "suffix": "+" },
-        { "num": "5", "label": "Core Specializations", "suffix": "" }
+        {
+          "num": "2023",
+          "label": "Year Founded",
+          "suffix": "."
+        },
+        {
+          "num": "50",
+          "label": "Happy Clients",
+          "suffix": "+"
+        },
+        {
+          "num": "100",
+          "label": "Projects Delivered",
+          "suffix": "+"
+        },
+        {
+          "num": "5",
+          "label": "Core Specializations",
+          "suffix": ""
+        }
       ]
     },
     "story": {
@@ -4478,35 +4494,84 @@
       "title": "Our Core Values",
       "subtitle": "The principles that guide how we work, how we think, and how we treat every client and partner.",
       "list": [
-        { "title": "Innovation", "desc": "Constantly exploring new frontiers to deliver smarter, more powerful solutions." },
-        { "title": "Integrity", "desc": "Honesty and transparency in every promise, every proposal, and every interaction." },
-        { "title": "Excellence", "desc": "Setting the highest bar for quality — in code, in service, and in outcomes." },
-        { "title": "Security", "desc": "Treating every client's data and infrastructure as if it were our own — with zero compromise." },
-        { "title": "Partnership", "desc": "We succeed only when our clients succeed — that's not a tagline, it's how we operate." }
+        {
+          "title": "Innovation",
+          "desc": "Constantly exploring new frontiers to deliver smarter, more powerful solutions."
+        },
+        {
+          "title": "Integrity",
+          "desc": "Honesty and transparency in every promise, every proposal, and every interaction."
+        },
+        {
+          "title": "Excellence",
+          "desc": "Setting the highest bar for quality — in code, in service, and in outcomes."
+        },
+        {
+          "title": "Security",
+          "desc": "Treating every client's data and infrastructure as if it were our own — with zero compromise."
+        },
+        {
+          "title": "Partnership",
+          "desc": "We succeed only when our clients succeed — that's not a tagline, it's how we operate."
+        }
       ]
     },
     "journey": {
-        "badge": "Our Journey",
-        "title": "How We Got Here",
-        "subtitle": "From a bold idea in Riyadh to a growing force in regional technology — our story is still being written.",
-        "timeline": [
-            { "year": "2023 — Q1", "title": "Company Founded", "desc": "Sharp Innovations was established in Riyadh by a team of experienced technology and business professionals with a shared vision to transform how organizations leverage technology." },
-            { "year": "2023 — Q3", "title": "First Major Client Wins", "desc": "Secured partnerships with key government and enterprise clients, delivering our first AI and cybersecurity projects and establishing our reputation for technical depth and reliability." },
-            { "year": "2024", "title": "Strategic Partnerships Formed", "desc": "Formalized technology alliances with HP, Oracle, Trend Micro, and Odoo — expanding our portfolio and enabling us to deliver more comprehensive, integrated solutions to clients." },
-            { "year": "2025 — Present", "title": "100+ Projects & Growing", "desc": "Crossed the milestone of 100 successful project deliveries across AI, cybersecurity, GIS, fleet management, and enterprise software — serving 50+ satisfied clients across multiple sectors." }
-        ]
+      "badge": "Our Journey",
+      "title": "How We Got Here",
+      "subtitle": "From a bold idea in Riyadh to a growing force in regional technology — our story is still being written.",
+      "timeline": [
+        {
+          "year": "2023 — Q1",
+          "title": "Company Founded",
+          "desc": "Sharp Innovations was established in Riyadh by a team of experienced technology and business professionals with a shared vision to transform how organizations leverage technology."
+        },
+        {
+          "year": "2023 — Q3",
+          "title": "First Major Client Wins",
+          "desc": "Secured partnerships with key government and enterprise clients, delivering our first AI and cybersecurity projects and establishing our reputation for technical depth and reliability."
+        },
+        {
+          "year": "2024",
+          "title": "Strategic Partnerships Formed",
+          "desc": "Formalized technology alliances with HP, Oracle, Trend Micro, and Odoo — expanding our portfolio and enabling us to deliver more comprehensive, integrated solutions to clients."
+        },
+        {
+          "year": "2025 — Present",
+          "title": "100+ Projects & Growing",
+          "desc": "Crossed the milestone of 100 successful project deliveries across AI, cybersecurity, GIS, fleet management, and enterprise software — serving 50+ satisfied clients across multiple sectors."
+        }
+      ]
     },
     "commitment": {
       "badge": "Our Promise",
       "title": "What You Can Always Expect from Us",
       "subtitle": "We hold ourselves to a standard that goes beyond the contract — because real partnerships are built on consistent action.",
       "list": [
-        { "title": "Tailored Solutions", "desc": "We never apply a template to your challenge. Every solution we design starts with a deep understanding of your specific context." },
-        { "title": "End-to-End Ownership", "desc": "From discovery to deployment and beyond, we stay engaged. Our team takes full ownership of outcomes." },
-        { "title": "Vision 2030 Alignment", "desc": "Every solution we build is designed with Saudi Arabia's digital transformation goals in mind." },
-        { "title": "Transparent Communication", "desc": "No surprises. We keep stakeholders informed at every stage with clear reporting and proactive problem-solving." },
-        { "title": "Post-Delivery Support", "desc": "Our relationship doesn't end at launch. We provide dedicated support and maintenance long after your solution goes live." },
-        { "title": "Security by Default", "desc": "Security is never an afterthought in our process — it is embedded into architecture and development from day one." }
+        {
+          "title": "Tailored Solutions",
+          "desc": "We never apply a template to your challenge. Every solution we design starts with a deep understanding of your specific context."
+        },
+        {
+          "title": "End-to-End Ownership",
+          "desc": "From discovery to deployment and beyond, we stay engaged. Our team takes full ownership of outcomes."
+        },
+        {
+          "title": "Vision 2030 Alignment",
+          "desc": "Every solution we build is designed with Saudi Arabia's digital transformation goals in mind."
+        },
+        {
+          "title": "Transparent Communication",
+          "desc": "No surprises. We keep stakeholders informed at every stage with clear reporting and proactive problem-solving."
+        },
+        {
+          "title": "Post-Delivery Support",
+          "desc": "Our relationship doesn't end at launch. We provide dedicated support and maintenance long after your solution goes live."
+        },
+        {
+          "title": "Security by Default",
+          "desc": "Security is never an afterthought in our process — it is embedded into architecture and development from day one."
+        }
       ]
     },
     "cta": {
@@ -4541,6 +4606,8 @@
     "WHY_ITEM_2_DESC": "Every solution is designed with Saudi Arabia's digital transformation agenda in mind — supporting compliance, localization, and national objectives.",
     "WHY_ITEM_3_TITLE": "Government & Enterprise Trusted",
     "WHY_ITEM_3_DESC": "Proven track record across sensitive government and enterprise environments where reliability, security, and compliance are non-negotiable. We don't hand off and disappear. We own the outcome — from strategy through delivery and long-term support.",
+    "WHY_ITEM_4_TITLE": "End-to-End Ownership",
+    "WHY_ITEM_4_DESC": "We don’t hand off and disappear. We own the outcome — from strategy through delivery and long-term support.",
     "WHY_STAT_1_N": "50+",
     "WHY_STAT_1_L": "Satisfied Clients",
     "WHY_STAT_2_N": "100+",

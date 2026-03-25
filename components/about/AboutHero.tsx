@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Locale } from '@/lib/get-dictionary';
+import Breadcrumbs from '../Breadcrumbs';
 
 interface AboutHeroProps {
     lang: string;
@@ -39,6 +40,13 @@ export default function AboutHero({ lang, dict }: AboutHeroProps) {
             {/* Glow Effects */}
             <div className="absolute -top-[100px] -right-[100px] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(255,255,255,0.2)_0%,transparent_65%)] pointer-events-none" />
             <div className="absolute -bottom-[150px] left-[20%] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(6,182,212,0.15)_0%,transparent_65%)] pointer-events-none" />
+
+            {/* <Breadcrumbs 
+                lang={lang as Locale} 
+                dict={dict} 
+                items={[{ label: isRtl ? 'عن الشركة' : 'About Us' }]} 
+                listingPage={true}
+            /> */}
 
             <div className="container mx-auto relative z-10">
                 <div className={`max-w-[800px] ${isRtl ? 'mr-0 ml-auto' : ''}`}>

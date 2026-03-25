@@ -161,6 +161,12 @@ export interface Certificate {
     updatedAt?: string;
 }
 
+export interface NewsletterSubscription {
+    id: string;
+    email: string;
+    createdAt: string;
+}
+
 export interface Blog {
     id: number;
     title: string;
@@ -383,16 +389,21 @@ export async function getPublishedProducts(): Promise<Product[]> {
             headers: {
                 'x-api-key': API_KEY,
             },
-            next: { revalidate: 60 }, // Cache for 1 minute
+            next: { revalidate: 60 },
         });
-
         if (!res.ok) {
-            console.error(`Failed to fetch products: ${res.status} ${res.statusText}`);
+            console.error(`Failed to fetch products: ${res.status}`);
             return [];
         }
-
         const data: ApiResponse<Product[]> = await res.json();
-        return data.result || data.data || [];
+        
+        // Return empty array if data.data is not an array (stability fix)
+        if (!Array.isArray(data.data)) {
+            console.error('Expected products array but received:', typeof data.data);
+            return [];
+        }
+        
+        return data.data;
     } catch (error) {
         console.error('Error fetching products:', error);
         return [];
@@ -663,7 +674,11 @@ export async function getAdminBlogs(params?: any): Promise<{ blogs: Blog[]; tota
             },
         });
         const data = await res.json();
-        return { blogs: data.result || [], total: data.pagination?.total || 0 };
+        const items = data.result || data.data || [];
+        return {
+            blogs: Array.isArray(items) ? items : [],
+            total: data.pagination?.total || 0
+        };
     } catch (error) {
         console.error('Error fetching admin blogs:', error);
         return { blogs: [], total: 0 };
@@ -764,7 +779,11 @@ export async function getAdminServices(params?: any): Promise<{ services: Servic
             },
         });
         const data = await res.json();
-        return { services: data.result || data.data || [], total: data.pagination?.total || 0 };
+        const items = data.result || data.data || [];
+        return {
+            services: Array.isArray(items) ? items : [],
+            total: data.pagination?.total || 0
+        };
     } catch (error) {
         console.error('Error fetching admin services:', error);
         return { services: [], total: 0 };
@@ -777,18 +796,23 @@ export async function getPublishedServices(): Promise<ServicePage[]> {
             headers: {
                 'x-api-key': API_KEY,
             },
-            next: { revalidate: 10 },
+            next: { revalidate: 60 },
         });
-
         if (!res.ok) {
-            console.error(`Failed to fetch services: ${res.status} ${res.statusText}`);
+            console.error(`Failed to fetch services: ${res.status}`);
             return [];
         }
-
         const data: ApiResponse<ServicePage[]> = await res.json();
-        return data.result || data.data || [];
+        
+        // Return empty array if data.data is not an array (stability fix)
+        if (!Array.isArray(data.data)) {
+            console.error('Expected services array but received:', typeof data.data);
+            return [];
+        }
+        
+        return data.data;
     } catch (error) {
-        console.error('Error fetching published services:', error);
+        console.error('Error fetching services:', error);
         return [];
     }
 }
@@ -887,7 +911,6 @@ export async function getServiceCategories(): Promise<ServiceCategory[]> {
         const res = await fetch(`${API_URL}/service-categories`, {
             headers: {
                 'x-api-key': API_KEY,
-                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
             }
         });
         const data = await res.json();
@@ -1061,7 +1084,6 @@ export async function getProductCategories(): Promise<ProductCategory[]> {
         const res = await fetch(`${API_URL}/product-categories`, {
             headers: {
                 'x-api-key': API_KEY,
-                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
             }
         });
         const data = await res.json();
@@ -1567,3 +1589,24 @@ export async function toggleUserStatus(id: number, isActive: boolean): Promise<A
         return { success: false, status_code: 500, message: 'Internal server error' };
     }
 }
+
+export async function getNewsletters(params?: { page?: number; limit?: number }): Promise<{ newsletters: NewsletterSubscription[]; total: number }> {
+    try {
+        const query = new URLSearchParams(cleanParams(params)).toString();
+        const res = await fetch(`${API_URL}/newsletter${query ? `?${query}` : ''}`, {
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+        });
+        const data = await res.json();
+        return { 
+            newsletters: data.result || [], 
+            total: data.pagination?.total || 0 
+        };
+    } catch (error) {
+        console.error('Error fetching newsletters:', error);
+        return { newsletters: [], total: 0 };
+    }
+}
+

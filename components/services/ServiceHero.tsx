@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Globe, Code, Zap, Layers } from 'lucide-react';
+import Breadcrumbs from '../Breadcrumbs';
+import { Locale } from '@/lib/get-dictionary';
 
 interface ServiceHeroProps {
   lang: string;
@@ -60,6 +62,13 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({ lang, dict, categories }) => 
       {/* Animated Orbs */}
       <div className="absolute -top-24 -right-24 w-[500px] h-[500px] bg-white/10 rounded-full blur-[100px] pointer-events-none"></div>
       <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] bg-blue-400/20 rounded-full blur-[80px] pointer-events-none"></div>
+
+      {/* <Breadcrumbs 
+          lang={lang as Locale} 
+          dict={dict} 
+          items={[{ label: isAr ? 'خدماتنا' : 'Services' }]} 
+          listingPage={true}
+      /> */}
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl">

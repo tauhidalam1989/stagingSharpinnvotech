@@ -30,6 +30,7 @@ export default function DashboardSidebar({ lang }: { lang: string }) {
         { path: `/${lang}/dashboard/client-partner`, icon: 'fa-handshake', label: 'Clients & Partners', iconColor: 'text-teal-500' },
         { path: `/${lang}/dashboard/users`, icon: 'fa-users-cog', label: 'Users', roles: ['super_admin'], iconColor: 'text-indigo-500' },
         { path: `/${lang}/dashboard/settings`, icon: 'fa-cog', label: 'Settings', iconColor: 'text-zinc-500' },
+        { path: `/${lang}/dashboard/newsletter`, icon: 'fa-envelope-open-text', label: 'Newsletter', roles: ['super_admin'], iconColor: 'text-blue-500' },
         { path: `/${lang}/dashboard/analytics`, icon: 'fa-chart-bar', label: 'Analytics', roles: ['super_admin'], iconColor: 'text-rose-500' }
     ];
 
