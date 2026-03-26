@@ -39,16 +39,16 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ lang, dict }) => {
   ];
 
   const socialLinks = [
-    { icon: <Twitter className="w-4 h-4" />, name: 'Twitter', href: '#', color: 'hover:border-[#1DA1F2] hover:text-[#1DA1F2]' },
-    { icon: <Facebook className="w-4 h-4" />, name: 'Facebook', href: '#', color: 'hover:border-[#1877F2] hover:text-[#1877F2]' },
-    { icon: <Instagram className="w-4 h-4" />, name: 'Instagram', href: '#', color: 'hover:border-[#E1306C] hover:text-[#E1306C]' },
-    { icon: <Linkedin className="w-4 h-4" />, name: 'LinkedIn', href: '#', color: 'hover:border-[#0A66C2] hover:text-[#0A66C2]' },
+    { icon: <Twitter className="w-4 h-4" />, name: 'Twitter', href: 'https://x.com/sharpInnvo1351', color: 'hover:border-[#1DA1F2] hover:text-[#1DA1F2]' },
+    { icon: <Facebook className="w-4 h-4" />, name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61556338118947', color: 'hover:border-[#1877F2] hover:text-[#1877F2]' },
+    { icon: <Instagram className="w-4 h-4" />, name: 'Instagram', href: 'https://www.instagram.com/sharpinnovations2104/', color: 'hover:border-[#E1306C] hover:text-[#E1306C]' },
+    { icon: <Linkedin className="w-4 h-4" />, name: 'LinkedIn', href: 'https://www.linkedin.com/company/sharp-innovations-company-for-information-technology-%D8%B4%D8%B1%D9%83%D8%A9-%D8%A7%D8%A8%D8%AA%D9%83%D8%A7%D8%B1%D8%A7%D8%AA-%D8%AD%D8%A7%D8%AF%D8%A9-%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA/', color: 'hover:border-[#0A66C2] hover:text-[#0A66C2]' },
   ];
 
   return (
     <div className="flex flex-col gap-8" dir={isAr ? 'rtl' : 'ltr'}>
       {/* Map Card */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: 20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -56,9 +56,9 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ lang, dict }) => {
       >
         <div className="h-[220px] bg-zinc-50 dark:bg-zinc-800/50 relative overflow-hidden flex items-center justify-center p-4">
           <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[linear-gradient(rgba(22,80,200,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(22,80,200,0.5)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
-          
+
           <div className="relative text-center">
-            <motion.div 
+            <motion.div
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
               className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/50 mx-auto relative z-10"
@@ -83,7 +83,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ lang, dict }) => {
       </motion.div>
 
       {/* Contact Details Card */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: 20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -113,7 +113,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ lang, dict }) => {
       </motion.div>
 
       {/* Business Hours Card */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: 20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -146,7 +146,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ lang, dict }) => {
       </motion.div>
 
       {/* Social Card */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: 20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -156,8 +156,8 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ lang, dict }) => {
         <h3 className="text-[11px] font-extrabold text-zinc-500 uppercase tracking-widest mb-6">{isAr ? 'تابعنا على وسائل التواصل الاجتماعي' : 'Follow Us on Social Media'}</h3>
         <div className="grid grid-cols-2 gap-4">
           {socialLinks.map((link, idx) => (
-            <a 
-              key={idx} 
+            <a
+              key={idx}
               href={link.href}
               className={`flex items-center justify-center gap-3 py-3 px-4 rounded-2xl border border-zinc-100 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 transition-all active:scale-95 group ${link.color}`}
             >

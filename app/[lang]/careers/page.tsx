@@ -232,13 +232,13 @@ export default async function CareersPage({
                                 {s.join_us_description}
                             </p>
                             <div className="flex flex-col sm:flex-row gap-8 items-start sm:items-center">
-                                <Link href="mailto:hr@sharpinnovations.com" className="group flex items-center gap-4 bg-[#0d6efd] text-white px-8 py-5 rounded-2xl font-black transition-all hover:bg-blue-700 shadow-lg hover:shadow-blue-500/25">
+                                <Link href="mailto:hr@sharpinnvotech.com" className="group flex items-center gap-4 bg-[#0d6efd] text-white px-8 py-5 rounded-2xl font-black transition-all hover:bg-blue-700 shadow-lg hover:shadow-blue-500/25">
                                     {isAr ? 'أرسل سيرتك الذاتية' : 'Submit your Resume'}
                                     <Mail className={`w-5 h-5 transition-transform group-hover:scale-110 ${isAr ? 'rotate-180' : ''}`} />
                                 </Link>
                                 <div className="flex flex-col">
                                     <span className="text-xs font-black text-zinc-400 uppercase tracking-widest mb-1">{isAr ? 'بريدنا الإلكتروني' : 'OUR EMAIL'}</span>
-                                    <span className="text-lg font-black text-zinc-900 dark:text-white">hr@sharpinnovations.com</span>
+                                    <span className="text-lg font-black text-zinc-900 dark:text-white">hr@sharpinnvotech.com</span>
                                 </div>
                             </div>
                         </div>

@@ -90,7 +90,7 @@ export default function Footer({ lang, dict }: { lang: string; dict: any }) {
                                 { href: 'https://x.com/sharpInnvo1351', icon: 'fa-twitter' },
                                 { href: 'https://www.facebook.com/profile.php?id=61556338118947', icon: 'fa-facebook-f' },
                                 { href: 'https://www.instagram.com/sharpinnovations2104/', icon: 'fa-instagram' },
-                                { href: 'https://www.linkedin.com/company/sharp-innovations', icon: 'fa-linkedin-in' }
+                                { href: 'https://www.linkedin.com/company/sharp-innovations-company-for-information-technology-%D8%B4%D8%B1%D9%83%D8%A9-%D8%A7%D8%A8%D8%AA%D9%83%D8%A7%D8%B1%D8%A7%D8%AA-%D8%AD%D8%A7%D8%AF%D8%A9-%D9%84%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA/', icon: 'fa-linkedin-in' }
                             ].map((social) => (
                                 <a
                                     key={social.icon}
