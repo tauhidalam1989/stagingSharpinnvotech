@@ -56,7 +56,7 @@ export default function Footer({ lang, dict }: { lang: string; dict: any }) {
                     <div className="space-y-6">
                         <Link href={`/${lang}`} className="inline-block">
                             <Image
-                                src="/img/d1.png"
+                                src={lang === 'en' ? '/img/d1.png' : '/img/d2.png'}
                                 alt="Sharp Innovations"
                                 width={180}
                                 height={60}
