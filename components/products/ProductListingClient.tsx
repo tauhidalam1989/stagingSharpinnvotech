@@ -89,13 +89,13 @@ const ProductListingClient: React.FC<ProductListingClientProps> = ({
     if (id !== 'all') {
       const element = document.getElementById(`category-${id}`);
       if (element) {
-        const headerOffset = 180;
+        const headerOffset = 210;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       }
     } else {
-      window.scrollTo({ top: 500, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -126,9 +126,6 @@ const ProductListingClient: React.FC<ProductListingClientProps> = ({
     return 'bg-indigo-50 text-indigo-600 border-indigo-100';
   };
 
-  const filteredCategories = categoryIds.filter(id => {
-    return activeFilter === 'all' || activeFilter === id;
-  });
 
   return (
     <div className="relative" dir={isAr ? 'rtl' : 'ltr'}>
@@ -204,14 +201,14 @@ const ProductListingClient: React.FC<ProductListingClientProps> = ({
       <div className="container mx-auto px-6 py-20 lg:py-32 bg-zinc-50/30">
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeFilter}
+            key="product-listing-content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
             className="space-y-32"
           >
-            {filteredCategories.map((id) => (
+            {categoryIds.map((id) => (
               <div key={id} id={`category-${id}`} className="scroll-mt-48">
                 {/* Section Title */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 relative">

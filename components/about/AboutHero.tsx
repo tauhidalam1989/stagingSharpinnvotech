@@ -24,16 +24,14 @@ export default function AboutHero({ lang, dict }: AboutHeroProps) {
     };
 
     return (
-        <section className="relative min-h-[520px] flex items-center bg-[#0d6efd] text-white px-6 pt-32 pb-24 lg:pt-40 lg:pb-40 overflow-hidden">
+        <section className="relative min-h-[520px] flex items-center bg-[#0d6efd] text-white px-6 pt-32 pb-16 lg:pt-30 lg:pb-24 overflow-hidden">
             {/* Grid Pattern */}
             <div
                 className="absolute inset-0 opacity-10 pointer-events-none"
                 style={{
-                    backgroundImage: `
-                        linear-gradient(white 1px, transparent 1px),
-                        linear-gradient(90deg, white 1px, transparent 1px)
-                    `,
-                    backgroundSize: '60px 60px'
+                    // backgroundImage: `url('/img/abouthero.jpg')`,
+                    // backgroundSize: 'cover',
+                    // backgroundPosition: 'center'
                 }}
             />
 
@@ -48,48 +46,62 @@ export default function AboutHero({ lang, dict }: AboutHeroProps) {
                 listingPage={true}
             /> */}
 
-            <div className="container mx-auto relative z-10">
-                <div className={`max-w-[800px] ${isRtl ? 'mr-0 ml-auto' : ''}`}>
-                    <div className="inline-flex items-center gap-2 border border-white/30 bg-white/10 px-4 py-1.5 rounded-full text-[12px] font-medium tracking-wider uppercase mb-8 animate-fade-in-up">
-                        <span className="w-2 h-2 bg-[#06B6D4] rounded-full animate-pulse" />
-                        {content.badge}
+            <div className="container mx-auto relative z-10 w-full">
+                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8 justify-between w-full">
+                    <div className={`w-full lg:w-[55%] xl:w-[60%] shrink-0 ${isRtl ? 'mr-0 ml-auto text-right' : 'text-left'}`}>
+                        <div className="inline-flex items-center gap-2 border border-white/30 bg-white/10 px-4 py-1.5 rounded-full text-[12px] font-medium tracking-wider uppercase mb-8 animate-fade-in-up">
+                            <span className="w-2 h-2 bg-[#06B6D4] rounded-full animate-pulse" />
+                            {content.badge}
+                        </div>
+
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 animate-fade-in-up animation-delay-100 text-start">
+                            {isRtl ? (
+                                <>نبتكر لـ <em className="not-italic text-[#38BDF8]">نطور.</em> نتحرك لـ نحمي.</>
+                            ) : (
+                                <>Built to <em className="not-italic text-[#38BDF8]">Innovate.</em><br />Driven to Protect.</>
+                            )}
+                        </h1>
+
+                        <p className="text-base md:text-base text-white/70 leading-relaxed max-w-[600px] mb-12 font-light animate-fade-in-up animation-delay-200 !text-white text-start">
+                            {content.description}
+                        </p>
+
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 pt-2 animate-fade-in-up animation-delay-300">
+                            {content.stats.map((stat: any, idx: number) => {
+                                const cardColors = [
+                                    'bg-[#060E24]',
+                                    'bg-[#060E24]',
+                                    'bg-[#060E24]',
+                                    'bg-[#060E24]'
+                                ];
+                                return (
+                                    <div
+                                        key={idx}
+                                        className={`p-6 rounded-2xl border border-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-[#060E24] hover:-translate-y-1 ${cardColors[idx % cardColors.length]} text-start`}
+                                    >
+                                        <div className="text-3xl md:text-4xl font-bold font-syne mb-1">
+                                            {stat.num}<span className="text-[#38BDF8]">{stat.suffix}</span>
+                                        </div>
+                                        <div className="text-[10px] md:text-[11px] text-white/60 font-light tracking-widest uppercase border-t border-white/10 pt-3">
+                                            {stat.label}
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
 
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 animate-fade-in-up animation-delay-100 text-start">
-                        {isRtl ? (
-                            <>نبتكر لـ <em className="not-italic text-[#38BDF8]">نطور.</em> نتحرك لـ نحمي.</>
-                        ) : (
-                            <>Built to <em className="not-italic text-[#38BDF8]">Innovate.</em><br />Driven to Protect.</>
-                        )}
-                    </h1>
-
-                    <p className="text-base md:text-base text-white/70 leading-relaxed max-w-[600px] mb-12 font-light animate-fade-in-up animation-delay-200 !text-white text-start">
-                        {content.description}
-                    </p>
-
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 pt-12 border-t border-white/10 animate-fade-in-up animation-delay-300">
-                        {content.stats.map((stat: any, idx: number) => {
-                            const cardColors = [
-                                'bg-[#060E24]',
-                                'bg-[#060E24]',
-                                'bg-[#060E24]',
-                                'bg-[#060E24]'
-                            ];
-                            return (
-                                <div
-                                    key={idx}
-                                    className={`p-6 rounded-2xl border border-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-[#060E24] hover:-translate-y-1 ${cardColors[idx % cardColors.length]} text-start`}
-                                >
-                                    <div className="text-3xl md:text-4xl font-bold font-syne mb-1">
-                                        {stat.num}<span className="text-[#38BDF8]">{stat.suffix}</span>
-                                    </div>
-                                    <div className="text-[10px] md:text-[11px] text-white/60 font-light tracking-widest uppercase border-t border-white/10 pt-3">
-                                        {stat.label}
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
+                    {/* Right Side Image */}
+                    {/* <div className={`w-full lg:w-[45%] xl:w-[40%] flex justify-center lg:justify-end animate-fade-in-up animation-delay-400 ${isRtl ? 'lg:justify-start' : 'lg:justify-end'}`}>
+                        <div className="relative">
+                            <div className="absolute -inset-4 bg-white/5 blur-xl rounded-full opacity-50"></div>
+                            <img 
+                                src="/img/aboutusherorightimage.png" 
+                                alt="About Sharp Innovations" 
+                                className="w-[85%] sm:w-[60%] lg:w-full max-w-[500px] lg:max-w-full h-auto object-contain relative z-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 transition-transform duration-700"
+                            />
+                        </div>
+                    </div> */}
                 </div>
             </div>
         </section>

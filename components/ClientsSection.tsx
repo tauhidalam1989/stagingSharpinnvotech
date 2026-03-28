@@ -191,7 +191,7 @@ export default function ClientsSection({
     };
 
     return (
-        <section className="py-10 bg-white overflow-hidden">
+        <section className="pt-2 pb-10 bg-white overflow-hidden">
             <div className="container mx-auto">
 
                 {/* Valued Clients */}

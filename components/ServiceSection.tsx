@@ -24,6 +24,7 @@ export default function ServiceSection({ lang, dict }: { lang: Locale; dict: any
                             {services.map((service: any, index: number) => (
                                 <button
                                     key={index}
+                                    suppressHydrationWarning
                                     onClick={() => setActiveIndex(index)}
                                     className={`flex-none lg:w-full flex items-center gap-3 lg:gap-4 px-4 lg:px-6 py-2.5 lg:py-3 transition-all duration-300 relative group
                                         ${index === activeIndex

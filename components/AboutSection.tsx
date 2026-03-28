@@ -7,9 +7,9 @@ export default function AboutSection({ lang, dict }: { lang: Locale; dict: any }
     const aboutImage = isRtl ? '/img/Arabic.svg' : '/img/English.svg';
 
     return (
-        <section className="pt-6 pb-4 bg-white dark:bg-zinc-950 overflow-hidden">
+        <section className="pt-0 pb-4 bg-white dark:bg-zinc-950 overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6 md:px-16 lg:px-24">
-                <div className={`grid grid-cols-1 gap-8 lg:gap-10 lg:grid-cols-12 lg:items-center ${isRtl ? 'lg:flex-row-reverse' : ''}`}>
+                <div className={`grid grid-cols-1 gap-8 lg:gap-10 lg:grid-cols-12 lg:items-start ${isRtl ? 'lg:flex-row-reverse' : ''}`}>
 
                     {/* Left side: Image Cluster */}
                     <div className="lg:col-span-6 relative">

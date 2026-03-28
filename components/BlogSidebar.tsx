@@ -36,10 +36,10 @@ export default function BlogSidebar({ blog, lang, dict }: BlogSidebarProps) {
     };
 
     return (
-        <aside className="lg:col-span-1 flex flex-col gap-6">
+        <aside className="lg:col-span-1 flex flex-col gap-6 mt-6">
             {/* Gallery / Featured Image Section */}
-            <div className="bg-white dark:bg-zinc-900 rounded-[24px] overflow-hidden shadow-xl border border-zinc-100 dark:border-zinc-800 p-1.5 animate-slide-up">
-                {hasGallery ? (
+            {hasGallery ? (
+                <div className="bg-white dark:bg-zinc-900 rounded-[24px] overflow-hidden shadow-xl border border-zinc-100 dark:border-zinc-800 p-1.5 animate-slide-up">
                     <div className="space-y-3">
                         <div className="relative aspect-[4/3] rounded-[18px] overflow-hidden group">
                             <Image
@@ -89,9 +89,11 @@ export default function BlogSidebar({ blog, lang, dict }: BlogSidebarProps) {
                             </div>
                         )}
                     </div>
-                ) : (
-                    blog.featuredImage && (
-                        <div className="relative aspect-[4/5] rounded-[18px] overflow-hidden group">
+                </div>
+            ) : (
+                blog.featuredImage && (
+                    <div className="rounded-[24px] overflow-hidden shadow-xl animate-slide-up bg-zinc-100 dark:bg-zinc-900">
+                        <div className="relative aspect-[4/3] overflow-hidden group">
                             <Image
                                 src={getImageUrl(blog.featuredImage)}
                                 alt={blog.title}
@@ -99,9 +101,9 @@ export default function BlogSidebar({ blog, lang, dict }: BlogSidebarProps) {
                                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                         </div>
-                    )
-                )}
-            </div>
+                    </div>
+                )
+            )}
 
             {/* CTA Card - Compacted */}
             <div className="bg-[#1a6bf5] dark:bg-blue-600 rounded-[24px] p-6 text-white relative overflow-hidden group shadow-2xl shadow-blue-500/20 animate-slide-up animation-delay-300">

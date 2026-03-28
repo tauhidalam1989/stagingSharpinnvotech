@@ -63,7 +63,7 @@ export default function Footer({ lang, dict }: { lang: string; dict: any }) {
                                 className="h-16 w-auto"
                             />
                         </Link>
-                        <p className="text-[11px] leading-relaxed">
+                        <p className="text-[14px] leading-relaxed">
                             {dict.FOOTER.DESCRIPTION}
                         </p>
                     </div>
@@ -71,7 +71,7 @@ export default function Footer({ lang, dict }: { lang: string; dict: any }) {
                     {/* Contact Info */}
                     <div className="space-y-6">
                         <h5 className="text-xl font-bold text-white mb-4">{dict.FOOTER.GET_IN_TOUCH}</h5>
-                        <ul className="space-y-3 text-[12px]">
+                        <ul className="space-y-3 text-[14px]">
                             <li className="flex items-start gap-4">
                                 <i className="fa fa-map-marker-alt text-white mt-1 w-5"></i>
                                 <span>{dict.FOOTER.ADDRESS}</span>
@@ -108,7 +108,7 @@ export default function Footer({ lang, dict }: { lang: string; dict: any }) {
                     {/* Popular Links */}
                     <div className="space-y-6">
                         <h5 className="text-xl font-bold text-white mb-4">{dict.FOOTER.POPULAR_LINKS}</h5>
-                        <ul className="space-y-3 text-[13px]">
+                        <ul className="space-y-3 text-[14px]">
                             {[
                                 { key: 'ABOUT_US', path: 'about' },
                                 { key: 'CONTACT_US', path: 'contact' },
@@ -132,7 +132,7 @@ export default function Footer({ lang, dict }: { lang: string; dict: any }) {
                     {/* Services */}
                     <div className="space-y-6">
                         <h5 className="text-xl font-bold text-white mb-4">{dict.FOOTER.OUR_SERVICES}</h5>
-                        <ul className="space-y-3 text-[13px]">
+                        <ul className="space-y-3 text-[14px]">
                             {[
                                 { key: 'SERVICE_1', slug: 'application-security-services' },
                                 { key: 'SERVICE_2', slug: 'server-administration-services' },

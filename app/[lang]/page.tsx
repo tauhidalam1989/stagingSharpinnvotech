@@ -23,7 +23,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     ]);
 
     return (
-        <div className="flex flex-col w-full gap-12 sm:gap-16 lg:gap-20">
+        <div className="flex flex-col w-full gap-8 sm:gap-12 lg:gap-16">
             <Hero lang={lang} dict={dict} />
             <AboutSection lang={lang} dict={dict} />
             <ServiceSection lang={lang} dict={dict} />

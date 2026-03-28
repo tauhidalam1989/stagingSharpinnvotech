@@ -25,7 +25,7 @@ export default function FAQSection({ lang, dict }: { lang: Locale; dict: any }) 
     };
 
     return (
-        <section className="py-12 bg-white dark:bg-zinc-950 overflow-hidden">
+        <section className="pt-12 pb-4 bg-white dark:bg-zinc-950 overflow-hidden">
             <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-[1400px]">
                 <div className="mx-auto text-center mb-12" style={{ maxWidth: '500px' }}>
                     <div className="inline-block border border-zinc-200 rounded-full px-4 py-1 text-sm font-semibold text-blue-600 mb-4 tracking-wide">

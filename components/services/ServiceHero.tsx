@@ -49,7 +49,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({ lang, dict, categories }) => 
   };
 
   return (
-    <section className="relative bg-[#0d6efd] pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden" dir={isAr ? 'rtl' : 'ltr'}>
+    <section className="relative bg-[#0d6efd] pt-32 pb-20 md:pt-30 md:pb-32 overflow-hidden" dir={isAr ? 'rtl' : 'ltr'}>
       {/* Background patterns */}
       <div
         className="absolute inset-0 opacity-20 pointer-events-none"
@@ -88,7 +88,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({ lang, dict, categories }) => 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-syne text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-8"
+            className="font-syne text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-8"
           >
             {isAr ? (
               <>
@@ -118,7 +118,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({ lang, dict, categories }) => 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-4xl"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 pt-1 max-w-4xl"
           >
             {categories.slice(0, 4).map((cat, idx) => (
               <button

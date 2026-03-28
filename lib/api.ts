@@ -17,6 +17,7 @@ export interface ProductCategory {
     id: number;
     name: string;
     nameAr?: string;
+    icon?: string;
     slug: string;
     order: number;
     isActive: boolean;
@@ -165,6 +166,7 @@ export interface NewsletterSubscription {
     id: string;
     email: string;
     createdAt: string;
+    status?: 'Pending' | 'Contacted';
 }
 
 export interface Blog {
@@ -215,6 +217,7 @@ export interface ServiceCategory {
     id: number;
     name: string;
     nameAr?: string;
+    icon?: string;
     slug: string;
     order: number;
     isActive: boolean;
@@ -1600,13 +1603,48 @@ export async function getNewsletters(params?: { page?: number; limit?: number })
             },
         });
         const data = await res.json();
+        const items = data.result || data.data || [];
         return { 
-            newsletters: data.result || [], 
-            total: data.pagination?.total || 0 
+            newsletters: Array.isArray(items) ? items : (items.data || []), 
+            total: data.pagination?.total || data.total || data.count || (Array.isArray(items) ? items.length : 0)
         };
     } catch (error) {
         console.error('Error fetching newsletters:', error);
         return { newsletters: [], total: 0 };
+    }
+}
+
+export async function updateNewsletterStatus(id: string, status: string): Promise<ApiResponse<any>> {
+    try {
+        const res = await fetch(`${API_URL}/newsletter/${id}/status`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+            body: JSON.stringify({ status })
+        });
+        return await res.json();
+    } catch (error) {
+        console.error('Error updating newsletter status:', error);
+        return { success: false, status_code: 500, message: 'Internal server error' };
+    }
+}
+
+export async function deleteNewsletter(id: string): Promise<ApiResponse<any>> {
+    try {
+        const res = await fetch(`${API_URL}/newsletter/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            }
+        });
+        return await res.json();
+    } catch (error) {
+        console.error('Error deleting newsletter:', error);
+        return { success: false, status_code: 500, message: 'Internal server error' };
     }
 }
 

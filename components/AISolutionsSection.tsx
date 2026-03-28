@@ -58,7 +58,7 @@ export default function AISolutionsSection({ lang, dict }: { lang: Locale; dict:
     const products = sectionData.PRODUCTS || [];
 
     return (
-        <section className="py-24 bg-[#f8f9fa] dark:bg-zinc-950">
+        <section className="pt-12 pb-24 bg-[#f8f9fa] dark:bg-zinc-950">
             <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-[1400px]">
 
                 {/* Header Section - Exactly as Angular Screenshot */}
@@ -74,7 +74,7 @@ export default function AISolutionsSection({ lang, dict }: { lang: Locale; dict:
                     </h2>
 
                     <p className="text-sm md:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal mb-6 max-w-3xl">
-                        {sectionData.DESCRIPTION || (isRtl ? 'نقدم حلول الذكاء الاصطناعي المتقدمة لمساعدتك في تنمية أعمالك. استكشف خدماتنا المصممة لتلبية احتياجاتك.' : 'We provide cutting-edge AI solutions to help your business grow. Explore our services tailored to meet your needs.')}
+                        {sectionData.DESCRIPTION || (isRtl ? 'نقدم حلول الذكاء الاصطناعي المتقدمة لمساعدتك في تنمية أعمالك. استكشف خدماتنا المصممة لتلبية احتياجاتك.' : 'We provide cutting-edge AI solutions to help your business grow. Explore our services tailored to meet your needs test.')}
                     </p>
 
                     <Link

@@ -12,7 +12,7 @@ export default function PhilosophySection({ lang, dict }: { lang: Locale; dict: 
     ];
 
     return (
-        <section className="relative py-24 bg-[#212529] text-white overflow-hidden">
+        <section className="relative pt-24 pb-12 bg-[#212529] text-white overflow-hidden">
             {/* Background Pattern Layer */}
 
             <div className="container relative z-10 mx-auto px-4 md:px-6 lg:px-6">

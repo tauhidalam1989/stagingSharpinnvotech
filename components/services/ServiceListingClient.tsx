@@ -148,7 +148,7 @@ const ServiceListingClient: React.FC<ServiceListingClientProps> = ({
     if (id !== 'all') {
       const element = document.getElementById(`category-${id}`);
       if (element) {
-        const headerOffset = 140;
+        const headerOffset = 210;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -178,7 +178,7 @@ const ServiceListingClient: React.FC<ServiceListingClientProps> = ({
               </button>
 
               {/* Filter Pills */}
-              <div 
+              <div
                 ref={scrollContainerRef}
                 className="flex lg:flex-wrap items-center gap-3 overflow-x-auto lg:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] pb-1 lg:pb-0 justify-start w-full px-2 lg:px-0"
               >
@@ -231,14 +231,13 @@ const ServiceListingClient: React.FC<ServiceListingClientProps> = ({
       <div className="container mx-auto px-6 py-20 lg:py-32">
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeFilter}
+            key="service-listing-content"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
           >
             {categoryIds
-              .filter(id => activeFilter === 'all' || activeFilter === id)
               .map((id) => (
                 <div key={id} id={`category-${id}`} className="mb-24 last:mb-0">
                   {/* Category Header */}

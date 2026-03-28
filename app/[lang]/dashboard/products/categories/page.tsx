@@ -21,6 +21,7 @@ export default function ProductCategoriesPage({ params }: { params: Promise<{ la
         name: '',
         nameAr: '',
         slug: '',
+        icon: '',
         order: 0,
         isActive: true
     });
@@ -52,6 +53,7 @@ export default function ProductCategoriesPage({ params }: { params: Promise<{ la
             name: '',
             nameAr: '',
             slug: '',
+            icon: '',
             order: 0,
             isActive: true
         });
@@ -65,6 +67,7 @@ export default function ProductCategoriesPage({ params }: { params: Promise<{ la
             name: cat.name,
             nameAr: cat.nameAr || '',
             slug: cat.slug,
+            icon: cat.icon || '',
             order: cat.order,
             isActive: cat.isActive
         });
@@ -163,6 +166,29 @@ export default function ProductCategoriesPage({ params }: { params: Promise<{ la
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-1.5 md:col-span-2">
+                                <label className="text-xs font-black uppercase tracking-widest text-zinc-400">Icon Class (FontAwesome)</label>
+                                <div className="flex items-center gap-3">
+                                    <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 flex items-center justify-center text-blue-600 text-xl shrink-0">
+                                        {formData.icon 
+                                            ? <i className={formData.icon}></i>
+                                            : <i className="fas fa-tag opacity-30"></i>
+                                        }
+                                    </div>
+                                    <input 
+                                        type="text" 
+                                        name="icon"
+                                        value={formData.icon}
+                                        onChange={handleInputChange}
+                                        className="w-full bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-800 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all font-mono"
+                                        placeholder="fas fa-box"
+                                    />
+                                </div>
+                                <p className="text-[10px] text-zinc-400 font-medium">Enter a FontAwesome class, e.g. <code className="bg-zinc-100 dark:bg-zinc-800 px-1 rounded">fas fa-box</code>. Preview updates live.</p>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-1.5">
                                 <label className="text-xs font-black uppercase tracking-widest text-zinc-400">Slug *</label>
                                 <input 
@@ -228,6 +254,7 @@ export default function ProductCategoriesPage({ params }: { params: Promise<{ la
                         <thead>
                             <tr className="bg-zinc-50/50 dark:bg-zinc-800/30 border-b border-zinc-100 dark:border-zinc-800">
                                 <th className="px-8 py-5 text-xs font-black uppercase tracking-widest text-zinc-400">Order</th>
+                                <th className="px-8 py-5 text-xs font-black uppercase tracking-widest text-zinc-400">Icon</th>
                                 <th className="px-8 py-5 text-xs font-black uppercase tracking-widest text-zinc-400">Name (EN)</th>
                                 <th className="px-8 py-5 text-xs font-black uppercase tracking-widest text-zinc-400">Name (AR)</th>
                                 <th className="px-8 py-5 text-xs font-black uppercase tracking-widest text-zinc-400">Slug</th>
@@ -238,13 +265,13 @@ export default function ProductCategoriesPage({ params }: { params: Promise<{ la
                         <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800/50">
                             {loading ? (
                                 <tr>
-                                    <td colSpan={6} className="px-8 py-10 text-center">
+                                    <td colSpan={7} className="px-8 py-10 text-center">
                                         <i className="fas fa-spinner fa-spin text-blue-600 text-xl"></i>
                                     </td>
                                 </tr>
                             ) : categories.length === 0 ? (
                                 <tr>
-                                    <td colSpan={6} className="px-8 py-10 text-center text-xs font-bold text-zinc-400 uppercase tracking-widest">
+                                    <td colSpan={7} className="px-8 py-10 text-center text-xs font-bold text-zinc-400 uppercase tracking-widest">
                                         No categories found.
                                     </td>
                                 </tr>
@@ -253,6 +280,12 @@ export default function ProductCategoriesPage({ params }: { params: Promise<{ la
                                     <tr key={cat.id} className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition-colors">
                                         <td className="px-8 py-5">
                                             <span className="text-sm font-black text-zinc-900 dark:text-white">{cat.order}</span>
+                                        </td>
+                                        <td className="px-8 py-5">
+                                            {cat.icon
+                                                ? <div className="w-9 h-9 rounded-lg bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600 text-base border border-blue-100 dark:border-blue-500/20"><i className={cat.icon}></i></div>
+                                                : <span className="text-zinc-300 dark:text-zinc-600 text-xs font-mono">—</span>
+                                            }
                                         </td>
                                         <td className="px-8 py-5">
                                             <span className="text-sm font-bold text-zinc-900 dark:text-white">{cat.name}</span>

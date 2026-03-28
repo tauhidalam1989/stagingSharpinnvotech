@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ServiceFaqAccordion from "@/components/ServiceFaqAccordion";
+import { MessageSquare, ArrowUpRight, Briefcase } from "lucide-react";
 
 export async function generateMetadata({
     params
@@ -56,14 +57,14 @@ const renderIcon = (item: any, fallback: string, className = "text-sm") => {
 const HighlightedTitle = ({ title, className }: { title: string; className?: string }) => {
     const renderTitle = (text: string) => {
         const words = text.split(' ');
-        if (words.length <= 2) return <span className="text-[#1a6bf5]">{text}</span>;
-        
+        if (words.length <= 2) return <span className="text-cyan-300">{text}</span>;
+
         const mainPart = words.slice(0, words.length - 2).join(' ');
         const lastTwo = words.slice(words.length - 2).join(' ');
-        
+
         return (
             <>
-                {mainPart} <span className="text-[#1a6bf5]">{lastTwo}</span>
+                {mainPart} <span className="text-cyan-300">{lastTwo}</span>
             </>
         );
     };
@@ -99,60 +100,67 @@ export default async function ProductDetailPage({
 
 
                 {/* HERO SECTION */}
-                <section className="relative pt-32 pb-6 md:pb-8 overflow-hidden">
-                    {/* <Breadcrumbs 
-                        lang={lang as Locale} 
-                        dict={dict} 
-                        items={[
-                            { label: isAr ? 'منتجاتنا' : 'Products', href: `/${lang}/products` },
-                            { label: isAr ? (product.titleAr || product.title) : product.title }
-                        ]} 
-                        isLight={true}
-                    /> */}
+                <section className="relative bg-[#0d6efd] pt-32 pb-20 md:pt-30 md:pb-32 overflow-hidden" dir={isAr ? 'rtl' : 'ltr'}>
+                    {/* Background patterns */}
+                    <div
+                        className="absolute inset-0 opacity-20 pointer-events-none"
+                        style={{
+                            backgroundImage: `radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px)`,
+                            backgroundSize: '32px 32px'
+                        }}
+                    ></div>
+
+                    {/* Animated Orbs */}
+                    <div className="absolute -top-24 -right-24 w-[500px] h-[500px] bg-white/10 rounded-full blur-[100px] pointer-events-none"></div>
+                    <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] bg-blue-400/20 rounded-full blur-[80px] pointer-events-none"></div>
+
                     <div className="container mx-auto px-6 relative z-10">
-                        <div className="w-full">
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></div>
-                                <span className="text-blue-600 font-semibold tracking-widest uppercase text-[10px]">
-                                    {isAr ? 'تفاصيل المنتج' : 'Product Detail'}
-                                </span>
+                        <div className="max-w-4xl">
+                            {/* Hero Pill */}
+                            <div className="inline-flex items-center gap-2 border border-white/30 bg-white/10 text-blue-50 text-[11px] font-bold px-4 py-1.5 rounded-full mb-8 tracking-widest uppercase">
+                                <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></span>
+                                {isAr ? 'تفاصيل المنتج' : 'Product Detail'}
                             </div>
 
-                            <div className="flex items-center gap-4 mb-3">
-                                <div className="p-2 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 flex items-center justify-center shadow-sm">
-                                    {renderIcon(product.heroIcon || product.cardIcon, 'fas fa-rocket', 'text-lg md:text-xl')}
+                            {/* Icon + Title */}
+                            <div className="flex items-start gap-4 md:gap-6 mb-8">
+                                <div className="shrink-0 p-3 md:p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm shadow-xl text-white flex items-center justify-center">
+                                    {(product.heroIcon || product.cardIcon) ? (
+                                        <i className={`${product.heroIcon || product.cardIcon} text-2xl md:text-4xl`}></i>
+                                    ) : (
+                                        <i className="fas fa-certificate text-2xl md:text-4xl"></i>
+                                    )}
                                 </div>
                                 <HighlightedTitle
                                     title={isAr ? (product.heroTitleAr || product.titleAr || product.title) : (product.heroTitle || product.title)}
-                                    className="text-2xl md:text-2xl lg:text-3xl font-semibold text-zinc-900 dark:text-white tracking-tight leading-tight"
+                                    className="font-syne text-2xl md:text-4xl lg:text-4xl font-extrabold text-white leading-[1.1]"
                                 />
                             </div>
 
-                            {(isAr ? product.heroSubtitleAr : product.heroSubtitle) && (
-                                <h4 className="text-sm font-semibold text-[#1bd7de] mb-2 leading-tight">
-                                    {isAr ? product.heroSubtitleAr : product.heroSubtitle}
-                                </h4>
-                            )}
-
-                            <p className="text-sm md:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal mb-6">
+                            {/* Description */}
+                            <p className="font-dm-sans text-lg md:text-sm text-white/70 font-light leading-relaxed !text-white mb-12 max-w-2xl">
                                 {isAr ? (product.heroDescriptionAr || product.shortDescriptionAr) : (product.heroDescription || product.shortDescription)}
                             </p>
 
-                            <div className="flex flex-wrap gap-3">
+                            {/* CTA Buttons */}
+                            <div className="flex flex-wrap gap-4">
                                 {(product.heroPrimaryCtaText || product.heroPrimaryCtaTextAr) && (
                                     <Link
                                         href={product.heroPrimaryCtaLink || '#'}
-                                        className="px-6 py-2.5 bg-blue-600 text-white font-bold rounded-lg shadow-lg shadow-blue-600/20 hover:bg-blue-700 transition-all hover:-translate-y-0.5 block text-xs md:text-sm"
+                                        className="group inline-flex items-center justify-center gap-3 bg-white text-[#0d6efd] px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20"
                                     >
-                                        {isAr ? (product.heroPrimaryCtaTextAr || product.heroPrimaryCtaText) : (product.heroPrimaryCtaText || 'Request Demo')}
+                                        <MessageSquare className="w-5 h-5" />
+                                        <span>{isAr ? (product.heroPrimaryCtaTextAr || product.heroPrimaryCtaText) : (product.heroPrimaryCtaText || 'Request Demo')}</span>
+                                        <ArrowUpRight className="w-5 h-5 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" />
                                     </Link>
                                 )}
                                 {(product.heroSecondaryCtaText || product.heroSecondaryCtaTextAr) && (
                                     <Link
                                         href={product.heroSecondaryCtaLink || '#'}
-                                        className="px-6 py-2.5 bg-transparent border-2 border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white font-bold rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all hover:-translate-y-0.5 block text-xs md:text-sm"
+                                        className="inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm"
                                     >
-                                        {isAr ? (product.heroSecondaryCtaTextAr || product.heroSecondaryCtaText) : (product.heroSecondaryCtaText || 'Learn More')}
+                                        <Briefcase className="w-5 h-5" />
+                                        <span>{isAr ? (product.heroSecondaryCtaTextAr || product.heroSecondaryCtaText) : (product.heroSecondaryCtaText || 'Learn More')}</span>
                                     </Link>
                                 )}
                             </div>
@@ -200,26 +208,40 @@ export default async function ProductDetailPage({
 
             {/* HOW IT WORKS */}
             {product.howItWorks && product.howItWorks.length > 0 && (
-                <section className="py-12 bg-zinc-50 dark:bg-zinc-900/30">
-                    <div className="container mx-auto px-6 text-center">
-                        <div className="mb-10">
-                            <h2 className="text-xl md:text-2xl font-semibold text-[#141d72] dark:text-blue-400 tracking-tight">
+                <section className="py-20 bg-zinc-50 dark:bg-zinc-900/30">
+                    <div className="container mx-auto px-6">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-[#1a6bf5] tracking-tight leading-tight px-4">
                                 {isAr ? "كيف يعمل؟" : "How It Works"}
                             </h2>
                         </div>
                         <div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {product.howItWorks.map((item, idx) => (
-                                    <div key={idx} className="group capability-card">
-                                        <div className="capability-icon-box mx-auto">
-                                            {renderIcon(item, 'fas fa-arrow-right', 'text-base')}
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                                {product.howItWorks.map((item: any, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="group relative flex flex-col bg-white dark:bg-zinc-900 rounded-[32px] p-8 border border-zinc-100 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:border-blue-500 hover:shadow-[0_20px_50px_-20px_rgba(59,130,246,0.3)] overflow-hidden"
+                                    >
+                                        {/* Background Accent */}
+                                        <div className="absolute top-0 right-0 w-24 h-24 bg-zinc-50 dark:bg-zinc-800 rounded-bl-[100px] -mr-8 -mt-8 transition-all duration-500 group-hover:bg-blue-500/10 group-hover:scale-150"></div>
+
+                                        <div className="relative z-10">
+                                            <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 group-hover:bg-blue-600 text-blue-600 group-hover:text-white transition-all duration-500 shadow-sm border border-zinc-50 dark:border-zinc-700 overflow-hidden">
+                                                {renderIcon(item, 'fas fa-arrow-right', 'text-base transition-all duration-500 group-hover:scale-110 group-hover:rotate-12')}
+                                            </div>
+                                            <h3 className="font-syne text-2xl font-bold mb-4 text-zinc-900 dark:text-white group-hover:text-blue-600 transition-colors leading-tight uppercase">
+                                                {isAr ? item.titleAr : item.title}
+                                            </h3>
+                                            <p className="font-dm-sans text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-6 font-light">
+                                                {isAr ? item.descriptionAr : item.description}
+                                            </p>
+
+                                            {/* <div className="mt-auto flex items-center text-blue-600 text-xs font-bold uppercase tracking-widest">
+                                                <span className={`transition-all duration-300 transform ${isAr ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`}>
+                                                    {isAr ? '←' : '→'}
+                                                </span>
+                                            </div> */}
                                         </div>
-                                        <h3 className="relative z-10 text-sm font-bold text-[#1e293b] dark:text-white mb-2 tracking-tight uppercase">
-                                            {isAr ? item.titleAr : item.title}
-                                        </h3>
-                                        <p className="relative z-10 text-[#64748b] dark:text-zinc-400 font-normal text-[13px] leading-relaxed">
-                                            {isAr ? item.descriptionAr : item.description}
-                                        </p>
                                     </div>
                                 ))}
                             </div>
@@ -377,49 +399,60 @@ export default async function ProductDetailPage({
             )}
 
             {/* CTA BANNER */}
-            <section className="py-6 bg-[#f3f4ff] dark:bg-zinc-900/50">
+            <section className="py-8 md:py-12" dir={isAr ? 'rtl' : 'ltr'}>
                 <div className="container mx-auto px-6">
-                    <div className="bg-blue-600 rounded-2xl py-6 px-8 md:py-7 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl shadow-blue-600/20 relative overflow-hidden group mx-auto">
-                        <div className="relative z-10 text-center md:text-left">
-                            <h2 className="text-xl md:text-3xl font-bold text-white tracking-tight">
-                                {isAr ? product.ctaTitleAr : product.ctaTitle || (isAr ? 'ابدأ الخطوة التالية' : 'Drive next step')}
-                            </h2>
-                            <p className="text-blue-100/90 text-sm md:text-base !text-white mt-2 font-medium">
-                                {isAr ? product.ctaDescriptionAr : product.ctaDescription || (isAr ? 'حول سير عملك في دقائق.' : 'Transform your workflow in minutes.')}
-                            </p>
+                    <div className="relative rounded-[32px] bg-[#0d6efd] p-6 md:p-8 lg:p-10 overflow-hidden shadow-2xl shadow-blue-200">
+                        {/* Background patterns */}
+                        <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-[-20deg] translate-x-1/2"></div>
+                        <div className="absolute -bottom-24 -left-24 w-64 h-64 border-[40px] border-white/10 rounded-full"></div>
+
+                        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-start">
+                            <div className="lg:w-2/3">
+                                <h2 className="text-2xl md:text-3xl font-extrabold text-white leading-tight mb-6">
+                                    {isAr ? product.ctaTitleAr : product.ctaTitle || (isAr ? 'ابدأ الخطوة التالية' : 'Drive next step')}
+                                </h2>
+                                <p className="text-sm text-white/70 font-light leading-relaxed !text-white max-w-2xl">
+                                    {isAr ? product.ctaDescriptionAr : product.ctaDescription || (isAr ? 'حول سير عملك في دقائق.' : 'Transform your workflow in minutes.')}
+                                </p>
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                                {(product.ctaButton1Text || product.ctaButton1TextAr) && (
+                                    <Link
+                                        href={product.ctaButton1Link || `/${lang}/contact`}
+                                        className="group inline-flex items-center justify-center gap-3 bg-white text-[#0d6efd] px-10 py-5 rounded-2xl font-bold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20"
+                                    >
+                                        <MessageSquare className="w-5 h-5" />
+                                        <span>{isAr ? (product.ctaButton1TextAr || product.ctaButton1Text) : product.ctaButton1Text}</span>
+                                        <ArrowUpRight className="w-5 h-5 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" />
+                                    </Link>
+                                )}
+                                {(product.ctaButton2Text || product.ctaButton2TextAr) && (
+                                    <Link
+                                        href={product.ctaButton2Link || `/${lang}/products`}
+                                        className="inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-10 py-5 rounded-2xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm"
+                                    >
+                                        <Briefcase className="w-5 h-5" />
+                                        <span>{isAr ? (product.ctaButton2TextAr || product.ctaButton2Text) : product.ctaButton2Text}</span>
+                                    </Link>
+                                )}
+                            </div>
                         </div>
-                        <div className="flex flex-wrap justify-center md:justify-end gap-3 relative z-10">
-                            {(product.ctaButton1Text || product.ctaButton1TextAr) && (
-                                <Link
-                                    href={product.ctaButton1Link || '#'}
-                                    className="px-6 py-2.5 bg-white text-blue-600 font-bold rounded-full hover:bg-zinc-100 transition-all transform hover:scale-105 active:scale-95 text-xs md:text-sm shadow-md"
-                                >
-                                    {isAr ? (product.ctaButton1TextAr || product.ctaButton1Text) : product.ctaButton1Text}
-                                </Link>
-                            )}
-                            {(product.ctaButton2Text || product.ctaButton2TextAr) && (
-                                <Link
-                                    href={product.ctaButton2Link || '#'}
-                                    className="px-6 py-2.5 bg-transparent border border-white/50 text-white font-semibold rounded-full hover:bg-white/10 transition-all transform hover:scale-105 active:scale-95 text-xs md:text-sm"
-                                >
-                                    {isAr ? (product.ctaButton2TextAr || product.ctaButton2Text) : product.ctaButton2Text}
-                                </Link>
-                            )}
-                        </div>
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-white/10 transition-colors duration-500"></div>
                     </div>
                 </div>
             </section>
 
             {/* FAQ SECTION */}
             {product.faqs && product.faqs.length > 0 && (
-                <section className="py-12 bg-[#f3f4ff] dark:bg-zinc-900/50">
-                    <div className="container mx-auto px-6">
-                        <div className="text-center mb-8">
-                            <h2 className="text-xl font-semibold text-[#141d72] dark:text-blue-400 mb-2 uppercase tracking-tight">
-                                {isAr ? "الأسئلة المتكررة" : "Frequently Asked Questions"}
-                            </h2>
-                            <div className="h-1 w-12 bg-blue-600 mx-auto rounded-full"></div>
+                <section className="pt-12 pb-4 bg-white dark:bg-zinc-950 overflow-hidden">
+                    <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-[1400px]">
+                        <div className="mx-auto text-center mb-12" style={{ maxWidth: '600px' }}>
+                            <div className="inline-block border border-zinc-200 dark:border-zinc-800 rounded-full px-4 py-1 text-sm font-semibold text-blue-600 mb-4 tracking-wide">
+                                {isAr ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
+                            </div>
+                            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-zinc-900 dark:text-white tracking-tight">
+                                {isAr ? 'الأسئلة الأكثر شيوعاً' : 'Popular FAQs'}
+                            </h1>
                         </div>
                         <ServiceFaqAccordion faqs={product.faqs as any} lang={lang} />
                     </div>

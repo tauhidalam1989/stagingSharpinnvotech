@@ -94,7 +94,7 @@ export default function LatestBlogsSection({ lang, dict, blogs }: LatestBlogsSec
   };
 
   return (
-    <section className="py-20 bg-white" dir={isAr ? 'rtl' : 'ltr'}>
+    <section className="pt-4 pb-20 bg-white" dir={isAr ? 'rtl' : 'ltr'}>
       <div className="container mx-auto px-6 mb-12">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-3xl md:text-5xl font-extrabold text-[#060E24] font-syne mb-4">
