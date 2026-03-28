@@ -37,7 +37,7 @@ export default async function TermsConditionsPage({
         <main className="flex flex-col w-full min-h-screen bg-zinc-50 dark:bg-zinc-950 overflow-hidden" dir={isRtl ? 'rtl' : 'ltr'}>
 
             {/* Premium Hero Section */}
-            <section className="relative bg-[#0d6efd] pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+            <section className="relative bg-[#0d6efd] pt-32 pb-20 md:pt-30 md:pb-32 overflow-hidden">
                 {/* Background patterns */}
                 <div
                     className="absolute inset-0 opacity-20 pointer-events-none"
@@ -67,7 +67,7 @@ export default async function TermsConditionsPage({
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="font-syne text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-8"
+                            className="font-syne text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-8"
                         >
                             {terms.title}
                         </motion.h1>
