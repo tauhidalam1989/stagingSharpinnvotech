@@ -83,7 +83,7 @@ const ServiceWhy: React.FC<ServiceWhyProps> = ({ lang, dict }) => {
                   whileHover={{ y: -5 }}
                   className={`p-8 rounded-3xl ${stat.color} text-white shadow-xl shadow-blue-900/10 transition-all duration-300 group`}
                 >
-                  <div className="text-3xl md:text-4xl font-extrabold font-syne mb-2 group-hover:scale-110 transition-transform duration-500 origin-left">
+                  <div className="text-3xl md:text-4xl font-bold font-sons-serif mb-2 group-hover:scale-110 transition-transform duration-500 origin-left">
                     {stat.num}
                   </div>
                   <div className="text-xs uppercase tracking-widest font-bold opacity-80">

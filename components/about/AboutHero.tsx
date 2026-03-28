@@ -79,7 +79,7 @@ export default function AboutHero({ lang, dict }: AboutHeroProps) {
                                         key={idx}
                                         className={`p-6 rounded-2xl border border-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-[#060E24] hover:-translate-y-1 ${cardColors[idx % cardColors.length]} text-start`}
                                     >
-                                        <div className="text-3xl md:text-4xl font-bold font-syne mb-1">
+                                        <div className="text-3xl md:text-4xl font-bold font-sons-serf mb-1">
                                             {stat.num}<span className="text-[#38BDF8]">{stat.suffix}</span>
                                         </div>
                                         <div className="text-[10px] md:text-[11px] text-white/60 font-light tracking-widest uppercase border-t border-white/10 pt-3">
@@ -92,16 +92,16 @@ export default function AboutHero({ lang, dict }: AboutHeroProps) {
                     </div>
 
                     {/* Right Side Image */}
-                    {/* <div className={`w-full lg:w-[45%] xl:w-[40%] flex justify-center lg:justify-end animate-fade-in-up animation-delay-400 ${isRtl ? 'lg:justify-start' : 'lg:justify-end'}`}>
+                    <div className={`w-full lg:w-[45%] xl:w-[40%] flex justify-center lg:justify-end animate-fade-in-up animation-delay-400 ${isRtl ? 'lg:justify-start' : 'lg:justify-end'}`}>
                         <div className="relative">
                             <div className="absolute -inset-4 bg-white/5 blur-xl rounded-full opacity-50"></div>
-                            <img 
-                                src="/img/aboutusherorightimage.png" 
-                                alt="About Sharp Innovations" 
+                            <img
+                                src="/img/pagesbannersimg/About Us.svg"
+                                alt="About Sharp Innovations"
                                 className="w-[85%] sm:w-[60%] lg:w-full max-w-[500px] lg:max-w-full h-auto object-contain relative z-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 transition-transform duration-700"
                             />
                         </div>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </section>

@@ -95,7 +95,7 @@ export default async function BlogDetailPage({
                                 S
                             </div>
                             <div>
-                                <div className="text-[11px] font-extrabold text-white uppercase tracking-wider font-syne">SHARP INNOVATION</div>
+                                <div className="text-[11px] font-extrabold text-white uppercase tracking-wider font-sons-serif">SHARP INNOVATION</div>
                                 <div className="text-[9px] text-white/50 font-bold uppercase tracking-[0.2em]">{lang === 'ar' ? 'مؤسسة الابتكار الحاد' : 'Official Publisher'}</div>
                             </div>
                         </div>

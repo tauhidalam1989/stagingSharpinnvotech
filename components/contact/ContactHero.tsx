@@ -44,40 +44,54 @@ const ContactHero: React.FC<ContactHeroProps> = ({ lang, dict }) => {
       /> */}
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 border border-white/30 text-blue-50 text-[10px] font-bold uppercase tracking-[0.2em] mb-8 backdrop-blur-sm"
-          >
-            <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
-            {isAr ? 'اتصل بنا' : 'Contact Us'}
-          </motion.div>
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8 justify-between w-full">
+          <div className={`w-full lg:w-[55%] xl:w-[60%] shrink-0 ${isAr ? 'mr-0 ml-auto text-right' : 'text-left'}`}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 border border-white/30 text-blue-50 text-[10px] font-bold uppercase tracking-[0.2em] mb-8 backdrop-blur-sm"
+            >
+              <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+              {isAr ? 'اتصل بنا' : 'Contact Us'}
+            </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-syne text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-8 tracking-tight"
-          >
-            {isAr ? (
-              <>دعونا نتحدث عن<br /><span className="text-cyan-300">مشروعك القادم</span></>
-            ) : (
-              <>Let's Talk About<br />Your <span className="text-cyan-300 font-normal">Next Project</span></>
-            )}
-          </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-syne text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-8 tracking-tight"
+            >
+              {isAr ? (
+                <>دعونا نتحدث عن<br /><span className="text-cyan-300">مشروعك القادم</span></>
+              ) : (
+                <>Let's Talk About<br />Your <span className="text-cyan-300 font-normal">Next Project</span></>
+              )}
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-dm-sans text-base md:text-lg text-white/80 max-w-2xl leading-relaxed !text-white font-light"
-          >
-            {isAr
-              ? 'نحن نحب أن نسمع منك. سواء كان لديك سؤال حول خدماتنا، أو ترغب في طلب عرض تجريبي، أو كنت مستعدًا لبدء مشروع - فريقنا هنا وجاهز للمساعدة.'
-              : "We'd love to hear from you. Whether you have a question about our services, want to request a demo, or are ready to kick off a project — our team is here and ready to help."}
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="font-dm-sans text-base text-white/80 max-w-2xl leading-relaxed !text-white font-light"
+            >
+              {isAr
+                ? 'نحن نحب أن نسمع منك. سواء كان لديك سؤال حول خدماتنا، أو ترغب في طلب عرض تجريبي، أو كنت مستعدًا لبدء مشروع - فريقنا هنا وجاهز للمساعدة.'
+                : "We'd love to hear from you. Whether you have a question about our services, want to request a demo, or are ready to kick off a project — our team is here and ready to help."}
+            </motion.p>
+          </div>
+
+          {/* Right Side Image */}
+          <div className={`w-full lg:w-[45%] xl:w-[40%] flex justify-center lg:justify-end animate-fade-in-up animation-delay-400 ${isAr ? 'lg:justify-start' : 'lg:justify-end'}`}>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-white/5 blur-xl rounded-full opacity-50"></div>
+              <img
+                src="/img/pagesbannersimg/Contact.svg"
+                alt="Contact Sharp Innovations"
+                className="w-[85%] sm:w-[60%] lg:w-full max-w-[500px] lg:max-w-full h-auto object-contain relative z-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 transition-transform duration-700"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

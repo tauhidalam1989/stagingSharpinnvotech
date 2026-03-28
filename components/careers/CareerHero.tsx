@@ -66,70 +66,84 @@ const CareerHero: React.FC<CareerHeroProps> = ({ lang, dict }) => {
       /> */}
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl">
-          {/* Hero Pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 border border-white/30 bg-white/10 text-white text-[11px] font-bold px-4 py-1.5 rounded-full mb-8 tracking-widest uppercase"
-          >
-            <Star className="w-3 h-3 text-cyan-300 fill-cyan-300" />
-            {isAr ? 'انضم إلى عائلتنا' : 'JOIN OUR VISIONARY TEAM'}
-          </motion.div>
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8 justify-between w-full">
+          <div className={`w-full lg:w-[55%] xl:w-[60%] shrink-0 ${isAr ? 'mr-0 ml-auto text-right' : 'text-left'}`}>
+            {/* Hero Pill */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 border border-white/30 bg-white/10 text-white text-[11px] font-bold px-4 py-1.5 rounded-full mb-8 tracking-widest uppercase"
+            >
+              <Star className="w-3 h-3 text-cyan-300 fill-cyan-300" />
+              {isAr ? 'انضم إلى عائلتنا' : 'JOIN OUR VISIONARY TEAM'}
+            </motion.div>
 
-          {/* Hero Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-syne text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-8"
-          >
-            {isAr ? (
-              <>
-                ابنِ مسيرتك في<br />
-                <span className="text-cyan-300">عالم الابتكار</span>
-              </>
-            ) : (
-              <>
-                Build Your Future in<br />
-                <span className="text-cyan-300 text-stroke-thin">The Tech Frontier</span>
-              </>
-            )}
-          </motion.h1>
+            {/* Hero Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-syne text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-8"
+            >
+              {isAr ? (
+                <>
+                  ابنِ مسيرتك في<br />
+                  <span className="text-cyan-300">عالم الابتكار</span>
+                </>
+              ) : (
+                <>
+                  Build Your Future in<br />
+                  <span className="text-cyan-300 text-stroke-thin">The Tech Frontier</span>
+                </>
+              )}
+            </motion.h1>
 
-          {/* Hero Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-dm-sans text-base text-white/80 leading-relaxed max-w-2xl !text-white mb-16"
-          >
-            {s.careers_description}
-          </motion.p>
+            {/* Hero Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="font-dm-sans text-base text-white/80 leading-relaxed max-w-2xl !text-white mb-16"
+            >
+              {s.careers_description}
+            </motion.p>
 
-          {/* Highlights Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-1">
-            {cultureHighlights.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="group p-6 rounded-[2.5rem] bg-[#060E24] backdrop-blur-xl border border-white/10 hover:border-white/30 transition-all duration-500"
-              >
-                <div className={`mb-6 p-4 w-fit rounded-2xl ${item.bg} group-hover:scale-110 transition-transform duration-500`}>
-                  {item.icon}
-                </div>
-                <h3 className="text-lg font-syne font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-white/50 leading-relaxed font-dm-sans">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
+            {/* Highlights Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
+              {cultureHighlights.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
+                  whileHover={{ y: -10 }}
+                  className="group p-4 rounded-[2rem] bg-[#060E24] backdrop-blur-xl border border-white/10 hover:border-white/30 transition-all duration-500"
+                >
+                  <div className={`mb-3 p-3 w-fit rounded-xl ${item.bg} group-hover:scale-110 transition-transform duration-500`}>
+                    {item.icon}
+                  </div>
+                  <h3 className="text-sm font-syne font-bold text-white mb-1 group-hover:text-cyan-300 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-white/50 leading-relaxed font-dm-sans">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side Image */}
+          <div className={`w-full lg:w-[45%] xl:w-[40%] flex justify-center lg:justify-end animate-fade-in-up animation-delay-400 lg:-mt-12 ${isAr ? 'lg:justify-start' : 'lg:justify-end'}`}>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-white/5 blur-xl rounded-full opacity-50"></div>
+              <img
+                src="/img/pagesbannersimg/Careers.svg"
+                alt="Careers at Sharp Innovations"
+                className="w-[85%] sm:w-[60%] lg:w-full max-w-[500px] lg:max-w-full h-auto object-contain relative z-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 transition-transform duration-700"
+              />
+            </div>
           </div>
         </div>
       </div>

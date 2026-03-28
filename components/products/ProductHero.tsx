@@ -45,73 +45,87 @@ const ProductHero: React.FC<ProductHeroProps> = ({ lang, dict }) => {
       /> */}
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl">
-          {/* Hero Pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 border border-white/30 bg-white/10 text-blue-50 text-[11px] font-bold px-4 py-1.5 rounded-full mb-8 tracking-widest uppercase"
-          >
-            <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></span>
-            {p.HERO_PILL}
-          </motion.div>
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8 justify-between w-full">
+          <div className={`w-full lg:w-[55%] xl:w-[60%] shrink-0 ${isAr ? 'mr-0 ml-auto text-right' : 'text-left'}`}>
+            {/* Hero Pill */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 border border-white/30 bg-white/10 text-blue-50 text-[11px] font-bold px-4 py-1.5 rounded-full mb-8 tracking-widest uppercase"
+            >
+              <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></span>
+              {p.HERO_PILL}
+            </motion.div>
 
-          {/* Hero Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-syne text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-8"
-          >
-            {isAr ? (
-              <>
-                منتجات مدعومة بالذكاء الاصطناعي<br />
-                <span className="text-cyan-300">مهيأة لمستقبل المملكة</span>
-              </>
-            ) : (
-              <>
-                AI-Powered Products<br />
-                <span className="text-cyan-300 text-stroke-thin">Engineered for Saudi's Future</span>
-              </>
-            )}
-          </motion.h1>
+            {/* Hero Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-sons-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-8"
+            >
+              {isAr ? (
+                <>
+                  منتجات مدعومة بالذكاء الاصطناعي<br />
+                  <span className="text-cyan-300">مهيأة لمستقبل المملكة</span>
+                </>
+              ) : (
+                <>
+                  AI-Powered Products<br />
+                  <span className="text-cyan-300 text-stroke-thin">Engineered for Saudi's Future</span>
+                </>
+              )}
+            </motion.h1>
 
-          {/* Hero Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-dm-sans text-base md:text-base text-white/80 font-light leading-relaxed max-w-3xl !text-white mb-16"
-          >
-            {p.HERO_DESC}
-          </motion.p>
+            {/* Hero Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="font-dm-sans text-base md:text-base text-white/80 font-light leading-relaxed max-w-3xl !text-white mb-16"
+            >
+              {p.HERO_DESC}
+            </motion.p>
 
-          {/* Stats Grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-1 max-w-4xl"
-          >
-            {stats.map((stat, idx) => (
-              <div
-                key={idx}
-                className="group p-6 rounded-3xl bg-[#060E24] border border-white/10 hover:bg-[#060E24] hover:border-white/20 transition-all duration-300 text-left"
-                style={{ direction: 'ltr' }} // Keep digits/unit LTR for stats
-              >
-                <div className="mb-4 p-2 w-fit bg-white/5 rounded-xl group-hover:bg-white/10 transition-colors">
-                  {stat.icon}
+            {/* Stats Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-1"
+            >
+              {stats.map((stat, idx) => (
+                <div
+                  key={idx}
+                  className="group p-6 rounded-3xl bg-[#060E24] border border-white/10 hover:bg-[#060E24] hover:border-white/20 transition-all duration-300 text-left"
+                  style={{ direction: 'ltr' }}
+                >
+                  <div className="mb-4 p-2 w-fit bg-white/5 rounded-xl group-hover:bg-white/10 transition-colors">
+                    {stat.icon}
+                  </div>
+                  <div className="text-3xl font-sons-serif font-bold text-white mb-1">
+                    {stat.value}
+                  </div>
+                  <div className={`text-[11px] font-bold text-white/50 uppercase tracking-wider ${isAr ? 'font-dm-sans' : ''}`}>
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-3xl font-syne font-extrabold text-white mb-1">
-                  {stat.value}
-                </div>
-                <div className={`text-[11px] font-bold text-white/50 uppercase tracking-wider ${isAr ? 'font-dm-sans' : ''}`}>
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Right Side Image */}
+          <div className={`w-full lg:w-[45%] xl:w-[40%] flex justify-center lg:justify-end animate-fade-in-up animation-delay-400 ${isAr ? 'lg:justify-start' : 'lg:justify-end'}`}>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-white/5 blur-xl rounded-full opacity-50"></div>
+              <img
+                src="/img/pagesbannersimg/Product Page.svg"
+                alt="Sharp Innovations Products"
+                className="w-[85%] sm:w-[60%] lg:w-full max-w-[500px] lg:max-w-full h-auto object-contain relative z-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 transition-transform duration-700"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
