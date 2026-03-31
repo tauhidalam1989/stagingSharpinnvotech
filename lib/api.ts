@@ -399,13 +399,13 @@ export async function getPublishedProducts(): Promise<Product[]> {
             return [];
         }
         const data: ApiResponse<Product[]> = await res.json();
-        
+
         // Return empty array if data.data is not an array (stability fix)
         if (!Array.isArray(data.data)) {
             console.error('Expected products array but received:', typeof data.data);
             return [];
         }
-        
+
         return data.data;
     } catch (error) {
         console.error('Error fetching products:', error);
@@ -608,7 +608,7 @@ export async function getClients(status?: string): Promise<Client[]> {
         const query = status ? `?status=${status}` : '';
         const res = await fetch(`${API_URL}/client-partner/clients${query}`, {
             headers: { 'x-api-key': API_KEY },
-            cache: 'no-store',
+            next: { revalidate: 10 },
         });
         if (!res.ok) {
             console.error(`Failed to fetch clients: ${res.status}`);
@@ -630,7 +630,7 @@ export async function getPartners(status?: string): Promise<Partner[]> {
         const query = status ? `?status=${status}` : '';
         const res = await fetch(`${API_URL}/client-partner/partners${query}`, {
             headers: { 'x-api-key': API_KEY },
-            cache: 'no-store',
+            next: { revalidate: 10 },
         });
         if (!res.ok) {
             console.error(`Failed to fetch partners: ${res.status}`);
@@ -651,7 +651,7 @@ export async function getCertificates(status?: string): Promise<Certificate[]> {
         const query = status ? `?status=${status}` : '';
         const res = await fetch(`${API_URL}/client-partner/certificates${query}`, {
             headers: { 'x-api-key': API_KEY },
-            cache: 'no-store',
+            next: { revalidate: 10 },
         });
         if (!res.ok) {
             console.error(`Failed to fetch certificates: ${res.status}`);
@@ -806,13 +806,13 @@ export async function getPublishedServices(): Promise<ServicePage[]> {
             return [];
         }
         const data: ApiResponse<ServicePage[]> = await res.json();
-        
+
         // Return empty array if data.data is not an array (stability fix)
         if (!Array.isArray(data.data)) {
             console.error('Expected services array but received:', typeof data.data);
             return [];
         }
-        
+
         return data.data;
     } catch (error) {
         console.error('Error fetching services:', error);
@@ -1604,8 +1604,8 @@ export async function getNewsletters(params?: { page?: number; limit?: number })
         });
         const data = await res.json();
         const items = data.result || data.data || [];
-        return { 
-            newsletters: Array.isArray(items) ? items : (items.data || []), 
+        return {
+            newsletters: Array.isArray(items) ? items : (items.data || []),
             total: data.pagination?.total || data.total || data.count || (Array.isArray(items) ? items.length : 0)
         };
     } catch (error) {

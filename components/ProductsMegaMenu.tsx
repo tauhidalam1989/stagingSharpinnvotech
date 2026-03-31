@@ -75,19 +75,19 @@ export default function ProductsMegaMenu({ lang, onClose }: { lang: string; onCl
     if (categories.length === 0) return null;
 
     return (
-        <div className="w-full bg-[#034077] text-white border-t border-white/20 shadow-2xl overflow-hidden py-6 min-h-[380px]">
+        <div className="w-full bg-[#034077] text-white border-t border-white/20 shadow-2xl overflow-hidden py-8 min-h-[420px]">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col lg:flex-row gap-8">
                     {/* LEFT SECTION — CATEGORIES */}
-                    <div className="w-full lg:w-[350px] shrink-0">
+                    <div className="w-full lg:w-[450px] shrink-0">
                         <div className="flex items-center gap-2 mb-6 px-2 opacity-80">
                             <LayoutGrid className="w-4 h-4" />
-                            <h3 className="text-[12px] font-black tracking-[0.2em] uppercase">
+                            <h3 className="text-[12px] font-black tracking-[0.2em] uppercase !text-white">
                                 {lang === 'ar' ? 'فئات' : 'Categories'}
                             </h3>
                         </div>
 
-                        <div className="flex flex-col gap-1 max-h-[220px] overflow-y-auto custom-scrollbar pr-2">
+                        <div className="flex flex-col gap-1 max-h-[330px] overflow-y-auto custom-scrollbar pr-2 pt-1">
                             {categories.map((cat) => {
                                 const isActive = activeCategoryId === cat.id;
                                 const name = isRtl ? cat.nameAr || cat.name : cat.name;
@@ -95,17 +95,23 @@ export default function ProductsMegaMenu({ lang, onClose }: { lang: string; onCl
                                     <button
                                         key={cat.id}
                                         onMouseEnter={() => setActiveCategoryId(cat.id)}
-                                        className={`w-full flex items-center gap-4 px-4 py-3 transition-all duration-200 rounded-xl text-start group ${isActive
-                                            ? 'bg-white text-[#0d6efd]'
-                                            : 'text-white/80 hover:bg-white/10 hover:text-white'
+                                        className={`w-full flex items-center gap-3 px-1 py-2 transition-all duration-200 text-start group relative ${isActive
+                                            ? 'text-white'
+                                            : 'text-white/70 hover:text-white'
                                             }`}
                                     >
-                                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${isActive ? 'bg-[#0d6efd]/10 text-[#0d6efd]' : 'bg-white/10 text-white/60 group-hover:text-white !text-white'
+                                        <div className={`w-7 h-7 flex items-center justify-center shrink-0 transition-colors ${isActive ? 'text-white font-bold scale-110' : 'text-white/40 group-hover:text-white/80'
                                             }`}>
-                                            {cat.icon ? <i className={`${cat.icon} text-lg`}></i> : <Package className="w-5 h-5" />}
+                                            {cat.icon ? <i className={`${cat.icon} text-sm`}></i> : <Package className="w-4 h-4" />}
                                         </div>
-                                        <span className="text-[15px] font-bold">{name}</span>
-                                        <ChevronRight className={`w-4 h-4 shrink-0 transition-transform ${isRtl ? 'rotate-180' : ''} ${isActive ? 'opacity-100' : 'opacity-0'} ml-auto`} />
+                                        <div className="relative flex-1 min-w-0">
+                                            <span className="text-[14px] font-bold whitespace-nowrap overflow-hidden block">
+                                                {name}
+                                            </span>
+                                            {/* Underline effect */}
+                                            <div className={`absolute -bottom-1 left-0 h-[2px] bg-[#0d6efd] transition-all duration-300 ${isActive ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-1/2 group-hover:opacity-100'}`} />
+                                        </div>
+                                        <ChevronRight className={`w-3.5 h-3.5 shrink-0 transition-transform ${isRtl ? 'rotate-180' : ''} ${isActive ? 'opacity-100 translate-x-1' : 'opacity-0'} ml-auto`} />
                                     </button>
                                 );
                             })}
@@ -139,7 +145,7 @@ export default function ProductsMegaMenu({ lang, onClose }: { lang: string; onCl
                                 <p className="text-[14px] !text-white">{lang === 'ar' ? 'لا توجد منتجات' : 'No products in this category'}</p>
                             </div>
                         ) : (
-                            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 max-h-[280px] overflow-y-auto custom-scrollbar pr-2 pt-1">
+                            <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 max-h-[380px] overflow-y-auto custom-scrollbar pr-2 pt-1">
                                 {activeProducts.map((product, i) => {
                                     const title = isRtl ? product.titleAr || product.title : product.title;
                                     return (
@@ -147,12 +153,12 @@ export default function ProductsMegaMenu({ lang, onClose }: { lang: string; onCl
                                             key={product.id}
                                             href={`/${lang}/products/${product.slug}`}
                                             onClick={onClose}
-                                            className="group bg-white/10 hover:bg-white/20 border border-white/5 hover:border-white/20 p-5 rounded-2xl transition-all duration-300 flex items-center gap-5"
+                                            className="group bg-white/10 hover:bg-white/20 border border-white/5 hover:border-white/20 p-2.5 rounded-2xl transition-all duration-300 flex items-center gap-3"
                                         >
-                                            <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 text-white transition-all group-hover:scale-110">
+                                            <div className="w-9.5 h-9.5 rounded-xl bg-white/10 flex items-center justify-center shrink-0 text-white transition-all group-hover:scale-105">
                                                 {renderProductIcon(product)}
                                             </div>
-                                            <span className="text-[15px] font-bold leading-tight group-hover:translate-x-1 transition-transform">
+                                            <span className="text-[13.5px] font-bold leading-tight group-hover:translate-x-1 transition-transform">
                                                 {title}
                                             </span>
                                         </Link>

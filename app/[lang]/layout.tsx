@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LanguageSynchronizer from "@/components/LanguageSynchronizer";
 import CookieConsent from "@/components/CookieConsent";
+import { ThemeProvider } from "@/context/ThemeProvider";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -61,15 +62,17 @@ export default async function RootLayout({
 
     return (
         <AuthProvider lang={lang}>
-            <LanguageSynchronizer lang={lang} dir={isRtl ? 'rtl' : 'ltr'} />
-            <div className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${dmSans.variable} font-sans min-h-screen flex flex-col`}>
-                <Header lang={lang} dict={dict} />
-                <main className="flex-grow">
-                    {children}
-                </main>
-                <Footer lang={lang} dict={dict} />
-                <CookieConsent lang={lang} dict={dict} />
-            </div>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                <LanguageSynchronizer lang={lang} dir={isRtl ? 'rtl' : 'ltr'} />
+                <div className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${dmSans.variable} font-sans min-h-screen flex flex-col`}>
+                    <Header lang={lang} dict={dict} />
+                    <main className="flex-grow">
+                        {children}
+                    </main>
+                    <Footer lang={lang} dict={dict} />
+                    <CookieConsent lang={lang} dict={dict} />
+                </div>
+            </ThemeProvider>
         </AuthProvider>
     );
 }

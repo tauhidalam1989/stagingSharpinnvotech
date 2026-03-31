@@ -7,6 +7,8 @@ import { usePathname } from 'next/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
 import ServicesMegaMenu from './ServicesMegaMenu';
 import ProductsMegaMenu from './ProductsMegaMenu';
+import ThemeToggle from './ThemeToggle';
+
 import { getServiceCategories, getPublishedServices, getProductCategories, getPublishedProducts, ServiceCategory, ServicePage, ProductCategory, Product } from '@/lib/api';
 import { Locale } from '@/lib/get-dictionary';
 
@@ -160,7 +162,12 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
                                     </Link>
                                 );
                             })}
+
                             <LanguageSwitcher currentLang={lang} />
+                            {/* <div className="flex items-center gap-4">
+                                <ThemeToggle />
+                            </div> */}
+
                         </nav>
 
                         {/* Mobile Menu Button */}
@@ -197,9 +204,19 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
                             </Link>
                         </div>
 
-                        {/* Language Switcher */}
+                        {/* Theme and Language Switchers */}
+                        <div className="border-b-2 border-white/40 bg-white/5">
+                            <div className="flex items-center justify-between p-4 px-6 text-white">
+                                <div className="flex items-center gap-5">
+                                    <i className="fa fa-adjust text-2xl w-8 text-center"></i>
+                                    <span className="text-[18px] font-bold">{lang === 'ar' ? 'المظهر' : 'Theme'}</span>
+                                </div>
+                                <ThemeToggle />
+                            </div>
+                        </div>
+
                         <div className="border-b-2 border-white/40">
-                            <div className="flex items-center gap-5 py-4 px-2 text-white">
+                            <div className="flex items-center gap-5 py-4 px-6 text-white">
                                 <i className="fa fa-globe text-2xl w-8 text-center"></i>
                                 <div onClick={() => setIsMenuOpen(false)}>
                                     <LanguageSwitcher currentLang={lang} />
@@ -398,20 +415,18 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
                 </div>
 
                 {/* Desktop Mega Menus */}
-                <div 
-                    className={`hidden lg:block absolute top-full left-0 w-full transition-all duration-300 transform origin-top ${
-                        isServicesHovered ? 'scale-y-100 opacity-100 visible' : 'scale-y-0 opacity-0 invisible'
-                    }`}
+                <div
+                    className={`hidden lg:block absolute top-full left-0 w-full transition-all duration-300 transform origin-top ${isServicesHovered ? 'scale-y-100 opacity-100 visible' : 'scale-y-0 opacity-0 invisible'
+                        }`}
                     onMouseEnter={() => setIsServicesHovered(true)}
                     onMouseLeave={() => setIsServicesHovered(false)}
                 >
                     <ServicesMegaMenu lang={lang} onClose={() => setIsServicesHovered(false)} />
                 </div>
 
-                <div 
-                    className={`hidden lg:block absolute top-full left-0 w-full transition-all duration-300 transform origin-top ${
-                        isProductsHovered ? 'scale-y-100 opacity-100 visible' : 'scale-y-0 opacity-0 invisible'
-                    }`}
+                <div
+                    className={`hidden lg:block absolute top-full left-0 w-full transition-all duration-300 transform origin-top ${isProductsHovered ? 'scale-y-100 opacity-100 visible' : 'scale-y-0 opacity-0 invisible'
+                        }`}
                     onMouseEnter={() => setIsProductsHovered(true)}
                     onMouseLeave={() => setIsProductsHovered(false)}
                 >
