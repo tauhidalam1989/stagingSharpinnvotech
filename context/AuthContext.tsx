@@ -70,13 +70,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode; lang: string }>
     }, [router, lang]);
 
     return (
-        <AuthContext.Provider value={{ 
-            user, 
-            token, 
-            loading, 
-            login, 
-            logout, 
-            isAuthenticated: !!token 
+        <AuthContext.Provider value={{
+            user,
+            token,
+            loading,
+            login,
+            logout,
+            isAuthenticated: !!token
         }}>
             {children}
         </AuthContext.Provider>

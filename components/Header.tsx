@@ -7,8 +7,6 @@ import { usePathname } from 'next/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
 import ServicesMegaMenu from './ServicesMegaMenu';
 import ProductsMegaMenu from './ProductsMegaMenu';
-import ThemeToggle from './ThemeToggle';
-
 import { getServiceCategories, getPublishedServices, getProductCategories, getPublishedProducts, ServiceCategory, ServicePage, ProductCategory, Product } from '@/lib/api';
 import { Locale } from '@/lib/get-dictionary';
 
@@ -164,9 +162,7 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
                             })}
 
                             <LanguageSwitcher currentLang={lang} />
-                            {/* <div className="flex items-center gap-4">
-                                <ThemeToggle />
-                            </div> */}
+
 
                         </nav>
 
@@ -205,16 +201,6 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
                         </div>
 
                         {/* Theme and Language Switchers */}
-                        <div className="border-b-2 border-white/40 bg-white/5">
-                            <div className="flex items-center justify-between p-4 px-6 text-white">
-                                <div className="flex items-center gap-5">
-                                    <i className="fa fa-adjust text-2xl w-8 text-center"></i>
-                                    <span className="text-[18px] font-bold">{lang === 'ar' ? 'المظهر' : 'Theme'}</span>
-                                </div>
-                                <ThemeToggle />
-                            </div>
-                        </div>
-
                         <div className="border-b-2 border-white/40">
                             <div className="flex items-center gap-5 py-4 px-6 text-white">
                                 <i className="fa fa-globe text-2xl w-8 text-center"></i>
