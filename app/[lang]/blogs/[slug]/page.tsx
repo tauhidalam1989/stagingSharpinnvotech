@@ -73,7 +73,7 @@ export default async function BlogDetailPage({
                             className="inline-flex items-center gap-2 text-white/80 font-bold mb-8 hover:text-white hover:-translate-x-1 transition-all group"
                         >
                             <i className={`fas fa-arrow-${lang === 'ar' ? 'right' : 'left'} text-[10px]`}></i>
-                            <span className="text-[11px] uppercase tracking-widest font-syne">{lang === 'ar' ? 'العودة للمدونات' : 'Back to Blogs'}</span>
+                            <span className="text-[11px] uppercase tracking-widest font-syne">{lang === 'ar' ? 'العودة للمدونات' : 'Back to All Blogs'}</span>
                         </Link>
 
                         <div className="flex items-center gap-3 mb-8">
