@@ -227,6 +227,7 @@ export default function Hero({ lang, dict }: { lang: Locale; dict: any }) {
                     <button
                         key={index}
                         onClick={() => handleIndicatorClick(index)}
+                        suppressHydrationWarning
                         className={`h-2 w-8 rounded-full transition-all ${activeSlide % baseSlides.length === index ? 'bg-white' : 'bg-white/30'
                             }`}
                     />

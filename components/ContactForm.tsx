@@ -84,6 +84,7 @@ export default function ContactForm({ lang, dict }: { lang: Locale; dict: any })
                             value={formData.name}
                             onChange={handleChange}
                             required
+                            suppressHydrationWarning
                             placeholder={dict['CONTACT-FORM'].PLACEHOLDER_NAME || "e.g. Ahmed Al-Rashidi"}
                             className="w-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all font-medium placeholder:font-light"
                         />
@@ -99,6 +100,7 @@ export default function ContactForm({ lang, dict }: { lang: Locale; dict: any })
                             value={formData.email}
                             onChange={handleChange}
                             required
+                            suppressHydrationWarning
                             placeholder={dict['CONTACT-FORM'].PLACEHOLDER_EMAIL || "you@company.com"}
                             className="w-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all font-medium placeholder:font-light"
                         />
@@ -117,6 +119,7 @@ export default function ContactForm({ lang, dict }: { lang: Locale; dict: any })
                             value={formData.contactNumber}
                             onChange={handleChange}
                             required
+                            suppressHydrationWarning
                             placeholder={dict['CONTACT-FORM'].PLACEHOLDER_NUMBER || "+966 5X XXX XXXX"}
                             className="w-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all font-medium placeholder:font-light"
                         />
@@ -131,6 +134,7 @@ export default function ContactForm({ lang, dict }: { lang: Locale; dict: any })
                             name="organization"
                             value={formData.organization}
                             onChange={handleChange}
+                            suppressHydrationWarning
                             placeholder={dict['CONTACT-FORM'].PLACEHOLDER_ORGANIZATION || "Your company name"}
                             className="w-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all font-medium placeholder:font-light"
                         />
@@ -148,6 +152,7 @@ export default function ContactForm({ lang, dict }: { lang: Locale; dict: any })
                             value={formData.subject}
                             onChange={handleChange}
                             required
+                            suppressHydrationWarning
                             className="w-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all appearance-none cursor-pointer font-medium"
                         >
                             <option value="">{dict['CONTACT-FORM'].PLACEHOLDER_SUBJECT}</option>
@@ -172,6 +177,7 @@ export default function ContactForm({ lang, dict }: { lang: Locale; dict: any })
                         value={formData.message}
                         onChange={handleChange}
                         required
+                        suppressHydrationWarning
                         placeholder={dict['CONTACT-FORM'].PLACEHOLDER_MESSAGE || "Tell us about your project..."}
                         className="w-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all resize-none min-h-[140px] leading-relaxed font-medium placeholder:font-light"
                     ></textarea>
@@ -181,6 +187,7 @@ export default function ContactForm({ lang, dict }: { lang: Locale; dict: any })
                     <button
                         type="submit"
                         disabled={loading}
+                        suppressHydrationWarning
                         className={`w-full py-5 rounded-[1.25rem] font-bold text-white transition-all transform active:scale-[0.98] ${success
                                 ? 'bg-emerald-500 shadow-xl shadow-emerald-500/20'
                                 : 'bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-600/20 hover:-translate-y-1'
