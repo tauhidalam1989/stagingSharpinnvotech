@@ -4636,6 +4636,7 @@
     "EXPLORE": "Explore Product",
     "TECH_SPECS": "Technical Specs",
     "FEATURES": "Key Features",
-    "PLATFORM": "Built on a Unified AI Platform"
+    "PLATFORM": "Built on a Unified AI Platform",
+    "NOT_FOUND_TEMP": "temp"
   }
 }

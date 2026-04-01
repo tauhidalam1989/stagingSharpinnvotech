@@ -55,6 +55,13 @@ export default async function RootLayout({
     params: Promise<{ lang: string }>;
 }) {
     const { lang } = await params;
+    
+    // Validate locale
+    if (lang !== 'en' && lang !== 'ar') {
+        const { notFound } = await import('next/navigation');
+        notFound();
+    }
+
     const dict = await getDictionary(lang);
     const isRtl = lang === 'ar';
 

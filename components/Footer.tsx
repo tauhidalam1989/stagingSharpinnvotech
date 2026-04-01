@@ -158,7 +158,7 @@ export default function Footer({ lang, dict }: { lang: string; dict: any }) {
                     <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-[14px]">
                         <p>© {new Date().getFullYear()} {dict.FOOTER.COPYRIGHT}</p>
                         <div className="flex items-center gap-3">
-                            <Link href={`/${lang}/home`} className="hover:text-white transition-colors">{dict.FOOTER.HOME}</Link>
+                            <Link href={`/${lang}/`} className="hover:text-white transition-colors">{dict.FOOTER.HOME}</Link>
                             <Link href={`/${lang}/privacy`} className="hover:text-white transition-colors border-l border-white/10 pl-6 rtl:border-l-0 rtl:border-r rtl:pl-0 rtl:pr-6">{dict.FOOTER.COOKIES}</Link>
                             <Link href={`/${lang}/faq`} className="hover:text-white transition-colors border-l border-white/10 pl-6 rtl:border-l-0 rtl:border-r rtl:pl-0 rtl:pr-6">{dict.FOOTER.FAQS}</Link>
                         </div>

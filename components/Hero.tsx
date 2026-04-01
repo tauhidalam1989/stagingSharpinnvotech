@@ -182,9 +182,9 @@ export default function Hero({ lang, dict }: { lang: Locale; dict: any }) {
                         <Image
                             src={encodeURI(slide.image)}
                             alt={slide.title || 'Hero image'}
-                            width={650}
-                            height={500}
-                            className="h-auto w-[85%] sm:w-[50%] lg:w-full max-w-[400px] lg:max-w-none object-contain mb-[-10px] lg:mb-[-10px] drop-shadow-2xl mx-auto lg:mx-0 lg:translate-y-4"
+                            width={550}
+                            height={420}
+                            className="h-auto w-[75%] sm:w-[45%] lg:w-[80%] max-w-[350px] lg:max-w-[500px] object-contain mb-[-5px] lg:mb-[-10px] drop-shadow-2xl mx-auto lg:mx-0 lg:translate-y-4"
                             priority={index === 0}
                         />
                     </div>

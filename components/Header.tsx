@@ -78,9 +78,10 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
         { href: `/${lang}/about`, label: dict.ABOUT, icon: 'fa-info-circle' },
         { href: `/${lang}/services`, label: dict.SERVICES, icon: 'fa-cog' },
         { href: `/${lang}/products`, label: dict.PRODUCTS, icon: 'fa-shopping-bag' },
+        { href: `/${lang}/blogs`, label: lang === 'ar' ? 'المدونات' : 'Blogs', icon: 'fa-rss' },
         { href: `/${lang}/careers`, label: dict.CAREERS, icon: 'fa-briefcase' },
         { href: `/${lang}/contact`, label: dict.CONTACT, icon: 'fa-envelope' },
-        { href: `/${lang}/blogs`, label: lang === 'ar' ? 'المدونات' : 'Blogs', icon: 'fa-rss' },
+
     ];
 
     const headerClasses = isHomePage
