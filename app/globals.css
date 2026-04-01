@@ -1,25 +1,21 @@
 @import "tailwindcss";
 
-:root {
+/* THE ULTIMATE DARK MODE KILLER: This makes all 'dark:' classes impossible to trigger */
+@custom-variant dark (&:not(*));
+
+:root, :host, body {
+  color-scheme: light !important;
   --background: #ffffff;
   --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: "Open Sans", "DIN Next LT Arabic Light", sans-serif;
-  /* --font-sans: "DIN Next LT Arabic Light", "Sakkal Majalla", sans-serif; */
   --font-mono: var(--font-geist-mono);
   --font-syne: var(--font-syne);
   --font-dm-sans: var(--font-dm-sans);
-  --variant-dark: (&:where(.dark, .dark *));
 }
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
 
 body {
   background: var(--background);
@@ -187,20 +183,7 @@ p,
   }
 }
 
-.dark {
-  .capability-card {
-    background-color: var(--color-zinc-900);
-    border-color: var(--color-zinc-800);
-
-    &:hover::after {
-      background-color: rgba(59, 130, 246, 0.05);
-    }
-  }
-
-  .capability-icon-box {
-    background-color: rgba(59, 130, 246, 0.2);
-  }
-}
+/* Capability Card Dark Override Disabled */
 
 /* Sidebar Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {

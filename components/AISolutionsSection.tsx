@@ -35,7 +35,7 @@ const ProductCard = ({ item }: { item: any }) => {
 
             <h3
                 style={{ color: isHovered ? 'white' : undefined }}
-                className={`text-xl font-bold mb-4 transition-colors duration-300 ${isHovered ? 'text-white' : 'text-[#141d72] dark:text-white'
+                className={`text-xl font-bold mb-4 transition-colors duration-300 ${isHovered ? 'text-white' : 'text-zinc-900 dark:text-white'
                     }`}
             >
                 {item.title}
@@ -58,7 +58,7 @@ export default function AISolutionsSection({ lang, dict }: { lang: Locale; dict:
     const products = sectionData.PRODUCTS || [];
 
     return (
-        <section className="pt-12 pb-24 bg-[#f8f9fa] dark:bg-zinc-950">
+        <section className="pt-12 pb-24 bg-zinc-50 dark:bg-zinc-950">
             <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-[1400px]">
 
                 {/* Header Section - Exactly as Angular Screenshot */}
@@ -69,7 +69,7 @@ export default function AISolutionsSection({ lang, dict }: { lang: Locale; dict:
                         </span>
                     </div>
 
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#1c1c1c] dark:text-white leading-tight mb-6">
+                    <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white leading-tight mb-6">
                         {sectionData.TITLE || (isRtl ? 'حلول الذكاء الاصطناعي الممتازة لأعمالك' : 'Our Excellent AI Solutions for Your Business')}
                     </h2>
 

@@ -43,7 +43,7 @@ export default function TeamSection({ lang, dict }: { lang: Locale; dict: any })
                         <div className="inline-block rounded-full border border-[#0d6efd] text-[#0d6efd] px-4 py-1 text-sm font-semibold">
                             {dict.TEAM.OUR_TEAM}
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-black text-[#14183e] dark:text-white leading-tight">
+                        <h2 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white leading-tight">
                             {dict.TEAM.TITLE}
                         </h2>
                         <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed">
@@ -70,7 +70,7 @@ export default function TeamSection({ lang, dict }: { lang: Locale; dict: any })
                                             />
                                         </div>
                                     </div>
-                                    <h5 className="text-xl font-black text-[#14183e] dark:text-white mb-1">
+                                    <h5 className="text-xl font-black text-zinc-900 dark:text-white mb-1">
                                         {member.name}
                                     </h5>
                                     <small className="text-zinc-500 dark:text-zinc-400 font-medium tracking-wide uppercase">

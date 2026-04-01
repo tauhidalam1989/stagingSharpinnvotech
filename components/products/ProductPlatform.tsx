@@ -51,8 +51,8 @@ const ProductPlatform: React.FC<ProductPlatformProps> = ({ lang }) => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {features.map((feat, idx) => (
-                  <div key={idx} className="group p-6 rounded-[2rem] bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800 hover:border-blue-500/30 transition-all duration-300">
-                    <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div key={idx} className="group p-6 rounded-[2rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-blue-500/30 transition-all duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       {feat.icon}
                     </div>
                     <h4 className="text-zinc-900 dark:text-white font-bold mb-2">{feat.title}</h4>
@@ -101,7 +101,7 @@ const ProductPlatform: React.FC<ProductPlatformProps> = ({ lang }) => {
                 <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
                   <Check className="w-5 h-5" />
                 </div>
-                <div className="text-[10px] font-black uppercase text-zinc-900 dark:text-zinc-100">Certified Secure</div>
+                <div className="text-[10px] font-black uppercase text-zinc-900 dark:text-white">Certified Secure</div>
               </motion.div>
             </motion.div>
           </div>
