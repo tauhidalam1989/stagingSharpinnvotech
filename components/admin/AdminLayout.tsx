@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import AdminSidebar from './AdminSidebar';
+import LoadingScreen from '@/components/LoadingScreen';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const router = useRouter();
@@ -25,11 +26,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     }, [pathname, router]);
 
     if (loading && pathname !== '/admin/login') {
-        return (
-            <div className="min-h-screen bg-zinc-950 flex items-center justify-center">
-                <div className="h-12 w-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-            </div>
-        );
+        return <LoadingScreen />;
     }
 
     if (pathname === '/admin/login') {
