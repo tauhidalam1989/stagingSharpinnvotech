@@ -50,6 +50,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${openSans.variable} ${ubuntu.variable} antialiased`}
+        suppressHydrationWarning
       >
         {children}
       </body>

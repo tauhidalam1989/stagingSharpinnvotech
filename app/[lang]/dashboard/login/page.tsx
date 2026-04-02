@@ -69,6 +69,7 @@ export default function LoginPage({ params }: { params: Promise<{ lang: string }
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder="admin@sharp.com"
                                     className="w-full bg-zinc-50/50 dark:bg-zinc-800/30 border border-zinc-200 dark:border-zinc-700 rounded-xl pl-11 pr-4 py-2.5 text-sm text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all font-medium"
+                                    suppressHydrationWarning
                                 />
                             </div>
                         </div>
@@ -86,6 +87,7 @@ export default function LoginPage({ params }: { params: Promise<{ lang: string }
                                     onChange={(e) => setPassword(e.target.value)}
                                     placeholder="••••••••"
                                     className="w-full bg-zinc-50/50 dark:bg-zinc-800/30 border border-zinc-200 dark:border-zinc-700 rounded-xl pl-11 pr-4 py-2.5 text-sm text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all font-medium"
+                                    suppressHydrationWarning
                                 />
                             </div>
                         </div>
@@ -95,6 +97,7 @@ export default function LoginPage({ params }: { params: Promise<{ lang: string }
                                 type="submit"
                                 disabled={loading}
                                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg shadow-blue-500/25 transition-all disabled:opacity-50 flex items-center justify-center gap-2 group text-sm"
+                                suppressHydrationWarning
                             >
                                 {loading ? (
                                     <i className="fas fa-circle-notch fa-spin"></i>

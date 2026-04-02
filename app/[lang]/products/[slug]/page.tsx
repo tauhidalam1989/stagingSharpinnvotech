@@ -124,11 +124,11 @@ export default async function ProductDetailPage({
 
                             {/* Icon + Title */}
                             <div className="flex items-start gap-4 md:gap-6 mb-8">
-                                <div className="shrink-0 p-3 md:p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm shadow-xl text-white flex items-center justify-center">
+                                <div className="shrink-0 p-2.5 md:p-3 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm shadow-xl text-white flex items-center justify-center">
                                     {(product.heroIcon || product.cardIcon) ? (
-                                        <i className={`${product.heroIcon || product.cardIcon} text-2xl md:text-4xl`}></i>
+                                        <i className={`${product.heroIcon || product.cardIcon} text-lg md:text-2xl`}></i>
                                     ) : (
-                                        <i className="fas fa-certificate text-2xl md:text-4xl"></i>
+                                        <i className="fas fa-certificate text-lg md:text-2xl"></i>
                                     )}
                                 </div>
                                 <HighlightedTitle

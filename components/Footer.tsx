@@ -78,11 +78,11 @@ export default function Footer({ lang, dict }: { lang: string; dict: any }) {
                             </li>
                             <li className="flex items-center gap-4">
                                 <i className="fa fa-phone-alt text-white w-5"></i>
-                                <span>{dict.FOOTER.PHONE}</span>
+                                <span dir="ltr">{dict.FOOTER.PHONE}</span>
                             </li>
                             <li className="flex items-center gap-4">
                                 <i className="fa fa-envelope text-white w-5"></i>
-                                <span className="break-all">{dict.FOOTER.EMAIL}</span>
+                                <span className="break-all" dir="ltr">{dict.FOOTER.EMAIL}</span>
                             </li>
                         </ul>
                         <div className="flex gap-3 pt-4">
