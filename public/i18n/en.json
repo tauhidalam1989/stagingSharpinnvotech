@@ -4637,6 +4637,22 @@
     "TECH_SPECS": "Technical Specs",
     "FEATURES": "Key Features",
     "PLATFORM": "Built on a Unified AI Platform",
-    "NOT_FOUND_TEMP": "temp"
+    "NOT_FOUND": {
+      "TITLE": "404 - Page Not Found",
+      "SUBTITLE": "Oops! It seems you've wandered into a digital void.",
+      "DESCRIPTION": "The page you're looking for doesn't exist or has been moved. Don't worry, even the best explorers get lost sometimes.",
+      "BACK_TO_HOME": "Back to Home",
+      "EXPLORE_SOLUTIONS": "Explore Our Solutions",
+      "AI_SOLUTIONS": "AI Solutions",
+      "AI_SOLUTIONS_DESC": "Discover our cutting-edge AI products and services for various industries.",
+      "ABOUT_SIIT": "About SIIT",
+      "ABOUT_SIIT_DESC": "Learn about our mission, vision and how we align with Saudi Vision 2030.",
+      "GROW_WITH_US": "Grow With Us",
+      "GROW_WITH_US_DESC": "Check out our latest job openings and join our innovative team.",
+      "NEED_HELP": "Still Need Assistance?",
+      "SEARCH_READY": "Our team is ready to help you find what you need.",
+      "CONTACT_US": "Contact Support",
+      "VISIT_HELP_CENTER": "Visit Help Center"
+    }
   }
 }

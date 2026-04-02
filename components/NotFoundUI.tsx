@@ -9,13 +9,18 @@ export default function NotFoundUI({ lang, dict }: { lang: string; dict: any }) 
         TITLE: "404 - Page Not Found",
         SUBTITLE: "Oops! It seems you've wandered into a digital void.",
         DESCRIPTION: "The page you're looking for doesn't exist or has been moved. Don't worry, even the best explorers get lost sometimes.",
-        BACK_TO_HOME: "Home Page",
+        BACK_TO_HOME: "Back to Home",
         EXPLORE_SOLUTIONS: "Explore Our Solutions",
+        AI_SOLUTIONS: "AI Solutions",
+        AI_SOLUTIONS_DESC: "Discover our cutting-edge AI products and services for various industries.",
+        ABOUT_SIIT: "About SIIT",
+        ABOUT_SIIT_DESC: "Learn about our mission, vision and how we align with Saudi Vision 2030.",
+        GROW_WITH_US: "Grow With Us",
+        GROW_WITH_US_DESC: "Check out our latest job openings and join our innovative team.",
         NEED_HELP: "Still Need Assistance?",
-        LATEST_UPDATES: "Check Our Latest Highlights",
-        CONTACT_US: "Contact Support",
         SEARCH_READY: "Our team is ready to help you find what you need.",
-        HOME_BUTTON: "Home"
+        CONTACT_US: "Contact Support",
+        VISIT_HELP_CENTER: "Visit Help Center"
     };
 
     const containerVariants: Variants = {
@@ -109,8 +114,8 @@ export default function NotFoundUI({ lang, dict }: { lang: string; dict: any }) 
                             <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shadow-sm">
                                 <i className="fas fa-rocket text-2xl group-hover:scale-110 group-hover:rotate-12 transition-transform"></i>
                             </div>
-                            <h4 className="font-syne text-2xl font-bold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 transition-colors">AI Solutions</h4>
-                            <p className="font-dm-sans text-zinc-500 dark:text-zinc-400 leading-relaxed font-light">Discover our cutting-edge AI products and services for various industries.</p>
+                            <h4 className="font-syne text-2xl font-bold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 transition-colors">{t.AI_SOLUTIONS}</h4>
+                            <p className="font-dm-sans text-zinc-500 dark:text-zinc-400 leading-relaxed font-light">{t.AI_SOLUTIONS_DESC}</p>
                         </Link>
 
                         <Link href={`/${lang}/about`} className="group relative p-10 rounded-[32px] bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:bg-white dark:hover:bg-zinc-800 hover:shadow-[0_20px_50px_-20px_rgba(59,130,246,0.2)] overflow-hidden">
@@ -118,8 +123,8 @@ export default function NotFoundUI({ lang, dict }: { lang: string; dict: any }) 
                             <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shadow-sm">
                                 <i className="fas fa-building text-2xl group-hover:scale-110 group-hover:rotate-12 transition-transform"></i>
                             </div>
-                            <h4 className="font-syne text-2xl font-bold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 transition-colors">About SIIT</h4>
-                            <p className="font-dm-sans text-zinc-500 dark:text-zinc-400 leading-relaxed font-light">Learn about our mission, vision and how we align with Saudi Vision 2030.</p>
+                            <h4 className="font-syne text-2xl font-bold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 transition-colors">{t.ABOUT_SIIT}</h4>
+                            <p className="font-dm-sans text-zinc-500 dark:text-zinc-400 leading-relaxed font-light">{t.ABOUT_SIIT_DESC}</p>
                         </Link>
 
                         <Link href={`/${lang}/careers`} className="group relative p-10 rounded-[32px] bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 transition-all duration-500 hover:-translate-y-2 hover:bg-white dark:hover:bg-zinc-800 hover:shadow-[0_20px_50px_-20px_rgba(59,130,246,0.2)] overflow-hidden">
@@ -127,8 +132,8 @@ export default function NotFoundUI({ lang, dict }: { lang: string; dict: any }) 
                             <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shadow-sm">
                                 <i className="fas fa-users text-2xl group-hover:scale-110 group-hover:rotate-12 transition-transform"></i>
                             </div>
-                            <h4 className="font-syne text-2xl font-bold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 transition-colors">Grow With Us</h4>
-                            <p className="font-dm-sans text-zinc-500 dark:text-zinc-400 leading-relaxed font-light">Check out our latest job openings and join our innovative team.</p>
+                            <h4 className="font-syne text-2xl font-bold text-zinc-900 dark:text-white mb-4 group-hover:text-blue-600 transition-colors">{t.GROW_WITH_US}</h4>
+                            <p className="font-dm-sans text-zinc-500 dark:text-zinc-400 leading-relaxed font-light">{t.GROW_WITH_US_DESC}</p>
                         </Link>
                     </div>
                 </div>
@@ -157,7 +162,7 @@ export default function NotFoundUI({ lang, dict }: { lang: string; dict: any }) 
                                 </Link>
                                 <Link href={`/${lang}/faq`} className="group inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-10 py-5 rounded-2xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm">
                                     <i className="fas fa-question-circle"></i>
-                                    Visit Help Center
+                                    {t.VISIT_HELP_CENTER}
                                 </Link>
                             </div>
                         </div>
