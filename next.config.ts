@@ -27,6 +27,11 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: process.cwd(),
   },
+  experimental: {
+    ...(process.env.NODE_ENV === 'development' && {
+      allowedDevOrigins: ['http://88.222.244.10'], // Only for development
+    }) as any, // Type assertion to bypass type-checking
+  },
 };
 
 export default nextConfig;

@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 const locales = ['en', 'ar'];
 const defaultLocale = 'en';
 
-export function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
     const token = request.cookies.get('auth_token')?.value;
 
@@ -18,7 +18,6 @@ export function middleware(request: NextRequest) {
     }
 
     // 2. Handle Case for /home vs /
-    // If it's /home or /[lang]/home, redirect to the corresponding root locale path
     const isHomePath = pathname === '/home' || locales.some(l => pathname === `/${l}/home`);
     if (isHomePath) {
         const segments = pathname.split('/');
@@ -42,25 +41,7 @@ export function middleware(request: NextRequest) {
             const url = new URL(`/${locale}/dashboard/login`, request.url);
             return NextResponse.redirect(url);
         }
-
-        if (token && isLoginPage) {
-            const url = new URL(`/${locale}/dashboard`, request.url);
-            return NextResponse.redirect(url);
-        }
     }
 
-    // 5. Universal Redirect for locale-less paths (e.g., /about -> /en/about)
-    if (!pathnameHasLocale) {
-        const url = new URL(`/${defaultLocale}${pathname}`, request.url);
-        return NextResponse.redirect(url);
-    }
-
-    const response = NextResponse.next();
-    response.headers.set('x-pathname', pathname);
-    return response;
+    return NextResponse.next();
 }
-
-export const config = {
-    // Run middleware on all paths except static files
-    matcher: ['/((?!api|_next/static|_next/image|favicon.ico|img|assets|clients|cybersecurity|isocert|logo|office|partner).*)'],
-};
