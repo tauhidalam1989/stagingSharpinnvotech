@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, User, Clock, ChevronRight } from 'lucide-react';
-import { Blog } from '@/lib/api';
+import { Blog, getMediaUrl } from '@/lib/api';
 
 interface BlogCardV2Props {
   blog: Blog;
@@ -19,11 +19,7 @@ const BlogCardV2: React.FC<BlogCardV2Props> = ({ blog, lang, dict }) => {
   const excerpt = isAr && blog.excerptAr ? blog.excerptAr : blog.excerpt;
   const category = isAr ? (blog.categoriesAr?.[0] || 'مقال') : (blog.categories?.[0] || 'Article');
 
-  const imageUrl = blog.featuredImage
-    ? (blog.featuredImage.startsWith('http')
-      ? blog.featuredImage
-      : `${process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '')}/${blog.featuredImage}`)
-    : '/img/placeholder-blog.png';
+  const imageUrl = getMediaUrl(blog.featuredImage) || '/img/placeholder-blog.png';
 
   const dateString = new Date(blog.createdAt).toLocaleDateString(isAr ? 'ar-SA' : 'en-US', {
     day: 'numeric',

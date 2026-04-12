@@ -27,6 +27,19 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: process.cwd(),
   },
+  poweredByHeader: false,
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: 'https://sharpinnovation-api.sharpinnvotech.com/sitemap.xml',
+      },
+      {
+        source: '/robots.txt',
+        destination: 'https://sharpinnovation-api.sharpinnvotech.com/robots.txt',
+      },
+    ];
+  },
 };
 
 export default nextConfig;

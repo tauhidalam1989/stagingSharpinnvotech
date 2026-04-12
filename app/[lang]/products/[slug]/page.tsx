@@ -1,5 +1,5 @@
 import { getDictionary, Locale } from "@/lib/get-dictionary";
-import { getProductBySlug } from "@/lib/api";
+import { getProductBySlug, getMediaUrl } from "@/lib/api";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,13 +27,6 @@ export async function generateMetadata({
     };
 }
 
-const getImageUrl = (path: string | undefined | null) => {
-    if (!path) return null;
-    if (path.startsWith('http')) return path;
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '') || '';
-    return `${baseUrl}/${path.replace(/\\/g, '/').replace(/^\//, '')}`;
-};
-
 const renderIcon = (item: any, fallback: string, className = "text-sm") => {
     // 1. Check if it's explicitly a FontAwesome icon or has FA data
     if (item.iconType === 'fa' || item.iconFA || (!item.iconPath && (item.icon || typeof item === 'string'))) {
@@ -44,7 +37,7 @@ const renderIcon = (item: any, fallback: string, className = "text-sm") => {
 
     // 2. Check if it's a file path icon
     if (item.iconType === 'file' || item.iconPath) {
-        const url = getImageUrl(item.iconPath);
+        const url = getMediaUrl(item.iconPath);
         if (url) {
             return <Image src={url} alt="" width={16} height={16} className="object-contain" />;
         }
@@ -188,7 +181,7 @@ export default async function ProductDetailPage({
                         <div className="flex-1 lg:max-w-[35%] relative">
                             <div className="relative rounded-[24px] overflow-hidden flex items-center justify-center p-0">
                                 {(() => {
-                                    const url = getImageUrl(product.aboutImage);
+                                    const url = getMediaUrl(product.aboutImage);
                                     if (!url) return <div className="w-[400px] h-[300px] bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center rounded-xl"><i className="fas fa-image text-3xl text-zinc-300"></i></div>;
                                     return (
                                         <Image
@@ -258,7 +251,7 @@ export default async function ProductDetailPage({
                             <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[380px] w-full group">
                                 {(() => {
                                     const img = product.keyFeaturesImages?.[0];
-                                    const url = getImageUrl(img);
+                                    const url = getMediaUrl(img);
                                     if (!url) return <div className="w-full h-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center rounded-xl"><i className="fas fa-microchip text-4xl text-zinc-300"></i></div>;
                                     return (
                                         <Image
@@ -379,7 +372,7 @@ export default async function ProductDetailPage({
                             <div className="flex-1 flex justify-center order-1 lg:order-2">
                                 <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[380px] w-full group">
                                     {(() => {
-                                        const url = getImageUrl(product.whySharpImage);
+                                        const url = getMediaUrl(product.whySharpImage);
                                         if (!url) return <div className="w-full h-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center"><i className="fas fa-building text-4xl text-zinc-300"></i></div>;
                                         return (
                                             <Image

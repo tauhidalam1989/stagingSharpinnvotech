@@ -1,5 +1,5 @@
 import { getDictionary, Locale } from "@/lib/get-dictionary";
-import { getServiceBySlug, ServicePage } from "@/lib/api";
+import { getServiceBySlug, ServicePage, getMediaUrl } from "@/lib/api";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,13 +27,6 @@ export async function generateMetadata({
     };
 }
 
-const getImageUrl = (path: string | undefined | null) => {
-    if (!path) return null;
-    if (path.startsWith('http')) return path;
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '') || '';
-    return `${baseUrl}/${path.replace(/\\/g, '/').replace(/^\//, '')}`;
-};
-
 const renderIcon = (item: { iconType?: string; iconFA?: string; iconPath?: string; icon?: string }, fallback: string, className = "text-sm") => {
     // 1. Check if it's explicitly a FontAwesome icon
     if (item.iconType === 'fa' || item.iconFA || (!item.iconPath && item.icon)) {
@@ -45,7 +38,7 @@ const renderIcon = (item: { iconType?: string; iconFA?: string; iconPath?: strin
 
     // 2. Check if it's a file path icon
     if (item.iconType === 'file' || item.iconPath) {
-        const url = getImageUrl(item.iconPath);
+        const url = getMediaUrl(item.iconPath);
         if (url) {
             return <Image src={url} alt="" width={16} height={16} className="object-contain" />;
         }
@@ -200,8 +193,8 @@ export default async function ServiceDetailPage({
                             <div className="flex-1 lg:max-w-[35%] relative">
                                 <div className="relative overflow-hidden flex items-center justify-center">
                                     {(() => {
-                                        const url = getImageUrl(service.aboutSectionImage);
-                                        if (!url) return <div className="w-[400px] h-[300px] bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center rounded-xl"><i className="fas fa-image text-3xl text-zinc-300"></i></div>;
+                                        const url = getMediaUrl(service.aboutSectionImage);
+                                        if (!url) return <div className="w-[400px] h-[300px] bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center"><i className="fas fa-image text-3xl text-zinc-300"></i></div>;
                                         return (
                                             <Image
                                                 src={url}
@@ -271,7 +264,7 @@ export default async function ServiceDetailPage({
                             <div className={`order-2 lg:order-1 ${isAr ? 'lg:order-2' : ''} flex justify-center`}>
                                 <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[380px] w-full group">
                                     {(() => {
-                                        const url = getImageUrl(service.industriesImage);
+                                        const url = getMediaUrl(service.industriesImage);
                                         if (!url) return <div className="w-full h-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center"><i className="fas fa-industry text-4xl text-zinc-300"></i></div>;
                                         return (
                                             <Image

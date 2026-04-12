@@ -12,7 +12,9 @@ export function middleware(request: NextRequest) {
     if (
         pathname.startsWith('/_next') ||
         pathname.startsWith('/api') ||
-        pathname === '/favicon.ico'
+        pathname === '/favicon.ico' ||
+        pathname === '/sitemap.xml' ||
+        pathname === '/robots.txt'
     ) {
         return NextResponse.next();
     }
@@ -56,6 +58,21 @@ export function middleware(request: NextRequest) {
     }
 
     const response = NextResponse.next();
+    
+    // Add Security Headers
+    const securityHeaders = {
+        'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://db.onlinewebfonts.com; img-src 'self' blob: data: https://sharpinnovation-api.sharpinnvotech.com http://localhost:8093; font-src 'self' https://cdnjs.cloudflare.com https://db.onlinewebfonts.com; connect-src 'self' https://sharpinnovation-api.sharpinnvotech.com http://localhost:8093; frame-ancestors 'none';",
+        'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
+        'X-Frame-Options': 'DENY',
+        'X-Content-Type-Options': 'nosniff',
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
+        'Permissions-Policy': 'camera=(), microphone=(), geolocation=()'
+    };
+
+    Object.entries(securityHeaders).forEach(([key, value]) => {
+        response.headers.set(key, value);
+    });
+
     response.headers.set('x-pathname', pathname);
     return response;
 }
