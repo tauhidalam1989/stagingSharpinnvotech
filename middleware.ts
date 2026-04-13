@@ -8,10 +8,11 @@ export default function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
     const token = request.cookies.get('auth_token')?.value;
 
-    // 1. Skip if it's an internal Next.js path or API
+    // 1. Skip if it's an internal Next.js path, API, or static file
     if (
         pathname.startsWith('/_next') ||
         pathname.startsWith('/api') ||
+        pathname.match(/\.(png|jpe?g|gif|svg|webp|ico|pdf|woff2?|eot|ttf|mp4|webm)$/i) ||
         pathname === '/favicon.ico' ||
         pathname === '/sitemap.xml' ||
         pathname === '/robots.txt'

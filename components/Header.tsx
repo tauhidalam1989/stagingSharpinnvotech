@@ -169,6 +169,7 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
 
                         {/* Mobile Menu Button */}
                         <button
+                            suppressHydrationWarning
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             className="lg:hidden p-2 text-white focus:outline-none z-50"
                             aria-label="Toggle Menu"
@@ -224,6 +225,7 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
                                         <div key={link.href}>
                                             {/* Row */}
                                             <button
+                                                suppressHydrationWarning
                                                 onClick={() => {
                                                     setMobileExpandedMenu(isOpen ? null : 'services');
                                                     setMobileExpandedCatId(null);
@@ -258,6 +260,7 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
                                                         <div key={cat.id}>
                                                             {/* Category row */}
                                                             <button
+                                                                suppressHydrationWarning
                                                                 onClick={() => setMobileExpandedCatId(isCatOpen ? null : cat.id)}
                                                                 className={`w-full flex items-center justify-between gap-3 py-3 pl-10 pr-4 border-b border-white/10 transition-colors ${isCatOpen ? 'bg-white/10 text-white' : 'text-white/70 hover:bg-white/5 hover:text-white'
                                                                     }`}
@@ -307,6 +310,7 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
                                     return (
                                         <div key={link.href}>
                                             <button
+                                                suppressHydrationWarning
                                                 onClick={() => {
                                                     setMobileExpandedMenu(isOpen ? null : 'products');
                                                     setMobileExpandedCatId(null);
@@ -338,6 +342,7 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
                                                     return (
                                                         <div key={cat.id}>
                                                             <button
+                                                                suppressHydrationWarning
                                                                 onClick={() => setMobileExpandedCatId(isCatOpen ? null : cat.id)}
                                                                 className={`w-full flex items-center justify-between gap-3 py-3 pl-10 pr-4 border-b border-white/10 transition-colors ${isCatOpen ? 'bg-white/10 text-white' : 'text-white/70 hover:bg-white/5 hover:text-white'
                                                                     }`}
