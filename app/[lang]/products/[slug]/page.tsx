@@ -6,6 +6,8 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ServiceFaqAccordion from "@/components/ServiceFaqAccordion";
 import { MessageSquare, ArrowUpRight, Briefcase } from "lucide-react";
+import JsonLd from "@/components/JsonLd";
+import { getProductSchema, getBreadcrumbSchema } from "@/lib/schema-builder";
 
 export async function generateMetadata({
     params
@@ -17,13 +19,16 @@ export async function generateMetadata({
 
     if (!product) return {};
 
-    const title = lang === 'ar' ? (product.metaTitleAr || product.heroTitleAr) : (product.metaTitle || product.heroTitle);
-    const description = lang === 'ar' ? (product.metaDescriptionAr || product.heroDescriptionAr) : (product.metaDescription || product.heroDescription);
+    const title = lang === 'ar' ? (product.metaTitleAr || product.heroTitleAr || product.titleAr) : (product.metaTitle || product.heroTitle || product.title);
+    const description = lang === 'ar' ? (product.metaDescriptionAr || product.heroDescriptionAr || product.shortDescriptionAr) : (product.metaDescription || product.heroDescription || product.shortDescription);
 
     return {
         title: title,
         description: description,
         keywords: lang === 'ar' ? product.metaKeywordsAr : product.metaKeywords,
+        alternates: {
+            canonical: `/${lang}/products/${slug}`,
+        }
     };
 }
 
@@ -86,8 +91,17 @@ export default async function ProductDetailPage({
 
     const isAr = lang === 'ar';
 
+    const productSchema = getProductSchema(product, lang);
+    const breadcrumbSchema = getBreadcrumbSchema([
+        { name: isAr ? 'الرئيسية' : 'Home', item: `/${lang}` },
+        { name: isAr ? 'المنتجات' : 'Products', item: `/${lang}/products` },
+        { name: isAr ? (product.titleAr || product.title) : product.title, item: `/${lang}/products/${slug}` }
+    ], lang);
+
     return (
         <div className="flex flex-col w-full min-h-screen bg-white dark:bg-zinc-950 overflow-x-hidden font-sans" dir={isAr ? 'rtl' : 'ltr'}>
+            <JsonLd schema={productSchema} />
+            <JsonLd schema={breadcrumbSchema} />
 
             <div className="bg-[#f3f4ff] dark:bg-zinc-900/50">
 

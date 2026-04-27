@@ -4,12 +4,12 @@ const API_KEY = process.env.NEXT_PUBLIC_API_KEY || '';
 // Helper to get the correct media URL (ZAP Security Fix for hardcoded localhost)
 export function getMediaUrl(path: string | undefined | null): string {
     if (!path) return '';
-    
+
     // If it's already a full URL that points to localhost, fix it
     if (path.startsWith('http')) {
-        if (path.includes('localhost:8093') || path.includes('127.0.0.1:8093')) {
+        if (path.includes('127.0.0.1:8092')) {
             const productionBase = process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '') || '';
-            return path.replace(/http:\/\/(localhost|127\.0\.0\.1):8093/g, productionBase);
+            return path.replace(/https?:\/\/(localhost|127\.0\.0\.1):8092/g, productionBase);
         }
         return path;
     }

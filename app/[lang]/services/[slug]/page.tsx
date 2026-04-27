@@ -6,12 +6,15 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ServiceFaqAccordion from "@/components/ServiceFaqAccordion";
 import { MessageSquare, ArrowUpRight, Briefcase } from "lucide-react";
+import JsonLd from "@/components/JsonLd";
+import { getServiceSchema, getBreadcrumbSchema } from "@/lib/schema-builder";
+import { Metadata } from "next";
 
 export async function generateMetadata({
     params
 }: {
     params: Promise<{ lang: string; slug: string }>
-}) {
+}): Promise<Metadata> {
     const { lang, slug } = await params;
     const service = await getServiceBySlug(slug);
 
@@ -24,6 +27,9 @@ export async function generateMetadata({
         title: title,
         description: description,
         keywords: lang === 'ar' ? service.metaKeywordsAr : service.metaKeywords,
+        alternates: {
+            canonical: `/${lang}/services/${slug}`,
+        }
     };
 }
 
@@ -76,8 +82,17 @@ export default async function ServiceDetailPage({
 
     const isAr = lang === 'ar';
 
+    const serviceSchema = getServiceSchema(service, lang);
+    const breadcrumbSchema = getBreadcrumbSchema([
+        { name: isAr ? 'الرئيسية' : 'Home', item: `/${lang}` },
+        { name: isAr ? 'الخدمات' : 'Services', item: `/${lang}/services` },
+        { name: isAr ? (service.heroTitleAr || service.heroTitle) : service.heroTitle, item: `/${lang}/services/${slug}` }
+    ], lang);
+
     return (
         <div className="flex flex-col w-full min-h-screen bg-white dark:bg-zinc-950 overflow-x-hidden" dir={isAr ? 'rtl' : 'ltr'}>
+            <JsonLd schema={serviceSchema} />
+            <JsonLd schema={breadcrumbSchema} />
             <div className="bg-[#f3f4ff] dark:bg-zinc-900/50">
 
 

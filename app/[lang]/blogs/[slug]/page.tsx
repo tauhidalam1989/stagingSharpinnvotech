@@ -5,6 +5,40 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import BlogSidebar from "@/components/BlogSidebar";
 import BlogCard from "@/components/BlogCard";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { getBlogSchema, getBreadcrumbSchema } from "@/lib/schema-builder";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+    params
+}: {
+    params: Promise<{ lang: string; slug: string }>
+}): Promise<Metadata> {
+    const { lang, slug } = await params;
+    const blog = await getBlogBySlug(slug);
+
+    if (!blog) return {};
+
+    const title = lang === 'ar' ? (blog.metaTitleAr || blog.titleAr || blog.title) : (blog.metaTitle || blog.title);
+    const description = lang === 'ar' ? (blog.metaDescriptionAr || blog.excerptAr || blog.excerpt) : (blog.metaDescription || blog.excerpt);
+
+    return {
+        title: title,
+        description: description,
+        keywords: lang === 'ar' ? blog.metaKeywordsAr : blog.metaKeywords,
+        openGraph: {
+            title: title,
+            description: description,
+            type: 'article',
+            publishedTime: blog.createdAt,
+            authors: [blog.creator?.name || 'Sharp Innovation'],
+            images: blog.featuredImage ? [{ url: blog.featuredImage }] : [],
+        },
+        alternates: {
+            canonical: `/${lang}/blogs/${slug}`,
+        }
+    };
+}
 
 export default async function BlogDetailPage({
     params,
@@ -20,6 +54,13 @@ export default async function BlogDetailPage({
     }
 
     const relatedBlogs = await getRelatedBlogs(blog.id, 3);
+    const isAr = lang === 'ar';
+    const blogSchema = getBlogSchema(blog, lang);
+    const breadcrumbSchema = getBreadcrumbSchema([
+        { name: isAr ? 'الرئيسية' : 'Home', item: `/${lang}` },
+        { name: isAr ? 'المدونة' : 'Blogs', item: `/${lang}/blogs` },
+        { name: isAr ? (blog.titleAr || blog.title) : blog.title, item: `/${lang}/blogs/${slug}` }
+    ], lang);
 
     const title = lang === 'ar' && blog.titleAr ? blog.titleAr : blog.title;
     const excerpt = lang === 'ar' && blog.excerptAr ? blog.excerptAr : blog.excerpt;
@@ -49,6 +90,8 @@ export default async function BlogDetailPage({
 
     return (
         <main className="flex flex-col w-full min-h-screen bg-[#f8fbff] dark:bg-zinc-950">
+            <JsonLd schema={blogSchema} />
+            <JsonLd schema={breadcrumbSchema} />
 
 
             {/* Blog Hero section - Premium Redesign */}

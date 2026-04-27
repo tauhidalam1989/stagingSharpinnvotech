@@ -15,24 +15,24 @@ interface LogoCarouselProps {
     isCertificate?: boolean;
 }
 
-export default function LogoCarousel({ 
-    items, 
-    title, 
-    description, 
-    lang, 
+export default function LogoCarousel({
+    items,
+    title,
+    description,
+    lang,
     onItemClick,
-    isCertificate = false 
+    isCertificate = false
 }: LogoCarouselProps) {
     const [imageErrors, setImageErrors] = useState<Record<number | string, boolean>>({});
-    
+
     const getFullImageUrl = (path: string) => {
         if (!path) return '/assets/logo/SLogo.png';
         const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '') || '';
         const isBaseLocal = baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1');
-        
+
         let finalPath = path;
         if (path.startsWith('http')) {
-            const isPathLocal = path.includes('127.0.0.1:8093');
+            const isPathLocal = path.includes('127.0.0.1:8092');
             // Only "fix" local paths if we are NOT on a local environment
             if (!isBaseLocal && isPathLocal) {
                 const uploadsIndex = path.indexOf('/uploads/');
@@ -43,7 +43,7 @@ export default function LogoCarousel({
         } else {
             finalPath = `${baseUrl}/${path.startsWith('/') ? path.slice(1) : path}`;
         }
-        
+
         // console.log(`DEBUG: path="${path}" -> finalPath="${finalPath}" (baseLocal=${isBaseLocal})`);
         return finalPath;
     };
@@ -73,7 +73,7 @@ export default function LogoCarousel({
                     {items.map((item, index) => {
                         const hasError = imageErrors[item.id] || false;
                         const imageUrl = hasError ? '/assets/logo/SLogo.png' : getFullImageUrl(getItemImage(item));
-                        
+
                         return (
                             <div
                                 key={item.id || index}

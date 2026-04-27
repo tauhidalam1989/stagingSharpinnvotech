@@ -11,7 +11,7 @@ export async function POST(request: Request) {
             );
         }
 
-        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8093/v1';
+        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8092/v1';
         const apiKey = 'sdghfnbfvdsdtfjghbfgsgdtfjhgbfdsdgthghbgfestytgjhbgfgtyjg';
 
         const response = await fetch(`${backendUrl}/newsletter`, {

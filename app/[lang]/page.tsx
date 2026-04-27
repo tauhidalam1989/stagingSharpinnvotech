@@ -9,13 +9,27 @@ import Newsletter from '@/components/Newsletter';
 import FAQSection from '@/components/FAQSection';
 import ClientsSectionWrapper from '@/components/ClientsSectionWrapper';
 import LatestBlogsWrapper from '@/components/LatestBlogsWrapper';
+import JsonLd from '@/components/JsonLd';
+import { getWebSiteSchema } from '@/lib/schema-builder';
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+    const { lang } = await params;
+    return {
+        alternates: {
+            canonical: `/${lang}`,
+        }
+    };
+}
 
 export default async function Home({ params }: { params: Promise<{ lang: string }>; }) {
     const { lang } = await params;
     const dict = await getDictionary(lang);
+    const websiteSchema = getWebSiteSchema(lang);
 
     return (
         <div className="flex flex-col w-full gap-8 sm:gap-12 lg:gap-16">
+            <JsonLd schema={websiteSchema} />
             <Hero lang={lang} dict={dict} />
             <AboutSection lang={lang} dict={dict} />
             <ServiceSection lang={lang} dict={dict} />

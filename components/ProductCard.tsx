@@ -14,33 +14,33 @@ interface ProductCardProps {
 export default function ProductCard({ product, lang, dict }: ProductCardProps) {
     const title = lang === 'ar' && product.titleAr ? product.titleAr : product.title;
     const description = lang === 'ar' && product.shortDescriptionAr ? product.shortDescriptionAr : product.shortDescription;
-    
+
     const isIconClass = (str: string | undefined) => {
         if (!str) return false;
         const s = str.trim();
-        return s.startsWith('fa-') || 
-               s.startsWith('fas') || 
-               s.startsWith('fab') || 
-               s.startsWith('far') || 
-               s.includes(' fa-') ||
-               s.includes('fab ') ||
-               s.includes('fas ') ||
-               s.includes('far ');
+        return s.startsWith('fa-') ||
+            s.startsWith('fas') ||
+            s.startsWith('fab') ||
+            s.startsWith('far') ||
+            s.includes(' fa-') ||
+            s.includes('fab ') ||
+            s.includes('fas ') ||
+            s.includes('far ');
     };
 
     // Determine what to show as the icon - prioritize cardIcon
-    const displayIconClass = product.cardIcon && isIconClass(product.cardIcon) 
-        ? product.cardIcon 
+    const displayIconClass = product.cardIcon && isIconClass(product.cardIcon)
+        ? product.cardIcon
         : null;
 
     const getFullImageUrl = (path: string) => {
         if (!path || isIconClass(path)) return null;
-        
+
         const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '') || '';
         const isBaseLocal = baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1');
-        
+
         if (path.startsWith('http')) {
-            const isPathLocal = path.includes('127.0.0.1:8093');
+            const isPathLocal = path.includes('127.0.0.1:8092');
             if (!isBaseLocal && isPathLocal) {
                 const uploadsIndex = path.indexOf('/uploads/');
                 if (uploadsIndex !== -1) {
@@ -65,10 +65,10 @@ export default function ProductCard({ product, lang, dict }: ProductCardProps) {
                         <i className={`${displayIconClass} text-2xl transition-transform duration-500 group-hover:scale-110`}></i>
                     ) : cardIconUrl ? (
                         <div className="relative w-8 h-8">
-                            <Image 
-                                src={cardIconUrl} 
-                                alt={title} 
-                                fill 
+                            <Image
+                                src={cardIconUrl}
+                                alt={title}
+                                fill
                                 className="object-contain transition-all duration-500 group-hover:brightness-0 group-hover:invert"
                             />
                         </div>
@@ -76,15 +76,15 @@ export default function ProductCard({ product, lang, dict }: ProductCardProps) {
                         <i className="fas fa-cube text-2xl transition-transform duration-500 group-hover:scale-110"></i>
                     )}
                 </div>
-                
+
                 <h3 className="text-xl font-black mb-3 text-[#1a6bf5] group-hover:text-blue-600 transition-colors leading-tight">
                     {title}
                 </h3>
-                
+
                 <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-6 font-medium line-clamp-3">
                     {description || (lang === 'ar' ? 'اكتشف المزيد عن منتجاتنا المتميزة وكيف يمكننا مساعدتك.' : 'Explore more about our premium products and how we can help you.')}
                 </p>
-                
+
                 <div className="mt-auto flex items-center text-xs font-black uppercase tracking-widest text-blue-600">
                     <span className="group-hover:mr-2 transition-all duration-300">{dict?.COMMON?.READ_MORE || (lang === 'ar' ? 'اقرأ المزيد' : 'Read More')}</span>
                     <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0">→</span>

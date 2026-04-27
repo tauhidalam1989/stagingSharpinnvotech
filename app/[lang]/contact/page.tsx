@@ -4,6 +4,21 @@ import ContactHero from "@/components/contact/ContactHero";
 import ContactStrip from "@/components/contact/ContactStrip";
 import ContactInfo from "@/components/contact/ContactInfo";
 import ContactWhy from "@/components/contact/ContactWhy";
+import JsonLd from "@/components/JsonLd";
+import { getWebPageSchema } from "@/lib/schema-builder";
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+    const { lang } = await params;
+    const dict = await getDictionary(lang);
+    return {
+        title: dict.PAGE_TITLES.CONTACT || "Contact Us",
+        description: dict.PAGE_TITLES.CONTACT_DESC || "Get in touch with Sharp Innovation for professional IT solutions and support.",
+        alternates: {
+            canonical: `/${lang}/contact`,
+        }
+    };
+}
 
 export default async function ContactPage({
     params,
@@ -12,9 +27,16 @@ export default async function ContactPage({
 }) {
     const { lang } = await params;
     const dict = await getDictionary(lang);
+    const schema = getWebPageSchema(
+        dict.PAGE_TITLES.CONTACT || "Contact Us",
+        dict.PAGE_TITLES.CONTACT_DESC || "Get in touch with Sharp Innovation for professional IT solutions and support.",
+        lang,
+        'ContactPage'
+    );
 
     return (
         <div className="flex flex-col w-full min-h-screen">
+            <JsonLd schema={schema} />
             {/* Hero Section */}
             <ContactHero lang={lang} dict={dict} />
 

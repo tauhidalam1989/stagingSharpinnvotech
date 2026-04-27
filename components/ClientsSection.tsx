@@ -26,7 +26,7 @@ export default function ClientsSection({
 
         let finalPath = path;
         if (path.startsWith('http')) {
-            const isPathLocal = path.includes('127.0.0.1:8093');
+            const isPathLocal = path.includes('127.0.0.1:8092');
             if (!isBaseLocal && isPathLocal) {
                 const uploadsIndex = path.indexOf('/uploads/');
                 if (uploadsIndex !== -1) {

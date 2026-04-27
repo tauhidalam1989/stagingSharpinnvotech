@@ -5,7 +5,24 @@ const locales = ['en', 'ar'];
 const defaultLocale = 'en';
 
 export default function proxy(request: NextRequest) {
-    const { pathname } = request.nextUrl;
+    const host = request.headers.get('host');
+    const { pathname, search } = request.nextUrl;
+    const protocol = request.headers.get('x-forwarded-proto') || 'http';
+
+    // 1. Enforce HTTPS and non-WWW (301 Redirect)
+    // Only in production to avoid issues with local dev
+    if (process.env.NODE_ENV === 'production' && host) {
+        const isWww = host.startsWith('www.');
+        const isHttp = protocol === 'http';
+
+        if (isWww || isHttp) {
+            const newHost = host.replace('www.', '');
+            // Create the new URL with https and the non-www host
+            const newUrl = new URL(`${pathname}${search}`, `https://${newHost}`);
+            return NextResponse.redirect(newUrl, 301);
+        }
+    }
+
     const token = request.cookies.get('auth_token')?.value;
 
     // 1. Skip if it's an internal Next.js path, API, or static file
@@ -56,7 +73,7 @@ export default function proxy(request: NextRequest) {
 
     // Add Security Headers
     const securityHeaders = {
-        'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://db.onlinewebfonts.com; img-src 'self' blob: data: https://sharpinnovation-api.sharpinnvotech.com http://localhost:8093; font-src 'self' https://cdnjs.cloudflare.com https://db.onlinewebfonts.com; connect-src 'self' https://sharpinnovation-api.sharpinnvotech.com http://localhost:8093; frame-ancestors 'none';",
+        'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://db.onlinewebfonts.com; img-src 'self' blob: data: https://sharpinnovation-api.sharpinnvotech.com http://127.0.0.1:8092; font-src 'self' https://cdnjs.cloudflare.com https://db.onlinewebfonts.com; connect-src 'self' https://sharpinnovation-api.sharpinnvotech.com http://127.0.0.1:8092; frame-ancestors 'none';",
         'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
         'X-Frame-Options': 'DENY',
         'X-Content-Type-Options': 'nosniff',

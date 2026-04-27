@@ -21,7 +21,7 @@ export default function ServiceCard({ service, lang, dict, categoryName, categor
     // Category-based Theme Mapping
     const getTheme = (id: string | undefined, catName: string | undefined) => {
         const n = (catName || '').toLowerCase();
-        
+
         // Security/Cyber -> Blue
         if (n.includes('cyber') || n.includes('security') || n.includes('أمن')) {
             return {
@@ -34,7 +34,7 @@ export default function ServiceCard({ service, lang, dict, categoryName, categor
                 btn: 'text-blue-600'
             };
         }
-        
+
         // Network/Infrastructure -> Cyan
         if (n.includes('network') || n.includes('infra') || n.includes('شبكة')) {
             return {
@@ -99,33 +99,33 @@ export default function ServiceCard({ service, lang, dict, categoryName, categor
     };
 
     const theme = getTheme(categoryId, categoryName);
-    
+
     const isIconClass = (str: string | undefined) => {
         if (!str) return false;
         const s = str.trim();
-        return s.startsWith('fa-') || 
-               s.startsWith('fas') || 
-               s.startsWith('fab') || 
-               s.startsWith('far') || 
-               s.includes(' fa-') ||
-               s.includes('fab ') ||
-               s.includes('fas ') ||
-               s.includes('far ');
+        return s.startsWith('fa-') ||
+            s.startsWith('fas') ||
+            s.startsWith('fab') ||
+            s.startsWith('far') ||
+            s.includes(' fa-') ||
+            s.includes('fab ') ||
+            s.includes('fas ') ||
+            s.includes('far ');
     };
 
     // Determine what to show as the icon - prioritize cardIcon
-    const displayIconClass = service.cardIcon && isIconClass(service.cardIcon) 
-        ? service.cardIcon 
+    const displayIconClass = service.cardIcon && isIconClass(service.cardIcon)
+        ? service.cardIcon
         : (service.heroIcon && isIconClass(service.heroIcon) ? service.heroIcon : null);
 
     const getFullImageUrl = (path: string) => {
         if (!path || isIconClass(path)) return null;
-        
+
         const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '') || '';
         const isBaseLocal = baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1');
-        
+
         if (path.startsWith('http')) {
-            const isPathLocal = path.includes('127.0.0.1:8093');
+            const isPathLocal = path.includes('127.0.0.1:8092');
             if (!isBaseLocal && isPathLocal) {
                 const uploadsIndex = path.indexOf('/uploads/');
                 if (uploadsIndex !== -1) {
@@ -153,10 +153,10 @@ export default function ServiceCard({ service, lang, dict, categoryName, categor
                         <i className={`${displayIconClass} text-2xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-12`}></i>
                     ) : heroIconUrl ? (
                         <div className="relative w-9 h-9">
-                            <Image 
-                                src={heroIconUrl} 
-                                alt={title} 
-                                fill 
+                            <Image
+                                src={heroIconUrl}
+                                alt={title}
+                                fill
                                 className="object-contain transition-all duration-500 group-hover:brightness-0 group-hover:invert"
                             />
                         </div>
@@ -164,15 +164,15 @@ export default function ServiceCard({ service, lang, dict, categoryName, categor
                         <i className="fas fa-cog text-2xl animate-spin-slow"></i>
                     )}
                 </div>
-                
+
                 <h3 className={`font-syne text-2xl font-bold mb-4 text-zinc-900 dark:text-white ${theme.text} transition-colors leading-tight`}>
                     {title}
                 </h3>
-                
+
                 <p className="font-dm-sans text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-8 font-light line-clamp-3">
                     {description || (lang === 'ar' ? 'اكتشف المزيد عن خدماتنا المتميزة وكيف يمكننا مساعدتك.' : 'Explore more about our premium services and how we can help you.')}
                 </p>
-                
+
                 <div className={`mt-auto flex items-center text-xs font-bold uppercase tracking-widest ${theme.btn}`}>
                     <span className="transition-all duration-300">{dict.SERVICE.READ_MORE}</span>
                     <span className={`transition-all duration-300 transform ${isAr ? 'mr-2 group-hover:-translate-x-1' : 'ml-2 group-hover:translate-x-1'}`}>

@@ -20,6 +20,21 @@ import Link from "next/link";
 import CareerHero from "@/components/careers/CareerHero";
 import CareerProcess from "@/components/careers/CareerProcess";
 import { motion } from "framer-motion";
+import JsonLd from "@/components/JsonLd";
+import { getWebPageSchema } from "@/lib/schema-builder";
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+    const { lang } = await params;
+    const dict = await getDictionary(lang);
+    return {
+        title: dict.career?.career_title || "Careers",
+        description: dict.career?.careers_description || "Join our team and start your journey with Sharp Innovations.",
+        alternates: {
+            canonical: `/${lang}/careers`,
+        }
+    };
+}
 
 export default async function CareersPage({
     params,
@@ -28,6 +43,12 @@ export default async function CareersPage({
 }) {
     const { lang } = await params;
     const dict = await getDictionary(lang);
+    const schema = getWebPageSchema(
+        dict.career?.career_title || "Careers",
+        dict.career?.careers_description || "Join our team and start your journey with Sharp Innovations.",
+        lang,
+        'WebPage'
+    );
     const isAr = lang === 'ar';
     const s = dict.career;
 

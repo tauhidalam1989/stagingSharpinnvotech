@@ -34,15 +34,15 @@ export default function ClientPartnerForm({ lang, initialData, isEdit, type }: C
         isActive: initialData?.isActive !== undefined ? initialData.isActive : true,
     });
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
-    
+
     const getFullImageUrl = (path: string) => {
         if (!path) return '';
         const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '') || '';
         const isBaseLocal = baseUrl.includes('localhost') || baseUrl.includes('127.0.0.1');
-        
+
         let finalPath = path;
         if (path.startsWith('http')) {
-            const isPathLocal = path.includes('127.0.0.1:8093');
+            const isPathLocal = path.includes('127.0.0.1:8092');
             if (!isBaseLocal && isPathLocal) {
                 const uploadsIndex = path.indexOf('/uploads/');
                 if (uploadsIndex !== -1) {
