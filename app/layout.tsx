@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -46,7 +47,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-        <link 
+        <link
           href="https://db.onlinewebfonts.com/c/d78f5d2c76185fa07aaf8dd729eef33e?family=DIN+Next+LT+Arabic+Light"
           rel="stylesheet"
           crossOrigin="anonymous"
@@ -56,6 +57,19 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${openSans.variable} ${ubuntu.variable} antialiased`}
         suppressHydrationWarning
       >
+        {/* ✅ Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-3JLR6G6RLB"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3JLR6G6RLB');
+    `}
+        </Script>
         {children}
       </body>
     </html>

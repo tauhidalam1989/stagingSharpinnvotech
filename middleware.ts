@@ -72,8 +72,24 @@ export default function proxy(request: NextRequest) {
     const response = NextResponse.next();
 
     // Add Security Headers
+    // const securityHeaders = {
+    //     'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://db.onlinewebfonts.com; img-src 'self' blob: data: https://sharpinnovation-api.sharpinnvotech.com http://127.0.0.1:8092; font-src 'self' https://cdnjs.cloudflare.com https://db.onlinewebfonts.com; connect-src 'self' https://sharpinnovation-api.sharpinnvotech.com http://127.0.0.1:8092; frame-ancestors 'none';",
+    //     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
+    //     'X-Frame-Options': 'DENY',
+    //     'X-Content-Type-Options': 'nosniff',
+    //     'Referrer-Policy': 'strict-origin-when-cross-origin',
+    //     'Permissions-Policy': 'camera=(), microphone=(), geolocation=()'
+    // };
     const securityHeaders = {
-        'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://db.onlinewebfonts.com; img-src 'self' blob: data: https://sharpinnovation-api.sharpinnvotech.com http://127.0.0.1:8092; font-src 'self' https://cdnjs.cloudflare.com https://db.onlinewebfonts.com; connect-src 'self' https://sharpinnovation-api.sharpinnvotech.com http://127.0.0.1:8092; frame-ancestors 'none';",
+        'Content-Security-Policy': `
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://www.googletagmanager.com;
+    connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://sharpinnovation-api.sharpinnvotech.com http://127.0.0.1:8092;
+    img-src 'self' blob: data: https://www.google-analytics.com https://sharpinnovation-api.sharpinnvotech.com http://127.0.0.1:8092;
+    style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://db.onlinewebfonts.com;
+    font-src 'self' https://cdnjs.cloudflare.com https://db.onlinewebfonts.com;
+    frame-ancestors 'none';
+  `.replace(/\n/g, ''),
         'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
         'X-Frame-Options': 'DENY',
         'X-Content-Type-Options': 'nosniff',
