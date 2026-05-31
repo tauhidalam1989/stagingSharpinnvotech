@@ -145,12 +145,12 @@ export default async function ProductDetailPage({
                             </div>
 
                             {/* Description */}
-                            <p className="font-dm-sans text-lg md:text-sm text-white/70 font-light leading-relaxed !text-white mb-12 max-w-2xl">
+                            <p className="text-sm md:text-sm !text-white dark:text-white leading-relaxed font-normal whitespace-pre-line">
                                 {isAr ? (product.heroDescriptionAr || product.shortDescriptionAr) : (product.heroDescription || product.shortDescription)}
                             </p>
 
                             {/* CTA Buttons */}
-                            <div className="flex flex-wrap gap-4">
+                            <div className="flex flex-wrap gap-4 pt-18">
                                 {(product.heroPrimaryCtaText || product.heroPrimaryCtaTextAr) && (
                                     <Link
                                         href={product.heroPrimaryCtaLink || '#'}
@@ -239,7 +239,7 @@ export default async function ProductDetailPage({
                                             <h3 className="font-syne text-2xl font-bold mb-4 text-zinc-900 dark:text-white group-hover:text-blue-600 transition-colors leading-tight uppercase">
                                                 {isAr ? item.titleAr : item.title}
                                             </h3>
-                                            <p className="font-dm-sans text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-6 font-light">
+                                            <p className="text-sm md:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal whitespace-pre-line">
                                                 {isAr ? item.descriptionAr : item.description}
                                             </p>
 
@@ -427,7 +427,7 @@ export default async function ProductDetailPage({
                                 {(product.ctaButton1Text || product.ctaButton1TextAr) && (
                                     <Link
                                         href={product.ctaButton1Link || `/${lang}/contact`}
-                                        className="group inline-flex items-center justify-center gap-3 bg-white text-[#0d6efd] px-10 py-5 rounded-2xl font-bold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20"
+                                        className="group inline-flex items-center justify-center gap-3 bg-white text-[#0d6efd] px-6 py-3 rounded-2xl font-bold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20 whitespace-nowrap"
                                     >
                                         <MessageSquare className="w-5 h-5" />
                                         <span>{isAr ? (product.ctaButton1TextAr || product.ctaButton1Text) : product.ctaButton1Text}</span>
@@ -437,7 +437,7 @@ export default async function ProductDetailPage({
                                 {(product.ctaButton2Text || product.ctaButton2TextAr) && (
                                     <Link
                                         href={product.ctaButton2Link || `/${lang}/products`}
-                                        className="inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-10 py-5 rounded-2xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm"
+                                        className="inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-6 py-3 rounded-2xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm whitespace-nowrap"
                                     >
                                         <Briefcase className="w-5 h-5" />
                                         <span>{isAr ? (product.ctaButton2TextAr || product.ctaButton2Text) : product.ctaButton2Text}</span>
