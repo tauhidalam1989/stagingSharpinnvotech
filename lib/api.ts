@@ -143,6 +143,7 @@ export interface Product {
     gallery?: string[];
     galleryAlt?: string;
     galleryAltAr?: string;
+    brochure?: string;
     order: number;
     isPublished: boolean;
     views?: number;

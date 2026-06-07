@@ -465,6 +465,34 @@ export default async function ProductDetailPage({
                     </div>
                 </section>
             )}
+
+            {product.brochure && (
+                <a
+                    href={getMediaUrl(product.brochure)}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="fixed bottom-8 left-8 z-55 flex items-center justify-center w-14 h-14 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-2xl shadow-cyan-400/40 transition-all duration-300 hover:scale-110 active:scale-95 group cursor-pointer"
+                >
+                    <i className="fa-solid fa-file-arrow-down text-xl transition-transform duration-300 group-hover:translate-y-0.5" />
+                    {/* Floating Tooltip - formatted in two lines and aligned to avoid screen edge clipping */}
+                    <span className="absolute bottom-16 left-2 bg-zinc-900/95 text-white text-[11px] font-bold px-4 py-2 rounded-xl text-center shadow-xl border border-zinc-800 tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none w-max">
+                        {isAr ? (
+                            <>
+                                تحميل
+                                <br />
+                                الكتيب
+                            </>
+                        ) : (
+                            <>
+                                Download
+                                <br />
+                                Brochure
+                            </>
+                        )}
+                    </span>
+                </a>
+            )}
         </div>
     );
 }

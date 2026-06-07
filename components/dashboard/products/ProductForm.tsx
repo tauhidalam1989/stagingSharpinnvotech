@@ -103,7 +103,8 @@ export default function ProductForm({ lang, product, isEdit }: ProductFormProps)
         keyFeaturesImages: [],
         gallery: [],
         galleryAlt: '',
-        galleryAltAr: ''
+        galleryAltAr: '',
+        brochure: ''
     };
 
     const sanitizeData = (data: any) => {
@@ -145,6 +146,7 @@ export default function ProductForm({ lang, product, isEdit }: ProductFormProps)
             if (product.whySharpImage) initialPreviews.whySharpImage = getImageUrl(product.whySharpImage);
             if (product.keyFeaturesImages) initialPreviews.keyFeaturesImages = product.keyFeaturesImages.map(img => getImageUrl(img));
             if (product.gallery) initialPreviews.gallery = product.gallery.map(img => getImageUrl(img));
+            if (product.brochure) initialPreviews.brochure = getImageUrl(product.brochure);
             setPreviews(initialPreviews);
         }
     }, [product]);
@@ -290,7 +292,7 @@ export default function ProductForm({ lang, product, isEdit }: ProductFormProps)
             const jsonFields = ['howItWorks', 'keyFeaturesList', 'keyFeaturesListAr', 'benefits', 'visionItems', 'faqs'];
             
             // File fields (single and multiple)
-            const singleFileFields = ['heroIcon', 'aboutImage', 'whySharpImage'];
+            const singleFileFields = ['heroIcon', 'aboutImage', 'whySharpImage', 'brochure'];
             const multipleFileFields = ['keyFeaturesImages', 'gallery'];
 
             // Fields to skip (internal or non-updatable)
@@ -541,6 +543,57 @@ export default function ProductForm({ lang, product, isEdit }: ProductFormProps)
                                             dir="rtl"
                                             className="w-full bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-800 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                                         />
+                                    </div>
+                                </div>
+
+                                <div className="space-y-3 bg-zinc-50 dark:bg-zinc-800/30 p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+                                    <label className="text-xs font-black uppercase tracking-widest text-zinc-400">Product Brochure (PDF or Document)</label>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div className="relative h-28">
+                                            <input 
+                                                type="file" 
+                                                onChange={(e) => handleFileChange(e, 'brochure')} 
+                                                className="absolute inset-0 opacity-0 cursor-pointer" 
+                                                accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" 
+                                            />
+                                            <div className="w-full h-full border-2 border-dashed border-zinc-200 dark:border-zinc-800 rounded-2xl flex flex-col items-center justify-center bg-zinc-50/50 dark:bg-zinc-800/30 hover:border-blue-500 transition-all">
+                                                <i className="fas fa-file-pdf text-xl text-zinc-400"></i>
+                                                <p className="text-xs font-black text-zinc-500 uppercase mt-1">Upload Brochure</p>
+                                            </div>
+                                        </div>
+                                        <div className="h-28 bg-zinc-50 dark:bg-zinc-800 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden relative flex items-center justify-center p-4">
+                                            {formData.brochure || previews.brochure ? (
+                                                <div className="flex items-center gap-3 w-full bg-white dark:bg-zinc-900 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800">
+                                                    <div className="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-red-600">
+                                                        <i className="fas fa-file-pdf text-lg"></i>
+                                                    </div>
+                                                    <div className="flex-1 min-w-0">
+                                                        <p className="text-xs font-bold text-zinc-800 dark:text-zinc-200 truncate">
+                                                            {files.brochure instanceof File ? files.brochure.name : 'Brochure Uploaded'}
+                                                        </p>
+                                                        {(formData.brochure || previews.brochure) && (
+                                                            <a 
+                                                                href={typeof previews.brochure === 'string' ? previews.brochure : getImageUrl(formData.brochure || '')} 
+                                                                target="_blank" 
+                                                                rel="noopener noreferrer" 
+                                                                className="text-[10px] text-blue-500 hover:underline font-bold"
+                                                            >
+                                                                View Document
+                                                            </a>
+                                                        )}
+                                                    </div>
+                                                    <button 
+                                                        type="button" 
+                                                        onClick={() => removeFile('brochure')} 
+                                                        className="w-8 h-8 rounded-lg bg-red-600 hover:bg-red-700 text-white flex items-center justify-center transition-all shadow-md"
+                                                    >
+                                                        <i className="fas fa-trash-alt text-xs"></i>
+                                                    </button>
+                                                </div>
+                                            ) : (
+                                                <p className="text-xs text-zinc-400 font-medium">No brochure uploaded</p>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
 

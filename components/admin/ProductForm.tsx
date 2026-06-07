@@ -100,6 +100,7 @@ export default function ProductForm({ product, isEdit }: ProductFormProps) {
         metaDescriptionAr: product?.metaDescriptionAr || '',
         metaKeywords: product?.metaKeywords || '',
         metaKeywordsAr: product?.metaKeywordsAr || '',
+        brochure: product?.brochure || '',
     });
 
     // Dynamic Arrays
@@ -115,11 +116,13 @@ export default function ProductForm({ product, isEdit }: ProductFormProps) {
         heroImage: null,
         aboutImage: null,
         whySharpImage: null,
+        brochure: null,
     });
     const [previews, setPreviews] = useState<{ [key: string]: string | null }>({
         heroImage: product?.gallery?.[0] ? `${process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '')}/${product.gallery[0]}` : null,
         aboutImage: product?.aboutImage ? `${process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '')}/${product.aboutImage}` : null,
         whySharpImage: product?.whySharpImage ? `${process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '')}/${product.whySharpImage}` : null,
+        brochure: product?.brochure ? `${process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '')}/${product.brochure}` : null,
     });
 
     useEffect(() => {
@@ -297,6 +300,52 @@ export default function ProductForm({ product, isEdit }: ProductFormProps) {
                                         onChange={handleInputChange}
                                         className="w-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700 rounded-2xl px-6 py-4 font-bold focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
+                                </div>
+                                <div className="space-y-3">
+                                    <label className="text-xs font-black text-zinc-400 uppercase tracking-widest px-2">Product Brochure (PDF/Doc)</label>
+                                    <div className="flex items-center gap-4">
+                                        <div className="relative flex-1 bg-zinc-50 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700 rounded-2xl px-6 py-4 font-bold cursor-pointer overflow-hidden transition-all hover:border-blue-500/50 flex items-center justify-between">
+                                            <div className="flex items-center gap-3">
+                                                <i className="fas fa-file-pdf text-red-500 text-lg" />
+                                                <span className="text-sm font-bold text-zinc-500 dark:text-zinc-400">
+                                                    {images.brochure ? images.brochure.name : (formData.brochure ? 'Brochure Uploaded' : 'Upload Brochure')}
+                                                </span>
+                                            </div>
+                                            <input 
+                                                type="file" 
+                                                onChange={e => handleFileChange(e, 'brochure')} 
+                                                className="absolute inset-0 opacity-0 cursor-pointer" 
+                                                accept=".pdf,.doc,.docx"
+                                            />
+                                        </div>
+                                        {(formData.brochure || previews.brochure) && (
+                                            <div className="flex items-center gap-2">
+                                                {previews.brochure && (
+                                                    <a
+                                                        href={previews.brochure}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold p-4 rounded-2xl transition-all shadow-md flex items-center justify-center text-sm"
+                                                        title="View brochure"
+                                                    >
+                                                        <i className="fas fa-external-link-alt" />
+                                                    </a>
+                                                )}
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setImages(prev => ({ ...prev, brochure: null }));
+                                                        setPreviews(prev => ({ ...prev, brochure: null }));
+                                                        setFormData(prev => ({ ...prev, brochure: '' }));
+                                                    }}
+                                                    className="bg-red-500 hover:bg-red-600 text-white font-bold p-4 rounded-2xl transition-all shadow-md flex items-center justify-center text-sm"
+                                                    title="Delete brochure"
+                                                >
+                                                    <i className="fas fa-trash-alt" />
+                                                </button>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                                 <div className="flex items-end pb-4">
                                     <label className="flex items-center gap-4 cursor-pointer group">
