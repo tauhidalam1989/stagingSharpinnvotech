@@ -76,6 +76,22 @@ const HighlightedTitle = ({ title, className }: { title: string; className?: str
     );
 };
 
+const FeatureText = ({ text }: { text: string }) => {
+    if (!text) return null;
+    const colonIndex = text.indexOf(':');
+    if (colonIndex === -1) {
+        return <span className="font-normal text-zinc-600 dark:text-zinc-400">{text}</span>;
+    }
+    const title = text.substring(0, colonIndex);
+    const description = text.substring(colonIndex + 1);
+    return (
+        <span className="text-sm md:text-sm text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed">
+            <strong className="font-bold text-zinc-900 dark:text-zinc-100">{title}:</strong>
+            {description}
+        </span>
+    );
+};
+
 export default async function ProductDetailPage({
     params,
 }: {
@@ -299,8 +315,8 @@ export default async function ProductDetailPage({
                                                 {renderIcon(feature, 'fas fa-check', 'text-base')}
                                             </div>
                                             <div className="flex-grow pt-1">
-                                                <h4 className="font-bold text-sm md:text-base text-zinc-800 dark:text-zinc-200 tracking-tight leading-snug">
-                                                    {isAr ? feature.textAr || feature.text : feature.text}
+                                                <h4 className="text-sm md:text-sm leading-snug">
+                                                    <FeatureText text={isAr ? feature.textAr || feature.text : feature.text} />
                                                 </h4>
                                             </div>
                                         </div>
