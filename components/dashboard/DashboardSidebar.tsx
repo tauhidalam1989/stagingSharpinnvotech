@@ -28,6 +28,7 @@ export default function DashboardSidebar({ lang }: { lang: string }) {
         { path: `/${lang}/dashboard/blogs`, icon: 'fa-blog', label: 'Blogs', iconColor: 'text-amber-500' },
         { path: `/${lang}/dashboard/blogs/new`, icon: 'fa-plus-circle', label: 'Add Blog', iconColor: 'text-blue-400' },
         { path: `/${lang}/dashboard/client-partner`, icon: 'fa-handshake', label: 'Clients & Partners', iconColor: 'text-teal-500' },
+        { path: `/${lang}/dashboard/portfolio`, icon: 'fa-briefcase', label: 'Portfolio management', iconColor: 'text-indigo-600' },
         { path: `/${lang}/dashboard/users`, icon: 'fa-users-cog', label: 'Users', roles: ['super_admin'], iconColor: 'text-indigo-500' },
         { path: `/${lang}/dashboard/settings`, icon: 'fa-cog', label: 'Settings', iconColor: 'text-zinc-500' },
         { path: `/${lang}/dashboard/newsletter`, icon: 'fa-envelope-open-text', label: 'Newsletter', roles: ['super_admin'], iconColor: 'text-blue-500' },

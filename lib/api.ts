@@ -1667,3 +1667,161 @@ export async function deleteNewsletter(id: string): Promise<ApiResponse<any>> {
     }
 }
 
+// Portfolio Management Types & APIs
+export interface PortfolioProfile {
+    id: number;
+    companyName: string;
+    title?: string;
+    logo?: string;
+    instagram?: string;
+    facebook?: string;
+    twitter?: string;
+    linkedin?: string;
+    email?: string;
+    phone?: string;
+    bottomCtaText?: string;
+    bottomCtaLink?: string;
+}
+
+export interface PortfolioItem {
+    id: number;
+    title: string;
+    link?: string;
+    image?: string;
+    attachment?: string;
+    order: number;
+    isActive: boolean;
+    createdAt?: string;
+    updatedAt?: string;
+}
+
+export interface PublicPortfolioResponse {
+    profile: PortfolioProfile;
+    items: PortfolioItem[];
+}
+
+// Public Portfolio Page fetch
+export async function getPublicPortfolio(): Promise<PublicPortfolioResponse | null> {
+    try {
+        const res = await fetch(`${API_URL}/portfolio/public`, {
+            headers: {
+                'x-api-key': API_KEY
+            },
+            cache: 'no-store'
+        });
+        const data = await res.json();
+        return data.result || data.data || null;
+    } catch (error) {
+        console.error('Error fetching public portfolio:', error);
+        return null;
+    }
+}
+
+// Get Admin Profile Settings
+export async function getAdminPortfolioProfile(): Promise<PortfolioProfile | null> {
+    try {
+        const res = await fetch(`${API_URL}/portfolio/profile`, {
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+            cache: 'no-store'
+        });
+        const data = await res.json();
+        return data.result || data.data || null;
+    } catch (error) {
+        console.error('Error fetching admin portfolio profile:', error);
+        return null;
+    }
+}
+
+// Update Profile Settings (Admin)
+export async function updatePortfolioProfile(formData: FormData): Promise<ApiResponse<PortfolioProfile>> {
+    try {
+        const res = await fetch(`${API_URL}/portfolio/profile`, {
+            method: 'PUT',
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+            body: formData
+        });
+        return await res.json();
+    } catch (error) {
+        console.error('Error updating portfolio profile:', error);
+        return { success: false, status_code: 500, message: 'Internal server error' };
+    }
+}
+
+// Get Portfolio Items (Admin)
+export async function getPortfolioItems(): Promise<PortfolioItem[]> {
+    try {
+        const res = await fetch(`${API_URL}/portfolio/items`, {
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+            cache: 'no-store'
+        });
+        const data = await res.json();
+        const items = data.result || data.data || [];
+        return Array.isArray(items) ? items : [];
+    } catch (error) {
+        console.error('Error fetching portfolio items:', error);
+        return [];
+    }
+}
+
+// Create Portfolio Item (Admin)
+export async function createPortfolioItem(formData: FormData): Promise<ApiResponse<PortfolioItem>> {
+    try {
+        const res = await fetch(`${API_URL}/portfolio/items`, {
+            method: 'POST',
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+            body: formData
+        });
+        return await res.json();
+    } catch (error) {
+        console.error('Error creating portfolio item:', error);
+        return { success: false, status_code: 500, message: 'Internal server error' };
+    }
+}
+
+// Update Portfolio Item (Admin)
+export async function updatePortfolioItem(id: number, formData: FormData): Promise<ApiResponse<PortfolioItem>> {
+    try {
+        const res = await fetch(`${API_URL}/portfolio/items/${id}`, {
+            method: 'PUT',
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+            body: formData
+        });
+        return await res.json();
+    } catch (error) {
+        console.error('Error updating portfolio item:', error);
+        return { success: false, status_code: 500, message: 'Internal server error' };
+    }
+}
+
+// Delete Portfolio Item (Admin)
+export async function deletePortfolioItem(id: number): Promise<ApiResponse<void>> {
+    try {
+        const res = await fetch(`${API_URL}/portfolio/items/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            }
+        });
+        return await res.json();
+    } catch (error) {
+        console.error('Error deleting portfolio item:', error);
+        return { success: false, status_code: 500, message: 'Internal server error' };
+    }
+}
+

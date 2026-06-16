@@ -10,9 +10,10 @@ export default function Footer({ lang, dict }: { lang: string; dict: any }) {
     const pathname = usePathname();
     const isRtl = lang === 'ar';
     const isDashboard = pathname.includes('/dashboard');
+    const isPortfolio = pathname.includes('/portfolio');
     const [isVisible, setIsVisible] = useState(false);
 
-    if (isDashboard) return null;
+    if (isDashboard || isPortfolio) return null;
 
     // Show/hide "Back to Top" button based on scroll position
     useEffect(() => {

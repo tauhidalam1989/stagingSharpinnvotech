@@ -30,9 +30,10 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
 
     const isHomePage = pathname === `/${lang}` || pathname === `/${lang}/home` || pathname === '/';
     const isDashboard = pathname.includes('/dashboard');
+    const isPortfolio = pathname.includes('/portfolio');
     const isRtl = lang === 'ar';
 
-    if (isDashboard) return null;
+    if (isDashboard || isPortfolio) return null;
 
     useEffect(() => {
         const handleScroll = () => {
