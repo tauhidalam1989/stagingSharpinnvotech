@@ -208,7 +208,7 @@ export default async function ServiceDetailPage({
                                 <div className="relative overflow-hidden flex items-center justify-center">
                                     {(() => {
                                         const url = getMediaUrl(service.aboutSectionImage);
-                                        if (!url) return <div className="w-[400px] h-[300px] bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center"><i className="fas fa-image text-3xl text-zinc-300"></i></div>;
+                                        if (!url) return <div className="w-full max-w-[400px] aspect-[4/3] bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center rounded-xl"><i className="fas fa-image text-3xl text-zinc-300"></i></div>;
                                         return (
                                             <Image
                                                 src={url}

@@ -161,12 +161,12 @@ export default async function ProductDetailPage({
                             </div>
 
                             {/* Description */}
-                            <p className="text-sm md:text-sm !text-white dark:text-white leading-relaxed font-normal whitespace-pre-line">
+                            <p className="text-sm md:text-sm !text-white dark:text-white leading-relaxed font-normal whitespace-pre-line mb-12 max-w-2xl">
                                 {isAr ? (product.heroDescriptionAr || product.shortDescriptionAr) : (product.heroDescription || product.shortDescription)}
                             </p>
 
                             {/* CTA Buttons */}
-                            <div className="flex flex-col sm:flex-row gap-4 pt-18 w-full sm:w-auto">
+                            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                                 {(product.heroPrimaryCtaText || product.heroPrimaryCtaTextAr) && (
                                     <Link
                                         href={product.heroPrimaryCtaLink || '#'}
@@ -197,7 +197,7 @@ export default async function ProductDetailPage({
             {/* ABOUT THE SOLUTION */}
             <section className="py-16 relative bg-[#f3f4ff] dark:bg-zinc-900/40">
                 <div className="container mx-auto px-6">
-                    <div className={`flex flex-col lg:flex-row items-start gap-16 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
+                    <div className={`flex flex-col lg:flex-row items-start gap-8 lg:gap-16 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
                         <div className="flex-1 lg:min-h-[400px]">
                             <div className={`mb-6 ${isAr ? 'text-right' : 'text-left'}`}>
                                 <h4 className="text-xl md:text-2xl font-bold text-[#1a6bf5] mb-4 tracking-tight">
@@ -212,7 +212,7 @@ export default async function ProductDetailPage({
                             <div className="relative rounded-[24px] overflow-hidden flex items-center justify-center p-0">
                                 {(() => {
                                     const url = getMediaUrl(product.aboutImage);
-                                    if (!url) return <div className="w-[400px] h-[300px] bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center rounded-xl"><i className="fas fa-image text-3xl text-zinc-300"></i></div>;
+                                    if (!url) return <div className="w-full max-w-[400px] aspect-[4/3] bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center rounded-xl"><i className="fas fa-image text-3xl text-zinc-300"></i></div>;
                                     return (
                                         <Image
                                             src={url}
@@ -276,9 +276,9 @@ export default async function ProductDetailPage({
             {/* KEY FEATURES */}
             <section className="py-12 bg-[#f3f4ff] dark:bg-zinc-950">
                 <div className="container mx-auto px-6">
-                    <div className={`flex flex-col lg:flex-row items-center lg:items-start gap-12 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
-                        <div className="lg:w-2/5 flex justify-center lg:sticky lg:top-24 self-start">
-                            <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[380px] w-full group">
+                    <div className={`flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
+                        <div className="lg:w-2/5 flex justify-center lg:sticky lg:top-24 self-start w-full">
+                            <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[240px] sm:h-[300px] md:h-[350px] lg:h-[380px] w-full group">
                                 {(() => {
                                     const img = product.keyFeaturesImages?.[0];
                                     const url = getMediaUrl(img);
@@ -304,13 +304,13 @@ export default async function ProductDetailPage({
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                                 {(isAr ? (product.keyFeaturesListAr || product.keyFeaturesList) : product.keyFeaturesList)?.map((feature: any, idx: number) => {
                                     return (
-                                        <div 
-                                            key={idx} 
+                                        <div
+                                            key={idx}
                                             className="group flex items-start gap-4 p-5 bg-white dark:bg-zinc-900 rounded-[24px] border border-zinc-100 dark:border-zinc-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 relative overflow-hidden"
                                         >
                                             {/* Hover bottom border glow */}
                                             <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-blue-500 to-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                                            
+
                                             <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-[#1a6bf5] flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform shadow-sm">
                                                 {renderIcon(feature, 'fas fa-check', 'text-base')}
                                             </div>
@@ -400,7 +400,7 @@ export default async function ProductDetailPage({
             {(product.whySharpTitle || product.whySharpTitleAr) && (
                 <section className="py-16 bg-white dark:bg-zinc-950">
                     <div className="container mx-auto px-6">
-                        <div className={`flex flex-col lg:flex-row items-center lg:items-start gap-16 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
+                        <div className={`flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-16 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
                             <div className="flex-1 order-2 lg:order-1 lg:min-h-[480px]">
                                 <div className={`mb-6 ${isAr ? 'text-right' : 'text-left'}`}>
                                     <div className="inline-block px-4 py-1.5 rounded-full border border-blue-200 bg-blue-50/30 mb-4">
@@ -416,8 +416,8 @@ export default async function ProductDetailPage({
                                     {isAr ? product.whySharpContentAr : product.whySharpContent}
                                 </p>
                             </div>
-                            <div className="flex-1 flex justify-center order-1 lg:order-2 lg:sticky lg:top-24 self-start">
-                                <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[380px] w-full group">
+                            <div className="flex-1 flex justify-center order-1 lg:order-2 lg:sticky lg:top-24 self-start w-full">
+                                <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[240px] sm:h-[300px] md:h-[350px] lg:h-[380px] w-full group">
                                     {(() => {
                                         const url = getMediaUrl(product.whySharpImage);
                                         if (!url) return <div className="w-full h-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center"><i className="fas fa-building text-4xl text-zinc-300"></i></div>;
@@ -439,40 +439,40 @@ export default async function ProductDetailPage({
             )}
 
             {/* CTA BANNER */}
-            <section className="py-8 md:py-12" dir={isAr ? 'rtl' : 'ltr'}>
+            <section className="py-6 md:py-8" dir={isAr ? 'rtl' : 'ltr'}>
                 <div className="container mx-auto px-6">
-                    <div className="relative rounded-[32px] bg-[#0d6efd] p-6 md:p-8 lg:p-10 overflow-hidden shadow-2xl shadow-blue-200">
+                    <div className="relative rounded-[24px] bg-[#0d6efd] py-6 px-6 md:py-8 md:px-10 lg:py-8 lg:px-12 overflow-hidden shadow-2xl shadow-blue-200">
                         {/* Background patterns */}
                         <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-[-20deg] translate-x-1/2"></div>
                         <div className="absolute -bottom-24 -left-24 w-64 h-64 border-[40px] border-white/10 rounded-full"></div>
 
-                        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-start">
+                        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-12 text-center lg:text-start">
                             <div className="lg:w-2/3">
-                                <h2 className="text-2xl md:text-3xl font-extrabold text-white leading-tight mb-6">
+                                <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-white leading-tight mb-2">
                                     {isAr ? product.ctaTitleAr : product.ctaTitle || (isAr ? 'ابدأ الخطوة التالية' : 'Drive next step')}
                                 </h2>
-                                <p className="text-sm text-white/70 font-light leading-relaxed !text-white max-w-2xl">
+                                <p className="text-xs md:text-sm text-white/70 font-light leading-relaxed !text-white max-w-2xl">
                                     {isAr ? product.ctaDescriptionAr : product.ctaDescription || (isAr ? 'حول سير عملك في دقائق.' : 'Transform your workflow in minutes.')}
                                 </p>
                             </div>
 
-                            <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                            <div className="flex flex-col sm:flex-row gap-3.5 w-full lg:w-auto">
                                 {(product.ctaButton1Text || product.ctaButton1TextAr) && (
                                     <Link
                                         href={product.ctaButton1Link || `/${lang}/contact`}
-                                        className="group inline-flex items-center justify-center gap-3 bg-white text-[#0d6efd] px-6 py-3 rounded-2xl font-bold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20 whitespace-nowrap"
+                                        className="group inline-flex items-center justify-center gap-2.5 bg-white text-[#0d6efd] px-6 py-3.5 rounded-xl font-bold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20 whitespace-nowrap text-sm"
                                     >
-                                        <MessageSquare className="w-5 h-5" />
+                                        <MessageSquare className="w-4 h-4" />
                                         <span>{isAr ? (product.ctaButton1TextAr || product.ctaButton1Text) : product.ctaButton1Text}</span>
-                                        <ArrowUpRight className="w-5 h-5 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" />
+                                        <ArrowUpRight className="w-4 h-4 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" />
                                     </Link>
                                 )}
                                 {(product.ctaButton2Text || product.ctaButton2TextAr) && (
                                     <Link
                                         href={product.ctaButton2Link || `/${lang}/products`}
-                                        className="inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-6 py-3 rounded-2xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm whitespace-nowrap"
+                                        className="inline-flex items-center justify-center gap-2.5 bg-white/10 border border-white/20 text-white px-6 py-3.5 rounded-xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm whitespace-nowrap text-sm"
                                     >
-                                        <Briefcase className="w-5 h-5" />
+                                        <Briefcase className="w-4 h-4" />
                                         <span>{isAr ? (product.ctaButton2TextAr || product.ctaButton2Text) : product.ctaButton2Text}</span>
                                     </Link>
                                 )}

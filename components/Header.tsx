@@ -191,8 +191,9 @@ export default function Header({ lang, dict }: { lang: string; dict: any }) {
                 </div>
                 {/* Mobile Navigation Sidebar */}
                 <div
-                    className={`lg:hidden fixed inset-0 z-40 bg-[#0a163d] transition-transform duration-300 ease-in-out overflow-y-auto ${isMenuOpen ? 'translate-x-0' : (isRtl ? 'translate-x-full' : '-translate-x-full')
-                        }`}
+                    className={`lg:hidden fixed inset-0 z-40 bg-[#0a163d] transition-all duration-300 ease-in-out overflow-y-auto ${
+                        isMenuOpen ? 'translate-x-0 opacity-100 visible' : `${isRtl ? 'translate-x-full' : '-translate-x-full'} opacity-0 invisible`
+                    }`}
                 >
                     <div className="flex flex-col min-h-full p-6 pt-10">
                         {/* Logo */}
