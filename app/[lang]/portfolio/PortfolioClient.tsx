@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { PublicPortfolioResponse, getMediaUrl } from '@/lib/api';
-import QRCode from 'qrcode';
 
 interface PortfolioClientProps {
     portfolioData: PublicPortfolioResponse;
@@ -28,26 +27,6 @@ export default function PortfolioClient({ portfolioData, lang }: PortfolioClient
     const [shareModalOpen, setShareModalOpen] = useState(false);
     const [shareItem, setShareItem] = useState<any>(null);
     const [copied, setCopied] = useState(false);
-
-    // QR Code state
-    const [qrCodeUrl, setQrCodeUrl] = useState<string>('');
-
-    useEffect(() => {
-        QRCode.toDataURL('https://sharpinnvotech.com/', {
-            margin: 2,
-            width: 150,
-            color: {
-                dark: '#000000',
-                light: '#FFFFFF'
-            }
-        })
-        .then(url => {
-            setQrCodeUrl(url);
-        })
-        .catch(err => {
-            console.error('Failed to generate QR code:', err);
-        });
-    }, []);
 
     const handleShareClick = (item: any) => {
         setShareItem(item);
@@ -157,7 +136,7 @@ export default function PortfolioClient({ portfolioData, lang }: PortfolioClient
                         >
                             {isAr ? 'اشترك' : 'Subscribe'}
                         </button>
-                        <button 
+                        <button
                             onClick={handleShareProfileClick}
                             className="w-9 h-9 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/25 transition-all"
                         >
@@ -326,17 +305,12 @@ export default function PortfolioClient({ portfolioData, lang }: PortfolioClient
                     {isAr ? 'عرض على الهاتف' : 'View on Mobile'}
                 </span>
                 {/* Proper generated QR code */}
-                {qrCodeUrl ? (
-                    <img 
-                        src={qrCodeUrl}
-                        alt="https://sharpinnvotech.com/"
-                        className="w-24 h-24 bg-white p-1 rounded-xl"
-                    />
-                ) : (
-                    <div className="w-24 h-24 bg-white rounded-xl flex items-center justify-center">
-                        <i className="fas fa-spinner animate-spin text-zinc-800"></i>
-                    </div>
-                )}
+                <div className="w-24 h-24 bg-white p-1 rounded-xl flex items-center justify-center overflow-hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 33 33" shapeRendering="crispEdges">
+                        <path fill="#FFFFFF" d="M0 0h33v33H0z"/>
+                        <path stroke="#000000" d="M2 2.5h7m1 0h2m1 0h5m2 0h1m1 0h1m1 0h7M2 3.5h1m5 0h1m1 0h2m2 0h4m1 0h1m1 0h2m1 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m3 0h2m2 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m2 0h2m3 0h2m1 0h1m1 0h2m1 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h3m2 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m2 0h1m1 0h1m1 0h2m3 0h1m1 0h1m1 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M16 9.5h1m5 0h1M2 10.5h1m2 0h6m3 0h6m1 0h1m1 0h1m2 0h1m1 0h3M3 11.5h2m1 0h1m7 0h1m1 0h1m2 0h3m1 0h1m1 0h2m1 0h2M3 12.5h3m1 0h3m2 0h1m3 0h1m6 0h1m1 0h1m2 0h1M2 13.5h2m2 0h2m1 0h3m2 0h1m1 0h2m1 0h1m2 0h1m1 0h4m2 0h1M2 14.5h1m2 0h2m1 0h1m2 0h1m1 0h1m1 0h2m4 0h2m1 0h1m5 0h1M2 15.5h1m2 0h1m1 0h1m2 0h1m2 0h1m5 0h2m3 0h7M3 16.5h1m2 0h1m1 0h4m4 0h2m3 0h1m1 0h1m1 0h2m1 0h1m1 0h1M2 17.5h1m3 0h2m1 0h1m2 0h5m1 0h1m4 0h2m1 0h1m1 0h1m1 0h1M4 18.5h1m1 0h3m4 0h1m3 0h1m2 0h1m4 0h1m1 0h1M2 19.5h1m1 0h3m2 0h2m1 0h1m7 0h3m3 0h1m1 0h2M2 20.5h2m1 0h1m1 0h5m3 0h2m1 0h1m2 0h1m3 0h3m2 0h1M2 21.5h3m1 0h1m2 0h1m2 0h1m2 0h1m1 0h2m5 0h1m2 0h2M2 22.5h2m1 0h2m1 0h3m1 0h1m1 0h2m4 0h1m1 0h8M10 23.5h1m2 0h3m2 0h3m1 0h1m3 0h2M2 24.5h7m1 0h3m2 0h1m1 0h2m2 0h2m1 0h1m1 0h2M2 25.5h1m5 0h1m1 0h2m3 0h1m2 0h1m1 0h3m3 0h1m2 0h1M2 26.5h1m1 0h3m1 0h1m1 0h4m1 0h1m1 0h3m1 0h7m1 0h1M2 27.5h1m1 0h3m1 0h1m1 0h2m3 0h2m1 0h1m1 0h2m1 0h1m5 0h1M2 28.5h1m1 0h3m1 0h1m3 0h3m3 0h1m1 0h1m2 0h1m1 0h2m1 0h3M2 29.5h1m5 0h1m3 0h1m1 0h1m1 0h2m3 0h1m1 0h1m1 0h1m1 0h2m1 0h1M2 30.5h7m1 0h1m2 0h2m3 0h10"/>
+                    </svg>
+                </div>
             </div>
 
             {/* 1. COOKIE PREFERENCES MODAL */}
@@ -626,8 +600,8 @@ export default function PortfolioClient({ portfolioData, lang }: PortfolioClient
                                         className="flex flex-col items-center gap-2 group focus:outline-none"
                                     >
                                         <div className={`w-12 h-12 rounded-full flex items-center justify-center text-base transition-all shadow-md shrink-0 ${copied
-                                                ? 'bg-emerald-500 text-white'
-                                                : 'bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200'
+                                            ? 'bg-emerald-500 text-white'
+                                            : 'bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200'
                                             }`}>
                                             {copied ? (
                                                 <i className="fas fa-check animate-scale-up"></i>
