@@ -81,6 +81,10 @@ export default function Footer({ lang, dict }: { lang: string; dict: any }) {
                                 <span dir="ltr">{dict.FOOTER.PHONE}</span>
                             </li>
                             <li className="flex items-center gap-4">
+                                <i className="fa fa-phone-alt text-white w-5"></i>
+                                <span dir="ltr">{dict.FOOTER.PHONE1}</span>
+                            </li>
+                            <li className="flex items-center gap-4">
                                 <i className="fa fa-envelope text-white w-5"></i>
                                 <span className="break-all" dir="ltr">{dict.FOOTER.EMAIL}</span>
                             </li>

@@ -60,7 +60,7 @@ const ContactStrip: React.FC<ContactStripProps> = ({ lang, dict }) => {
               </div>
               <div className="text-left">
                 <div className="text-[10px] font-bold text-blue-200 uppercase tracking-widest mb-1 leading-none">{item.label}</div>
-                <div className="text-sm font-semibold text-white whitespace-nowrap">{item.value}</div>
+                <div className="text-sm font-semibold text-white whitespace-nowrap" dir={item.href.startsWith('tel:') ? 'ltr' : undefined}>{item.value}</div>
               </div>
             </motion.a>
           ))}

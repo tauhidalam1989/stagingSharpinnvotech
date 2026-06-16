@@ -135,16 +135,15 @@ export default async function ServiceDetailPage({
                             </div>
 
                             {/* Description */}
-                            <p className="font-dm-sans text-lg md:text-sm text-white/70 font-light leading-relaxed !text-white mb-12 max-w-2xl">
+                            <p className="text-lg md:text-sm text-white/70 font-light leading-relaxed !text-white mb-12 max-w-2xl">
                                 {isAr ? service.heroIntroductionAr : service.heroIntroduction}
                             </p>
 
-                            {/* CTA Buttons */}
-                            <div className="flex flex-wrap gap-4">
+                            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                                 {(service.primaryCtaText || service.primaryCtaTextAr) && (
                                     <Link
                                         href={`/${lang}/contact`}
-                                        className="group inline-flex items-center justify-center gap-3 bg-white text-[#0d6efd] px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20"
+                                        className="group inline-flex items-center justify-center gap-3 bg-white text-[#0d6efd] px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20 w-full sm:w-[280px]"
                                     >
                                         <MessageSquare className="w-5 h-5" />
                                         <span>{isAr ? (service.primaryCtaTextAr || service.primaryCtaText) : (service.primaryCtaText || 'Get Started')}</span>
@@ -154,7 +153,7 @@ export default async function ServiceDetailPage({
                                 {(service.secondaryCtaText || service.secondaryCtaTextAr) && (
                                     <Link
                                         href={`/${lang}/contact`}
-                                        className="inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm"
+                                        className="inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm w-full sm:w-[280px]"
                                     >
                                         <Briefcase className="w-5 h-5" />
                                         <span>{isAr ? (service.secondaryCtaTextAr || service.secondaryCtaText) : (service.secondaryCtaText || 'Learn More')}</span>
@@ -368,7 +367,7 @@ export default async function ServiceDetailPage({
                                 </Link>
                             </div>
                             <div className="w-full">
-                                <span className="text-blue-500 font-bold uppercase tracking-[0.25em] mb-10 block text-[10px]">
+                                <span className="text-blue-500 font-bold uppercase tracking-[0.25em] mb-10 block text-sm">
                                     {isAr
                                         ? (service.criticalRightTitleAr || service.criticalRightTitle || "نظرة عامة")
                                         : (service.criticalRightTitle || "Key Features")}
@@ -403,7 +402,7 @@ export default async function ServiceDetailPage({
                             </p>
                         </div>
 
-                        <div className="flex flex-wrap justify-center gap-x-8 gap-y-12 mt-12">
+                        <div className="flex flex-wrap justify-center gap-x-4 gap-y-8 mt-12">
                             {service.whyChooseUs && service.whyChooseUs.length > 0 && service.whyChooseUs.map((item: any, idx: number) => (
                                 <div key={idx} className="relative bg-white dark:bg-zinc-900 px-8 py-6 rounded-3xl border border-zinc-100 dark:border-zinc-800 flex flex-col items-center gap-2 hover:border-blue-500/20 hover:bg-blue-50/10 transition-all duration-300 hover:scale-105 group shadow-sm min-w-[220px]">
                                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform shadow-md border-4 border-[#f3f4ff] dark:border-[#1a1f2e]">
@@ -419,39 +418,39 @@ export default async function ServiceDetailPage({
                 </section>
             )}
 
-            <section className="py-8 md:py-12" dir={isAr ? 'rtl' : 'ltr'}>
+            <section className="py-6 md:py-8" dir={isAr ? 'rtl' : 'ltr'}>
                 <div className="container mx-auto px-6">
-                    <div className="relative rounded-[32px] bg-[#0d6efd] p-6 md:p-8 lg:p-10 overflow-hidden shadow-2xl shadow-blue-200">
+                    <div className="relative rounded-[24px] bg-[#0d6efd] py-6 px-6 md:py-8 md:px-10 lg:py-8 lg:px-12 overflow-hidden shadow-2xl shadow-blue-200">
                         {/* Background patterns */}
                         <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-[-20deg] translate-x-1/2"></div>
                         <div className="absolute -bottom-24 -left-24 w-64 h-64 border-[40px] border-white/10 rounded-full"></div>
 
-                        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-start">
+                        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-12 text-center lg:text-start">
                             <div className="lg:w-2/3">
-                                <h2 className="text-2xl md:text-3xl font-extrabold text-white leading-tight mb-6">
+                                <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-white leading-tight mb-2">
                                     {isAr
                                         ? (service.ctaMessageAr || service.ctaMessage || 'ابدأ الخطوة التالية')
                                         : (service.ctaMessage || 'Drive next step')}
                                 </h2>
-                                <p className="text-sm text-white/70 font-light leading-relaxed !text-white max-w-2xl">
+                                <p className="text-xs md:text-sm text-white/70 font-light leading-relaxed !text-white max-w-2xl">
                                     {isAr ? 'حول سير عملك في دقائق.' : 'Transform your workflow in minutes.'}
                                 </p>
                             </div>
 
-                            <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                            <div className="flex flex-col sm:flex-row gap-3.5 w-full lg:w-auto">
                                 <Link
                                     href={`/${lang}/contact`}
-                                    className="group inline-flex items-center justify-center gap-3 bg-white text-[#0d6efd] px-10 py-5 rounded-2xl font-bold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20"
+                                    className="group inline-flex items-center justify-center gap-2.5 bg-white text-[#0d6efd] px-6 py-3.5 rounded-xl font-bold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20 text-sm"
                                 >
-                                    <MessageSquare className="w-5 h-5" />
+                                    <MessageSquare className="w-4 h-4" />
                                     <span>{isAr ? 'طلب نسخة تجريبية' : 'Request a Demo'}</span>
-                                    <ArrowUpRight className="w-5 h-5 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" />
+                                    <ArrowUpRight className="w-4 h-4 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" />
                                 </Link>
                                 <Link
                                     href={`/${lang}/contact`}
-                                    className="inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-10 py-5 rounded-2xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm"
+                                    className="inline-flex items-center justify-center gap-2.5 bg-white/10 border border-white/20 text-white px-6 py-3.5 rounded-xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm text-sm"
                                 >
-                                    <Briefcase className="w-5 h-5" />
+                                    <Briefcase className="w-4 h-4" />
                                     <span>{isAr ? 'تحدث إلى خبرائنا' : 'Talk to our Experts'}</span>
                                 </Link>
                             </div>

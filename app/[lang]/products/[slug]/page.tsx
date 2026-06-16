@@ -150,11 +150,11 @@ export default async function ProductDetailPage({
                             </p>
 
                             {/* CTA Buttons */}
-                            <div className="flex flex-wrap gap-4 pt-18">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-18 w-full sm:w-auto">
                                 {(product.heroPrimaryCtaText || product.heroPrimaryCtaTextAr) && (
                                     <Link
                                         href={product.heroPrimaryCtaLink || '#'}
-                                        className="group inline-flex items-center justify-center gap-3 bg-white text-[#0d6efd] px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20"
+                                        className="group inline-flex items-center justify-center gap-3 bg-white text-[#0d6efd] px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:bg-cyan-400 hover:text-white hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/20 w-full sm:w-[280px]"
                                     >
                                         <MessageSquare className="w-5 h-5" />
                                         <span>{isAr ? (product.heroPrimaryCtaTextAr || product.heroPrimaryCtaText) : (product.heroPrimaryCtaText || 'Request Demo')}</span>
@@ -164,7 +164,7 @@ export default async function ProductDetailPage({
                                 {(product.heroSecondaryCtaText || product.heroSecondaryCtaTextAr) && (
                                     <Link
                                         href={product.heroSecondaryCtaLink || '#'}
-                                        className="inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm"
+                                        className="inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:bg-white/20 hover:scale-105 active:scale-95 backdrop-blur-sm w-full sm:w-[280px]"
                                     >
                                         <Briefcase className="w-5 h-5" />
                                         <span>{isAr ? (product.heroSecondaryCtaTextAr || product.heroSecondaryCtaText) : (product.heroSecondaryCtaText || 'Learn More')}</span>

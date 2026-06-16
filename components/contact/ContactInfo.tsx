@@ -26,7 +26,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ lang, dict }) => {
     {
       label: isAr ? 'استفسارات المبيعات' : 'Sales Inquiries',
       items: [
-        { icon: <Phone className="w-4 h-4" />, value: f.PHONE || '+966 53 140 9624', href: `tel:${(f.PHONE || '+966 53 140 9624').replace(/\s/g, '')}` },
+        { icon: <Phone className="w-4 h-4" />, value: f.PHONE1 || '0542921214', href: `tel:${(f.PHONE1 || '0542921214').replace(/\s/g, '')}` },
         { icon: <Mail className="w-4 h-4" />, value: f.sales || 'sales@sharpinnvotech.com', href: `mailto:${f.sales || 'sales@sharpinnvotech.com'}` },
       ]
     }
@@ -103,7 +103,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ lang, dict }) => {
                     <div className="w-8 h-8 rounded-lg bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
                       {item.icon}
                     </div>
-                    <span className="text-sm font-medium">{item.value}</span>
+                    <span className="text-sm font-medium" dir={item.href.startsWith('tel:') ? 'ltr' : undefined}>{item.value}</span>
                   </a>
                 ))}
               </div>
