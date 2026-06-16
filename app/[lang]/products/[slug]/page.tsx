@@ -99,7 +99,7 @@ export default async function ProductDetailPage({
     ], lang);
 
     return (
-        <div className="flex flex-col w-full min-h-screen bg-white dark:bg-zinc-950 overflow-x-hidden font-sans" dir={isAr ? 'rtl' : 'ltr'}>
+        <div className="flex flex-col w-full min-h-screen bg-white dark:bg-zinc-950 font-sans" dir={isAr ? 'rtl' : 'ltr'}>
             <JsonLd schema={productSchema} />
             <JsonLd schema={breadcrumbSchema} />
 
@@ -179,10 +179,10 @@ export default async function ProductDetailPage({
             <div className="h-px w-full bg-zinc-200 dark:bg-zinc-800"></div>
 
             {/* ABOUT THE SOLUTION */}
-            <section className="py-16 relative overflow-hidden bg-[#f3f4ff] dark:bg-zinc-900/40">
+            <section className="py-16 relative bg-[#f3f4ff] dark:bg-zinc-900/40">
                 <div className="container mx-auto px-6">
                     <div className={`flex flex-col lg:flex-row items-start gap-16 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
-                        <div className="flex-1">
+                        <div className="flex-1 lg:min-h-[400px]">
                             <div className={`mb-6 ${isAr ? 'text-right' : 'text-left'}`}>
                                 <h4 className="text-xl md:text-2xl font-bold text-[#1a6bf5] mb-4 tracking-tight">
                                     {isAr ? (product.aboutTitleAr || 'حول الحل') : (product.aboutTitle || 'About the Solution')}
@@ -192,7 +192,7 @@ export default async function ProductDetailPage({
                                 {isAr ? product.aboutContentAr : product.aboutContent}
                             </p>
                         </div>
-                        <div className="flex-1 lg:max-w-[35%] relative">
+                        <div className="flex-1 lg:max-w-[35%] relative lg:sticky lg:top-24 self-start">
                             <div className="relative rounded-[24px] overflow-hidden flex items-center justify-center p-0">
                                 {(() => {
                                     const url = getMediaUrl(product.aboutImage);
@@ -234,9 +234,9 @@ export default async function ProductDetailPage({
 
                                         <div className="relative z-10">
                                             <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 group-hover:bg-blue-600 text-blue-600 group-hover:text-white transition-all duration-500 shadow-sm border border-zinc-50 dark:border-zinc-700 overflow-hidden">
-                                                {renderIcon(item, 'fas fa-arrow-right', 'text-base transition-all duration-500 group-hover:scale-110 group-hover:rotate-12')}
+                                                {renderIcon(item, 'fas fa-arrow-right', 'text-2xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-12')}
                                             </div>
-                                            <h3 className="font-syne text-2xl font-bold mb-4 text-zinc-900 dark:text-white group-hover:text-blue-600 transition-colors leading-tight uppercase">
+                                            <h3 className="font-syne text-2xl font-bold mb-4 text-zinc-900 dark:text-white group-hover:text-blue-600 transition-colors leading-tight">
                                                 {isAr ? item.titleAr : item.title}
                                             </h3>
                                             <p className="text-sm md:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal whitespace-pre-line">
@@ -260,8 +260,8 @@ export default async function ProductDetailPage({
             {/* KEY FEATURES */}
             <section className="py-12 bg-[#f3f4ff] dark:bg-zinc-950">
                 <div className="container mx-auto px-6">
-                    <div className={`flex flex-col lg:flex-row items-center gap-12 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
-                        <div className="lg:w-2/5 flex justify-center">
+                    <div className={`flex flex-col lg:flex-row items-center lg:items-start gap-12 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
+                        <div className="lg:w-2/5 flex justify-center lg:sticky lg:top-24 self-start">
                             <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[380px] w-full group">
                                 {(() => {
                                     const img = product.keyFeaturesImages?.[0];
@@ -279,25 +279,30 @@ export default async function ProductDetailPage({
                                 })()}
                             </div>
                         </div>
-                        <div className="lg:w-3/5">
-                            <div className="mb-8 text-center">
+                        <div className="lg:w-3/5 lg:min-h-[480px]">
+                            <div className={`mb-8 ${isAr ? 'text-right' : 'text-left'}`}>
                                 <h2 className="text-2xl md:text-3xl font-bold text-[#1a6bf5] tracking-tight">
                                     {isAr ? (product.keyFeaturesTitleAr || 'المميزات الرئيسية') : (product.keyFeaturesTitle || 'Key Features')}
                                 </h2>
                             </div>
-                            <div className="grid grid-cols-2 lg:grid-cols-3 gap-y-7">
-                                {(isAr ? (product.keyFeaturesListAr || product.keyFeaturesList) : product.keyFeaturesList)?.map((feature: any, idx: number, list: any[]) => {
-                                    const isLastInRowMobile = (idx + 1) % 2 === 0 || idx === (list.length - 1);
-                                    const isLastInRowDesktop = (idx + 1) % 3 === 0 || idx === (list.length - 1);
-
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                                {(isAr ? (product.keyFeaturesListAr || product.keyFeaturesList) : product.keyFeaturesList)?.map((feature: any, idx: number) => {
                                     return (
-                                        <div key={idx} className={`flex flex-col items-center text-center px-4 py-2 group ${!isLastInRowMobile ? 'border-e' : ''} ${!isLastInRowDesktop ? 'lg:border-e' : 'lg:border-none'} border-blue-100 dark:border-zinc-800`}>
-                                            <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform shadow-lg shadow-blue-600/20">
+                                        <div 
+                                            key={idx} 
+                                            className="group flex items-start gap-4 p-5 bg-white dark:bg-zinc-900 rounded-[24px] border border-zinc-100 dark:border-zinc-800 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 relative overflow-hidden"
+                                        >
+                                            {/* Hover bottom border glow */}
+                                            <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-blue-500 to-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                                            
+                                            <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-[#1a6bf5] flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform shadow-sm">
                                                 {renderIcon(feature, 'fas fa-check', 'text-base')}
                                             </div>
-                                            <h4 className="font-bold text-[13px] text-[#334155] dark:text-zinc-200 tracking-tight leading-snug max-w-[140px]">
-                                                {isAr ? feature.textAr || feature.text : feature.text}
-                                            </h4>
+                                            <div className="flex-grow pt-1">
+                                                <h4 className="font-bold text-sm md:text-base text-zinc-800 dark:text-zinc-200 tracking-tight leading-snug">
+                                                    {isAr ? feature.textAr || feature.text : feature.text}
+                                                </h4>
+                                            </div>
                                         </div>
                                     );
                                 })}
@@ -340,24 +345,36 @@ export default async function ProductDetailPage({
 
             {/* VISION ALIGNMENT */}
             {product.visionItems && product.visionItems.length > 0 && (
-                <section className="py-12 bg-[#f3f4ff] dark:bg-zinc-900/50">
-                    <div className="container mx-auto px-6 text-center">
-                        <div className="mb-10">
-                            <h2 className="text-xl md:text-2xl font-semibold text-[#141d72] dark:text-blue-400 tracking-tight uppercase">
-                                {isAr ? product.visionTitleAr || 'محاذاة رؤية 2030' : product.visionTitle || 'Vision 2030 Alignment'}
-                            </h2>
-                        </div>
-                        <div className="flex flex-wrap justify-center gap-x-8 gap-y-12 pt-8">
-                            {product.visionItems.map((item: any, idx: number) => (
-                                <div key={idx} className="relative bg-zinc-50 dark:bg-zinc-900 px-8 py-6 rounded-3xl border border-zinc-100 dark:border-zinc-800 flex flex-col items-center gap-2 hover:border-blue-500/20 hover:bg-blue-50/10 transform transition-transform duration-500 hover:scale-110 group shadow-sm will-change-transform min-w-[200px]">
-                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform shadow-md border-4 border-[#f3f4ff] dark:border-[#141d2b]">
-                                        {renderIcon(item, 'fas fa-rocket', 'text-base')}
-                                    </div>
-                                    <span className="font-bold text-zinc-900 dark:text-white text-sm tracking-tight uppercase text-center">
-                                        {isAr ? item.textAr || item.text : item.text}
-                                    </span>
+                <section className="py-16 bg-[#f3f4ff] dark:bg-zinc-900/50">
+                    <div className="container mx-auto px-6">
+                        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16">
+                            {/* Left Column: Title and Subtitle */}
+                            <div className="w-full lg:w-1/3 text-center lg:text-left lg:rtl:text-right shrink-0">
+                                <h2 className="text-2xl md:text-3xl font-extrabold text-[#141d72] dark:text-blue-400 tracking-tight leading-tight mb-4">
+                                    {isAr ? product.visionTitleAr || 'محاذاة رؤية 2030' : product.visionTitle || 'Vision 2030 Alignment'}
+                                </h2>
+                                {(product.visionSubtitle || product.visionSubtitleAr) && (
+                                    <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400 leading-relaxed font-light">
+                                        {isAr ? product.visionSubtitleAr : product.visionSubtitle}
+                                    </p>
+                                )}
+                            </div>
+
+                            {/* Right Column: Cards Grid */}
+                            <div className="w-full lg:w-2/3">
+                                <div className="flex flex-wrap gap-x-4 gap-y-10 pt-6 justify-center lg:justify-start">
+                                    {product.visionItems.map((item: any, idx: number) => (
+                                        <div key={idx} className="relative bg-zinc-50 dark:bg-zinc-900 px-5 py-4 rounded-2xl border border-zinc-100 dark:border-zinc-800 flex flex-col items-center justify-center hover:border-blue-500/20 hover:bg-blue-50/10 transform transition-transform duration-500 hover:scale-105 group shadow-sm will-change-transform w-full sm:w-[calc(50%-8px)] min-h-[85px] text-center pt-6">
+                                            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform shadow-md border-4 border-[#f3f4ff] dark:border-[#141d2b]">
+                                                {renderIcon(item, 'fas fa-rocket', 'text-xs')}
+                                            </div>
+                                            <span className="font-bold text-zinc-900 dark:text-white text-xs tracking-tight uppercase">
+                                                {isAr ? item.textAr || item.text : item.text}
+                                            </span>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -367,8 +384,8 @@ export default async function ProductDetailPage({
             {(product.whySharpTitle || product.whySharpTitleAr) && (
                 <section className="py-16 bg-white dark:bg-zinc-950">
                     <div className="container mx-auto px-6">
-                        <div className={`flex flex-col lg:flex-row items-center gap-16 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
-                            <div className="flex-1 order-2 lg:order-1">
+                        <div className={`flex flex-col lg:flex-row items-center lg:items-start gap-16 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
+                            <div className="flex-1 order-2 lg:order-1 lg:min-h-[480px]">
                                 <div className={`mb-6 ${isAr ? 'text-right' : 'text-left'}`}>
                                     <div className="inline-block px-4 py-1.5 rounded-full border border-blue-200 bg-blue-50/30 mb-4">
                                         <span className="text-[#141d72] dark:text-blue-400 font-bold text-[10px] tracking-widest uppercase">
@@ -383,7 +400,7 @@ export default async function ProductDetailPage({
                                     {isAr ? product.whySharpContentAr : product.whySharpContent}
                                 </p>
                             </div>
-                            <div className="flex-1 flex justify-center order-1 lg:order-2">
+                            <div className="flex-1 flex justify-center order-1 lg:order-2 lg:sticky lg:top-24 self-start">
                                 <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[380px] w-full group">
                                     {(() => {
                                         const url = getMediaUrl(product.whySharpImage);
