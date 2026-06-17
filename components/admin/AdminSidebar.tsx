@@ -18,6 +18,7 @@ const menuItems: MenuItem[] = [
     { path: '/admin/services', icon: 'fa-concierge-bell', label: 'Services' },
     { path: '/admin/service-categories', icon: 'fa-tags', label: 'Service Categories' },
     { path: '/admin/blogs', icon: 'fa-blog', label: 'Blog Posts' },
+    { path: '/admin/product-details', icon: 'fa-cube', label: 'Product Details' },
     { path: '/admin/profile', icon: 'fa-user-circle', label: 'My Profile' },
     { path: '/admin/clients-partners', icon: 'fa-handshake', label: 'Clients & Partners' },
     { path: '/admin/users', icon: 'fa-users-cog', label: 'User Management', roles: ['super_admin'] },

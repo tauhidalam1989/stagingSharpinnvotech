@@ -29,6 +29,7 @@ export default function DashboardSidebar({ lang }: { lang: string }) {
         { path: `/${lang}/dashboard/blogs/new`, icon: 'fa-plus-circle', label: 'Add Blog', iconColor: 'text-blue-400' },
         { path: `/${lang}/dashboard/client-partner`, icon: 'fa-handshake', label: 'Clients & Partners', iconColor: 'text-teal-500' },
         { path: `/${lang}/dashboard/portfolio`, icon: 'fa-briefcase', label: 'Portfolio management', iconColor: 'text-indigo-600' },
+        { path: `/${lang}/dashboard/product-details`, icon: 'fa-cube', label: 'Product Details', iconColor: 'text-cyan-600' },
         { path: `/${lang}/dashboard/users`, icon: 'fa-users-cog', label: 'Users', roles: ['super_admin'], iconColor: 'text-indigo-500' },
         { path: `/${lang}/dashboard/settings`, icon: 'fa-cog', label: 'Settings', iconColor: 'text-zinc-500' },
         { path: `/${lang}/dashboard/newsletter`, icon: 'fa-envelope-open-text', label: 'Newsletter', roles: ['super_admin'], iconColor: 'text-blue-500' },
@@ -49,15 +50,15 @@ export default function DashboardSidebar({ lang }: { lang: string }) {
     return (
         <aside className="w-64 bg-white dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-800 flex flex-col h-screen sticky top-0">
             {/* Header section with centered logo - Compacted & Less Bold */}
-            <div className="pt-5 pb-3 flex flex-col items-center gap-2">
-                <div className="w-14 h-14 bg-white rounded-[18px] shadow-md shadow-blue-500/5 flex items-center justify-center p-2 border border-zinc-50 transition-transform hover:scale-105 duration-300">
+            <div className="pt-3 pb-1 flex flex-col items-center gap-1.5">
+                <div className="w-10 h-10 bg-white rounded-[12px] shadow-md shadow-blue-500/5 flex items-center justify-center p-1.5 border border-zinc-50 transition-transform hover:scale-105 duration-300">
                     <img src="/logo/SLogo.png" alt="Logo" className="w-full h-auto" />
                 </div>
-                <h2 className="text-[#1200ff] text-base font-bold tracking-tight uppercase leading-none">Admin Panel</h2>
-                <div className="w-[70%] h-[2px] bg-gradient-to-r from-[#00f2fe] to-[#1200ff] mt-1 rounded-full opacity-80"></div>
+                <h2 className="text-[#1200ff] text-[13px] font-extrabold tracking-wider uppercase leading-none">Admin Panel</h2>
+                <div className="w-[60%] h-[1.5px] bg-gradient-to-r from-[#00f2fe] to-[#1200ff] mt-0.5 rounded-full opacity-80"></div>
             </div>
 
-            <nav className="flex-grow px-3 space-y-1 overflow-y-auto mt-3 custom-scrollbar">
+            <nav className="flex-grow px-3 space-y-1 overflow-y-auto mt-2 custom-scrollbar">
                 {menuItems.map((item) => {
                     if (item.roles && user && !item.roles.includes(user.role)) return null;
 

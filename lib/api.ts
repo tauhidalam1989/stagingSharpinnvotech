@@ -1825,3 +1825,126 @@ export async function deletePortfolioItem(id: number): Promise<ApiResponse<void>
     }
 }
 
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Product Details (Admin-only)
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface ProductDetail {
+    id: number;
+    title: string;
+    url: string;
+    image?: string;
+    username?: string;
+    password?: string;
+    order: number;
+    isActive: boolean;
+    createdBy?: number;
+    updatedBy?: number;
+    createdAt?: string;
+    updatedAt?: string;
+    creator?: { id: number; name: string; email: string };
+}
+
+export async function getAdminProductDetails(): Promise<ProductDetail[]> {
+    try {
+        const res = await fetch(`${API_URL}/product-details`, {
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            }
+        });
+        if (!res.ok) return [];
+        const data: ApiResponse<ProductDetail[]> = await res.json();
+        const items = data.data || data.result || [];
+        return Array.isArray(items) ? items : [];
+    } catch (error) {
+        console.error('Error fetching product details:', error);
+        return [];
+    }
+}
+
+export async function getProductDetailById(id: number): Promise<ProductDetail | null> {
+    try {
+        const res = await fetch(`${API_URL}/product-details/${id}`, {
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            }
+        });
+        if (!res.ok) return null;
+        const data: ApiResponse<ProductDetail> = await res.json();
+        return data.data || data.result || null;
+    } catch (error) {
+        console.error('Error fetching product detail:', error);
+        return null;
+    }
+}
+
+export async function createProductDetail(formData: FormData): Promise<ApiResponse<ProductDetail>> {
+    try {
+        const res = await fetch(`${API_URL}/product-details`, {
+            method: 'POST',
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+            body: formData
+        });
+        return await res.json();
+    } catch (error) {
+        console.error('Error creating product detail:', error);
+        return { success: false, status_code: 500, message: 'Internal server error' };
+    }
+}
+
+export async function updateProductDetail(id: number, formData: FormData): Promise<ApiResponse<ProductDetail>> {
+    try {
+        const res = await fetch(`${API_URL}/product-details/${id}`, {
+            method: 'PUT',
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+            body: formData
+        });
+        return await res.json();
+    } catch (error) {
+        console.error('Error updating product detail:', error);
+        return { success: false, status_code: 500, message: 'Internal server error' };
+    }
+}
+
+export async function deleteProductDetail(id: number): Promise<ApiResponse<void>> {
+    try {
+        const res = await fetch(`${API_URL}/product-details/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            }
+        });
+        return await res.json();
+    } catch (error) {
+        console.error('Error deleting product detail:', error);
+        return { success: false, status_code: 500, message: 'Internal server error' };
+    }
+}
+
+export async function verifyAdminPassword(password: string): Promise<ApiResponse<void>> {
+    try {
+        const res = await fetch(`${API_URL}/auth/verify-password`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': API_KEY,
+                'accesstoken': `Bearer ${localStorage.getItem('auth_token')}`
+            },
+            body: JSON.stringify({ password })
+        });
+        return await res.json();
+    } catch (error) {
+        console.error('Error verifying admin password:', error);
+        return { success: false, status_code: 500, message: 'Internal server error' };
+    }
+}
