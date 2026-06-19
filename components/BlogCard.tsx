@@ -10,16 +10,16 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ blog, lang, dict }: BlogCardProps) {
-    const imageUrl = blog.featuredImage 
-        ? (blog.featuredImage.startsWith('http') 
-            ? blog.featuredImage 
+    const imageUrl = blog.featuredImage
+        ? (blog.featuredImage.startsWith('http')
+            ? blog.featuredImage
             : `${process.env.NEXT_PUBLIC_API_URL?.replace('/v1', '')}/${blog.featuredImage}`)
         : '/img/placeholder-blog.png';
 
     const title = lang === 'ar' && blog.titleAr ? blog.titleAr : blog.title;
     const excerpt = lang === 'ar' && blog.excerptAr ? blog.excerptAr : blog.excerpt;
-    const category = lang === 'ar' 
-        ? (blog.categoriesAr?.[0] || 'مقال') 
+    const category = lang === 'ar'
+        ? (blog.categoriesAr?.[0] || 'مقال')
         : (blog.categories?.[0] || 'Article');
 
     return (
@@ -36,10 +36,10 @@ export default function BlogCard({ blog, lang, dict }: BlogCardProps) {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+
                 {/* Badge - Smaller */}
                 <div className="absolute top-3 left-3 z-10">
-                    <span className="bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-wider text-blue-600 border border-zinc-200/50 dark:border-zinc-700/50 shadow-sm">
+                    <span className="bg-blue-600/30 backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-wider text-white border border-white/10 shadow-sm">
                         {category}
                     </span>
                 </div>

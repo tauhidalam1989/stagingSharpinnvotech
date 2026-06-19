@@ -62,7 +62,7 @@ const BlogCardV2: React.FC<BlogCardV2Props> = ({ blog, lang, dict }) => {
 
           {/* Category Badge */}
           <div className="absolute top-4 left-4 z-10">
-            <span className={`backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${theme.bg} ${theme.accent} border border-white/20 shadow-lg`}>
+            <span className="bg-blue-600/30 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider text-white border border-white/10 shadow-lg">
               {category}
             </span>
           </div>
