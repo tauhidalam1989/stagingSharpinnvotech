@@ -208,8 +208,8 @@ export default async function ProductDetailPage({
                                 {isAr ? product.aboutContentAr : product.aboutContent}
                             </p>
                         </div>
-                        <div className="flex-1 lg:max-w-[35%] relative lg:sticky lg:top-24 self-start">
-                            <div className="relative rounded-[24px] overflow-hidden flex items-center justify-center p-0">
+                        <div className="flex-1 lg:max-w-[45%] relative lg:sticky lg:top-24 self-start w-full">
+                            <div className="relative rounded-2xl overflow-hidden flex items-center justify-center p-0 shadow-lg border border-zinc-100 dark:border-zinc-800">
                                 {(() => {
                                     const url = getMediaUrl(product.aboutImage);
                                     if (!url) return <div className="w-full max-w-[400px] aspect-[4/3] bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center rounded-xl"><i className="fas fa-image text-3xl text-zinc-300"></i></div>;
@@ -217,8 +217,8 @@ export default async function ProductDetailPage({
                                         <Image
                                             src={url}
                                             alt={product.aboutImageAlt || ""}
-                                            width={400}
-                                            height={300}
+                                            width={500}
+                                            height={380}
                                             className="w-full h-auto object-contain"
                                         />
                                     );
@@ -278,18 +278,18 @@ export default async function ProductDetailPage({
                 <div className="container mx-auto px-6">
                     <div className={`flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
                         <div className="lg:w-2/5 flex justify-center lg:sticky lg:top-24 self-start w-full">
-                            <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[240px] sm:h-[300px] md:h-[350px] lg:h-[380px] w-full group">
+                            <div className="relative rounded-2xl overflow-hidden max-w-[500px] w-full group shadow-lg border border-zinc-100 dark:border-zinc-800">
                                 {(() => {
                                     const img = product.keyFeaturesImages?.[0];
                                     const url = getMediaUrl(img);
-                                    if (!url) return <div className="w-full h-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center rounded-xl"><i className="fas fa-microchip text-4xl text-zinc-300"></i></div>;
+                                    if (!url) return <div className="w-full aspect-[4/3] bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center rounded-xl"><i className="fas fa-microchip text-4xl text-zinc-300"></i></div>;
                                     return (
                                         <Image
                                             src={url}
                                             alt={product.keyFeaturesImageAlt || ""}
                                             width={500}
                                             height={400}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                                         />
                                     );
                                 })()}
@@ -417,17 +417,17 @@ export default async function ProductDetailPage({
                                 </p>
                             </div>
                             <div className="flex-1 flex justify-center order-1 lg:order-2 lg:sticky lg:top-24 self-start w-full">
-                                <div className="relative rounded-2xl overflow-hidden max-w-[500px] h-[240px] sm:h-[300px] md:h-[350px] lg:h-[380px] w-full group">
+                                <div className="relative rounded-2xl overflow-hidden max-w-[500px] w-full group shadow-lg border border-zinc-100 dark:border-zinc-800">
                                     {(() => {
                                         const url = getMediaUrl(product.whySharpImage);
-                                        if (!url) return <div className="w-full h-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center"><i className="fas fa-building text-4xl text-zinc-300"></i></div>;
+                                        if (!url) return <div className="w-full aspect-[4/3] bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center rounded-xl"><i className="fas fa-building text-4xl text-zinc-300"></i></div>;
                                         return (
                                             <Image
                                                 src={url}
                                                 alt={product.whySharpImageAlt || ""}
                                                 width={500}
                                                 height={400}
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                                             />
                                         );
                                     })()}
